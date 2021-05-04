@@ -12,9 +12,9 @@ export default function Selector() {
    
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Selectores Básicos</h4>
-                <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(0)} style={{cursor:"pointer"}}><h5>EJEMPLOS: </h5></a>
+            <div className="marco"><h4>Selectores de elementos</h4>
+                <div>Son modificadores de todos los elementos sin clases ni id's</div>
+                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
                 {open[0]? 
                 <div>
                 
@@ -27,7 +27,7 @@ export default function Selector() {
             </div>
             <div className="marco"><h4>Clases e ID's</h4>
                 <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(1)} style={{cursor:"pointer"}}><h5>EJEMPLOS: </h5></a>
+                <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
                 {open[1]? 
                 <div>
                     <ul>
@@ -39,7 +39,7 @@ export default function Selector() {
             </div>
             <div className="marco"><h4>Psedo selectores</h4>
                 <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(2)} style={{cursor:"pointer"}}><h5>EJEMPLOS: </h5></a>
+                <a href onClick={() => abrirCerrar(2)} ><h5>EJEMPLOS: </h5></a>
                 {open[2]? 
                 <div>
                     <ul>
@@ -55,13 +55,13 @@ export default function Selector() {
                 </div>
             <div className="marco"><h4>Advanced selectores</h4>
                 <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(3)} style={{cursor:"pointer"}}><h5>EJEMPLOS: </h5></a>
+                <a href onClick={() => abrirCerrar(3)}><h5>EJEMPLOS: </h5></a>
                 {open[3]? 
                 <div>
                     <ul>
                         <li>input + button{"{}"} a button immediately after an input, could be from different sections</li>
                         <li>input ~ button {"{}"} a button inmediatly after an input BUT inside the same section</li>
-                        <li>ul > li {"{}"} all direct childs of ul</li>
+                        <li>ul {">"} li {"{}"} all direct childs of ul</li>
                         <li>ul li - {"{}"}all li childs of an ul, direct or indirect</li>
                     </ul>
                 </div>: null}
@@ -69,7 +69,7 @@ export default function Selector() {
             <div className="marco">
                 <h4>ATRIBUTE selectores</h4>
                 <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(4)} style={{cursor:"pointer"}}><h5>EJEMPLOS: </h5></a>
+                <a href onClick={() => abrirCerrar(4)}><h5>EJEMPLOS: </h5></a>
                 {open[4]? 
                 <div>
                     <ul>

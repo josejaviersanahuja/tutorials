@@ -4,6 +4,7 @@ import 'App.css';
 import Selector from './Selector';
 import Coloring from './Coloring';
 import Layouts from './Layouts';
+import UnitTypes from './UnitTypes';
 export default function Csstutorial() {
     return (
         <>
@@ -30,6 +31,7 @@ function Child() {
         {id==="Selectors"? <Selector/>: null }
         {id==="Coloring"? <Coloring/>:null}
         {id==="Layouts"? <Layouts/>:null}
+        {id==="Unit-types"? <UnitTypes/>:null}
         </>
     );
   }
