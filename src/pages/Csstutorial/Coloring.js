@@ -1,16 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'App.css'
+import useAbrirCerrar from 'hooks/useAbrirCerrar'
 
 export default function Selector() {
-
-  const [open, setOpen] = useState([false, false, false, false, false])
-
-  const abrirCerrar = (n) => {
-    let temp = open.map(e => e)
-    temp[n] = !temp[n]
-    setOpen(temp)
-  }
-
+  const {open, abrirCerrar} = useAbrirCerrar()
+  
   return (
     <div className="cuerpo">
       <div className="marco"><h4>Tipos de Colores</h4>

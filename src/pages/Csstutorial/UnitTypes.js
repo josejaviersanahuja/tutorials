@@ -1,29 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'App.css'
-
+import useAbrirCerrar from 'hooks/useAbrirCerrar'
 export default function UnitTypes() {
-    const [open, setOpen] = useState([false, false, false, false, false])
-    
-    const abrirCerrar = (n) => {
-        let temp = open.map(e=>e)
-        temp[n] = !temp[n]
-        setOpen(temp)
-    }
-   
+    const { open, abrirCerrar } = useAbrirCerrar()
+
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Selectores de elementos</h4>
-                <div>Son modificadores de todos los elementos sin clases ni id's</div>
+            <div className="marco"><h4>Tipos de unidades</h4>
+                <div>Existen 2 tipos a grandes rasgos. <b>Relativas y absolutas</b>. Los pixeles son especiales</div>
                 <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
-                {open[0]? 
-                <div>
-                
-                    <ul>
-                        <li>body {"{}"} || Se usa para... </li>
-                        <li>a {"{}"} || se usa para...</li>
-                        <li>div {"{}"}  || se usa para...</li>
-                    </ul>  
-                </div> : null}
+                {open[0] ?
+                    <div>
+
+                        <ul>
+                            <li>Absolutas como <b>in</b>(ches), <b>cm</b>, <b>mm</b>|| Son absolutas, muy malas para las apps multiplataformas. 10cm es demasiado para un móvil, y muy poco para una TV de 47 pulgadas </li>
+                            <li>Relativas con <b>fr, %</b> || Son medidas relativas a algo. % y fr, son relativas al elemento padre</li>
+                            <li>Relativas con <b>em, rem</b> || Son medidas relativas a algo. em es relativo al font-size estandar</li>
+                            <li>Relativas con <b>vw</b> (viewwidth), <b>vh</b> (viewheight) || Son medidas relativas a la pantalla. 1vw es 1% del ancho del body o del tag</li>
+                            <li>los píxeles, <b>px, pt, pc</b>, son especiales  || Aunque se consideran absolutas, son relativas a la tecnología del dispositivo, HD ultraHD o low definition</li>
+                        </ul>
+                    </div> : null}
             </div>
         </div>
     )
