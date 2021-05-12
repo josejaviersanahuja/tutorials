@@ -1,0 +1,57 @@
+@import './variables';
+@mixin mobile{
+    @media (max-width:$mobile_width){  /*mejor una variable*/
+    @content ;
+    }
+};
+
+@include mobile {
+    display:flex;
+    flex-direction:column;
+    
+}
+/*con esto podemos modificar las cosas cuando la pantalla sea < de 800px
+******************************************************************************
+como el map-get es molesto. hagamos una funcion para abreviarlo*/
+@function f_weight($name) {
+    @return map-get($font-weights, $name)
+};
+/*como muchas veces repetimos códigos en css, digamos para realizar un display y centrar los items, content etc podemos usar esto... */
+@mixin dispFlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+};
+/*
+**********************************************************************************
+*/
+
+/*usaremos la funcion en &_paragraph y #{&}_paragraph
+También unsaremos el dispFlexCenter
+*/
+.main {
+    width: 80%;
+    margin:0 auto;
+    @include dispFlexCenter;
+
+    &_paragragh {
+        font-weight: f_weight(medium);
+    }
+
+    #{&}__paragraph{
+        font-weight: f_weight(regular) ;
+        &:hover {
+            color: gray;
+        }
+    }
+    #{&}__paragraph2{
+        @extend .main__paragraph;
+        width: fit-content;
+    }
+}
+
+
+head{
+    background: rgba($color: #2020FF, $alpha: 0.2);
+}

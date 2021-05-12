@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/*como variables es lo primero que importamos... inicializamos todos los selectores */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Creando funciones*/
+@media (max-width: 800px) {
+  /*mejor una variable*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/*con esto podemos modificar las cosas cuando la pantalla sea < de 800px
+******************************************************************************
+como el map-get es molesto. hagamos una funcion para abreviarlo*/
+/*como muchas veces repetimos códigos en css, digamos para realizar un display y centrar los items, content etc podemos usar esto... */
+/*
+**********************************************************************************
+*/
+/*usaremos la funcion en &_paragraph y _paragraph
+También unsaremos el dispFlexCenter
+*/
+.main {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.main_paragragh {
+  font-weight: 500;
+}
+
+.main .main__paragraph, .main .main__paragraph2 {
+  font-weight: 400;
+}
+
+.main .main__paragraph:hover, .main .main__paragraph2:hover {
+  color: gray;
+}
+
+.main .main__paragraph2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+head {
+  background: rgba(32, 32, 255, 0.2);
+}
+/*# sourceMappingURL=main.css.map */

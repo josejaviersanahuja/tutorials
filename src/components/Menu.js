@@ -5,11 +5,13 @@ const homeMenu = []
 const htmlMenu = ["Basic-tags", "Advanced-tags", "Form"]
 const cssMenu = ["Selectors", "Coloring", "Unit-types", "Text-manipulation", "Layouts", "Grid","Transition-property"]
 const sassMenu =["Variables_Funciones"]
+const reactMenu=["inicios"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
     ["Css", cssMenu],
-    ["Sass", sassMenu]
+    ["Sass", sassMenu],
+    ["React", reactMenu]
 ]
 
 export default function Menu() {

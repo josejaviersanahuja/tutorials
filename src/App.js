@@ -10,6 +10,7 @@ import './App.css';
 import img from'images/css3.jpg'
 import imghtml from 'images/htmlimg.png'
 import Sass from 'pages/Sass';
+import ReactPage from 'pages/ReactPage'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/css" ><Csstutorial /></Route>
           <Route path="/html" ><Html /></Route>
           <Route path="/sass" ><Sass /></Route>
+          <Route path="/react" ><ReactPage /></Route>
         </Switch>
         <div className="menu">
           <Menu />

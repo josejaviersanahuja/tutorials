@@ -1,0 +1,23 @@
+.home {
+    padding-top: 50vh;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    background: 
+    radial-gradient(circle,  rgba(0,0,25,0.2) 40%, rgba(0,0,25,0.5)),
+    url(../images/foto1.jpg) center top;
+    background-size:contain ;
+    background-repeat: no-repeat;
+    
+    h2 {
+        padding: 4rem 0 2rem 0;
+    }
+    &__name {
+        padding-bottom:1rem ;
+        font-size:5em;
+        border-bottom: 2px solid  textColor($secondary-color);
+        & span {
+            color:$secondary-color;
+        }
+    }
+}

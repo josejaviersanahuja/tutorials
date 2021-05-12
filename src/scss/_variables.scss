@@ -1,0 +1,29 @@
+$mobile_width: 800px;
+$font-weights:(
+    "regular":400,
+    "medium":500,
+    "bold":700
+);
+$background-homecolor: black;
+$background-PVPcolor: grey;
+$primary-color:#000025;
+$secondary-color: rgb(240,240,210);
+/*como variables es lo primero que importamos... inicializamos todos los selectores */
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+/*Creando funciones*/
+@mixin transitionA {
+    transition: all 0.5s ease-in-out;
+}
+
+@function textColor($color) {
+    @if(lightness($color)>40%) {
+        @return #000;
+    } @else {
+        @return #FFF;
+    }
+}

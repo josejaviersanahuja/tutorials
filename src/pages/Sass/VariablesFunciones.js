@@ -23,21 +23,27 @@ export default function VariablesFunciones() {
                         </ul>
                     </div> : null}
             </div>
-            <div className="marco"><h4>Basic Tags. BODY</h4>
-                <div> describamos el BODY. Va a contener TODO el cuerpo de la página web. Veamos algunas tags que podemos usar</div>
+            <div className="marco"><h4>Media Queries</h4>
+                <div>Veamos un ejemplo donde observamos el ancho de la pantalla en px. util para cambiar a mobile style </div>
                 <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
                 {open[1] ?
                     <div>
+                         <ul>
+                            <li> <b>{"@mixin mobile{ @media (max-width:$mobile_width){@content ;}};"}</b>|| Primera parte, se crea la funcion mixin donde se lanza la media query @media (max-width:800px) y modifica el content </li>
+                            <li><b>{"@include mobile {display:flex; flex-direction:column;}"}</b> || Esto es lo que se modifica en el content </li>
 
-                        <ul>
-                            <li> <b>{"<h1> children </h1>"}</b>|| h1, h2, h3... señalan tipos de títulos de distintos tamaños o propiedades </li>
-                            <li><b>{"<p> children </p>"}</b> || Genera un párrafo nuevo</li>
-                            <li><b>{"<b> children </b> <i></i> <big></big> <sub></sub> <sup></sup>"}</b> || b, i, big, small,  Modifica o estiliza al contenido</li>
-                            <li><b>{"<br/> o <hr/>"}</b> || Generan espacios en la página. br espacia en bloque, hr espacia marcando una linea horizontal</li>
-                            <li><b>{"<!-- Comments in HTML --"}</b> || Comentar un código html</li>
-                            <li><b>{"<img src alt />"}</b> || para importar imágenes </li>
-                            <li><b>{"<header> <main> <footer> <div> <nav> <article> <section>"}</b>|| segmentos que podemos crear</li>
-                            <li><b>{"<a href='http://yasabemos.com' target='_blank'>link</a>"}</b>|| anchor para links. target='_blank' sirve para abrir en una nueva ventana</li>
+                        </ul>
+                    </div> : null}
+            </div>
+            <div className="marco"><h4>Extensiones</h4>
+                <div>Otra forma de ahorrar lineas de código es hacer extensiones. usaremos #{"{&}"}</div>
+                <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
+                {open[1] ?
+                    <div>
+                         <ul>
+                            <li> <b>{"#{&}__paragraph2{@extend .main__paragraph; width: fit-content; };"}</b>|| Hará que .main__paragraph2 sea igual a .main__paragraph y ademas se le añaden más cosas al segundo </li>
+                            <li><b>{"@include mobile {display:flex; flex-direction:column;}"}</b> || Esto es lo que se modifica en el content </li>
+                            <li><a href="http://sass-lang.com" target="_blank" rel="noreferrer"><b>sass-lang.com</b></a></li>
                         </ul>
                     </div> : null}
             </div>
