@@ -3,15 +3,17 @@ import MenuList from 'components/ManuList'
 
 const homeMenu = []
 const htmlMenu = ["Basic-tags", "Advanced-tags", "Form"]
-const cssMenu = ["Selectors", "Coloring", "Unit-types", "Text-manipulation", "Layouts", "Grid","Transition-property"]
+const cssMenu = ["Selectors", "Coloring", "Unit-types", "Text-manipulation", "Layouts", "Grid","Transition-property", "Tricks"]
 const sassMenu =["Variables_Funciones"]
 const reactMenu=["inicios"]
+const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
     ["Css", cssMenu],
     ["Sass", sassMenu],
-    ["React", reactMenu]
+    ["React", reactMenu],
+    ["Fullstack",fullstackMenu ]
 ]
 
 export default function Menu() {
@@ -19,7 +21,7 @@ export default function Menu() {
 
 
     return (
-        <ol>
+        <ol >
             {menu.map(e =>
                 <MenuList
                     key={menu.indexOf(e)}

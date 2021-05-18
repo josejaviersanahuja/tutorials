@@ -81,6 +81,9 @@ h4 {
 .marco {
   border:1px solid #909090 ;
 }
+.marco li{
+  text-align: justify;
+}
 a:hover {
   color:blue;
   cursor: pointer;
@@ -90,7 +93,13 @@ a:hover {
   color:darkblue;
   border: 0.7rem double #909090;
   grid-column: 2/11;
+  display: flex;
+  flex-direction: column;
 }
+#title img{
+  display: inline-block;
+  margin:0 1rem 2rem 1rem;
+ }
 #gradient {
   background: linear-gradient(to right, red, blue, yellow);
   height: 2rem;
@@ -193,3 +202,176 @@ a:hover {
   
 }
 /*tarea, mirar modo movil, como cambiar el layout si 2 boxes colapsan*/
+.menu2{
+  visibility: hidden;
+}
+.btn {
+  position: fixed;
+  z-index: 2;
+  left: 0.5rem;
+  top: 10rem;
+  height: 1.4rem;
+  width:1.4rem;
+  cursor: pointer;
+  background: #909090;
+  border-radius: 100%;
+  padding: 0.3rem;
+  border: 1px solid #404040;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+
+
+.btn-menu {
+  position: absolute;
+  top:1rem;
+  left:0.5rem;
+  width: 15px;
+  height: 2px;
+  background: #404040;
+  transition: all 0.5s ease-in-out;
+ }
+
+.btn-menu::before{
+  position: absolute;
+  content: '';
+  top: -0.5rem;
+  left: 0rem;
+  width: 15px;
+  height: 2px;
+  background: #404040;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-menu::after{
+  position: absolute;
+  content:'';
+  top:0.5rem;
+  left: 0;
+  width: 15px;
+  height: 2px;
+  background: #404040;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn__open {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 620px) {
+    #title img{
+      width: 200px;
+      height: 110px;
+    }
+    .menu {
+     visibility: hidden;
+    }
+    .btn{
+      visibility: visible;
+      transition: all 0.5s ease-in-out;
+    }
+    .btn__open {
+      visibility: visible;
+      transform: translate(14.3rem,-5.5rem);
+      position: fixed;
+  z-index: 2;
+  left: 0.5rem;
+  top: 10rem;
+  height: 1.4rem;
+  width:1.4rem;
+  cursor: pointer;
+  background: #909090;
+  border-radius: 100%;
+  padding: 0.3rem;
+  border: 1px solid #404040;
+  transition: all 0.5s ease-in-out;
+     
+    }
+    .menu2 {
+      visibility: visible;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color:rgba(64,64,64,0.9);
+      z-index: 1;
+      justify-content: space-around;
+      text-align: center;
+      transform: translateY(100vh);
+      transition: all 0.5s ease-in-out;
+     }
+     .menu2__open {
+      transform: translateY(0);
+      visibility: visible;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color:rgba(64,64,64,0.9);
+      z-index: 1;
+      justify-content: space-around;
+      text-align: center;
+      transition: all 0.5s ease-in-out;
+     }
+
+
+     .menu2__open ol{
+       list-style: none;
+       margin-top: 10rem;
+       transition: all 0.5s ease-in-out;
+     }
+
+     .menu2__open ol li{
+      background-color:rgba(154,154,154,0.9);
+      width: 80%;
+      margin: 1rem;
+      padding: 1rem;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .menu2__open ol li ul li{
+      background-color:rgba(220,220,220,0.9);
+      width: 70%;
+      margin: 0.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+      transition: all 0.5s ease-in-out;
+    }
+    .btn-menu__open {
+      position: absolute;
+      top:1rem;
+      left:0.5rem;
+      width: 15px;
+      height: 2px;
+      background: transparent;
+      transition: all 0.5s ease-in-out;
+     }
+    
+    .btn-menu__open::before{
+      position: absolute;
+      content: '';
+      top: -0.5rem;
+      left: 0rem;
+      width: 15px;
+      height: 2px;
+      background: #404040;
+
+      transform: translate(0rem,0.5rem)
+      rotate(765deg);
+      
+      transition: all 0.5s ease-in-out;
+    }
+    
+    .btn-menu__open::after{
+      position: absolute;
+      content:'';
+      top:0.5rem;
+      left: 0;
+      width: 15px;
+      height: 2px;
+      background: #404040;
+      transform: translate(0rem, -0.5rem)
+      rotate(-765deg);
+      transition: all 0.5s ease-in-out;
+    }
+}

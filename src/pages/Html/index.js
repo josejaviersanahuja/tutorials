@@ -5,6 +5,8 @@ import 'App.css';
 import BasicTags from './BasicTags'
 import AdvancedTags from './AdvancedTags';
 import Form from './Form';
+import imghtml from 'images/htmlimg.png'
+import DetallesSubtema from 'components/DetallesSubtema';
 
 export default function Html() {
     return (
@@ -40,7 +42,19 @@ function Child() {
       return (
           <>
           <h3>Bienvenido al curso de HTML.</h3>
-          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar</div>
+          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar
+          <DetallesSubtema 
+            title="Puedes ver el curso de freeboptcamp aquí"
+            defBreve="Deberás saber inglés, y podras aprender las etiquetas más usadas."
+            arrayCodigo={[]}
+            />
+            <p>
+                <a href="https://www.youtube.com/watch?v=pQN-pnXPaVg&t=88s" target="_blank" rel="noreferrer">
+                <img src={imghtml}  alt="html logo" width="325" height="182"/>
+                </a>
+            </p>
+          
+          </div>
           </>
       )
   }

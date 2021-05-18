@@ -8,6 +8,7 @@ import UnitTypes from './UnitTypes';
 import TextManipulation from './TextManipulation'
 import Grid from './Grid'
 import TransitionProperty from './TransitionProperty';
+import Trucos from './Trucos';
 export default function Csstutorial() {
     return (
         <>
@@ -39,6 +40,7 @@ function Child() {
         {id==="Text-manipulation"? <TextManipulation/> : null}
         {id==="Grid"? <Grid/> : null}
         {id==="Transition-property"? <TransitionProperty/> : null}
+        {id==="Tricks"? <Trucos/>:null}
         
         </>
     );

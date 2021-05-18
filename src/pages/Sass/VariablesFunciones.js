@@ -37,13 +37,23 @@ export default function VariablesFunciones() {
             </div>
             <div className="marco"><h4>Extensiones</h4>
                 <div>Otra forma de ahorrar lineas de código es hacer extensiones. usaremos #{"{&}"}</div>
-                <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
-                {open[1] ?
+                <a href onClick={() => abrirCerrar()} ><h5>EJEMPLOS: </h5></a>
+                {open[2] ?
                     <div>
                          <ul>
                             <li> <b>{"#{&}__paragraph2{@extend .main__paragraph; width: fit-content; };"}</b>|| Hará que .main__paragraph2 sea igual a .main__paragraph y ademas se le añaden más cosas al segundo </li>
                             <li><b>{"@include mobile {display:flex; flex-direction:column;}"}</b> || Esto es lo que se modifica en el content </li>
                             <li><a href="http://sass-lang.com" target="_blank" rel="noreferrer"><b>sass-lang.com</b></a></li>
+                        </ul>
+                    </div> : null}
+            </div>
+            <div className="marco"><h4>iteraciones</h4>
+                <div>Otra forma de ahorrar lineas de código es hacer Iteraciones y son poderosas.</div>
+                <a href onClick={() => abrirCerrar(3)} ><h5>EJEMPLOS: </h5></a>
+                {open[3] ?
+                    <div>
+                         <ul>
+                            <li> <b>{"@for $i from 1to5 {.tem:nth-child(#{$i}){transition-delay:$i*0.1s}}"}</b>|| esta iteración dará delays distintos a los distintos elementos de la lista </li>
                         </ul>
                     </div> : null}
             </div>
