@@ -1,28 +1,120 @@
 import React from 'react'
 import 'App.css'
+import DetallesSubtema from 'components/DetallesSubtema'
+/*
+
+            <DetallesSubtema 
+                title={detalles.segundo.title} 
+                defBreve={detalles.segundo.defBreve} 
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema 
+                title={detalles.tercero.title} 
+                defBreve={detalles.tercero.defBreve} 
+                arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+<DetallesSubtema 
+                title={detalles.cuarto.title} 
+                defBreve={detalles.cuarto.defBreve} 
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
+*/
 import useAbrirCerrar from 'hooks/useAbrirCerrar'
 export default function VariablesFunciones() {
     const { open, abrirCerrar } = useAbrirCerrar()
-
+    const detalles={
+        primero:{
+            title: "Variables y Funciones en Sass",
+            defBreve:"Parece claro, empecemos.",
+            arrayCodigo:[
+                {
+                    cod:"$font-weights:('regular':400,'medium':500,'bold':700);$background-homecolor: black; $background-PVPcolor: grey;",
+                    text: "con el $ se declaran las variables"
+                },
+                {
+                    cod:"_archivo.sass",
+                    text: "Un archivo que empieza por '_' underscore, no se transpila a menos que se importe al main.sass"
+                },
+                {
+                    cod:"@import './archivo';",
+                    text: "Se importa sin el underscore, sin la extensión y se añade ; siempre."
+                },
+                {
+                    cod:"@function f_weight($name) {  @return map-get($font-weights, $name)};",
+                    text: "Así se declara una función"
+                },
+                {
+                    cod:"& , #{&}",
+                    text: "Permiten simplificar ciertas anidaciones de códigos. con {'&'} podemos llamar al nombre de la clase padre y con {'#{&}'} llamamos a toda la clase padre"
+                },
+                {
+                    cod:"@mixin dispFlexCenter{display:flex, align-items:center, justify-content:center};",
+                    text: "Estas líneas de código se puede reutilizar cuando se quiera."
+                },
+                {
+                    cod:"@include dispFlexCenter;",
+                    text: "Se importa a cualquier elemento que queramos. Nota, el @mixin puede recibir argumentos como en una funcion."
+                }
+            ]
+        },
+        segundo:{
+            title: "Modulos e importar modulos",
+            defBreve:"Vamos a crear un middleware llamado logger, en un archivo a parte del proyecto, y vamos a importarlo",
+            arrayCodigo:[
+                {
+                    cod:"module.exports=logger",
+                    text: "Declaramos la función como constante, y la exportamos desde nuestro otro archivo."
+                },
+                {
+                    cod:"const logger = require('./middlewares/logger')",
+                    text: "Así lo importamos"
+                }
+            ]
+        },
+        tercero:{
+            title: "CORS",
+            defBreve:"Es un protocolo de comunicación del servidor. Con esto se establece con quienes puede comunicarse el servidor. Es complejo, solo veremos el caso de cómo dejar abierto nuestro servidor, y usaremos un middleware de EXPRESS para hacerlo",
+            arrayCodigo:[
+                {
+                    cod:"npm install cors -E",
+                    text: "OJO. Es una dependencia de producción. Nota: el -E es para evitar el ^ en las dependencias"
+                },
+                {
+                    cod:"const cors = require('cors')",
+                    text: "Así lo importamos"
+                },
+                {
+                    cod:"app.use(cors())",
+                    text: "Así lo seteamos por defecto, abierto para el mundo"
+                }
+            ]
+        },
+        cuarto:{
+            title: "CORS",
+            defBreve:"Es un protocolo de comunicación del servidor. Con esto se establece con quienes puede comunicarse el servidor. Es complejo, solo veremos el caso de cómo dejar abierto nuestro servidor, y usaremos un middleware de EXPRESS para hacerlo",
+            arrayCodigo:[
+                {
+                    cod:"npm install cors -E",
+                    text: "OJO. Es una dependencia de producción. Nota: el -E es para evitar el ^ en las dependencias"
+                },
+                {
+                    cod:"const cors = require('cors')",
+                    text: "Así lo importamos"
+                },
+                {
+                    cod:"app.use(cors())",
+                    text: "Así lo seteamos por defecto, abierto para el mundo"
+                }
+            ]
+        }
+    }
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Variables y Funciones en Sass</h4>
-                <div> Empecemos </div>
-                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
-                {open[0] ?
-                    <div>
-
-                        <ul>
-                            <li> <b>{"$font-weights:('regular':400,'medium':500,'bold':700);$background-homecolor: black; $background-PVPcolor: grey;"}</b>|| con el $ se declaran las variables </li>
-                            <li><b>{"_archivo.sass"}</b> || Un archivo que empieza por "_" underscore, no se transpila a menos que se importe al main.sass</li>
-                            <li><b>{"@import './archivo';"}</b> || Se importa sin el underscore, sin la extensión y se añade ; siempre.</li>
-                            <li><b>{"@function f_weight($name) {  @return map-get($font-weights, $name)};"}</b> || Así se declara una función</li>
-                            <li><b>{"& , #{&}"}</b> || Permiten simplificar ciertas anidaciones de códigos. con {"&"} podemos llamar al nombre de la clase padre y con {"#{&}"} llamamos a toda la clase padre </li>
-                            <li><b>{"@mixin dispFlexCenter{display:flex, align-items:center, justify-content:center};"}</b> || Estas líneas de código se puede reutilizar cuando se quira.</li>
-                            <li><b>{"@include dispFlexCenter;"}</b> || Se importa a cualquier elemento que queramos. Nota, el @mixin puede recibir argumentos como en una funcion.</li>
-                        </ul>
-                    </div> : null}
-            </div>
+            <DetallesSubtema 
+                title={detalles.primero.title} 
+                defBreve={detalles.primero.defBreve} 
+                arrayCodigo={detalles.primero.arrayCodigo}
+            />
             <div className="marco"><h4>Media Queries</h4>
                 <div>Veamos un ejemplo donde observamos el ancho de la pantalla en px. util para cambiar a mobile style </div>
                 <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
@@ -37,7 +129,7 @@ export default function VariablesFunciones() {
             </div>
             <div className="marco"><h4>Extensiones</h4>
                 <div>Otra forma de ahorrar lineas de código es hacer extensiones. usaremos #{"{&}"}</div>
-                <a href onClick={() => abrirCerrar()} ><h5>EJEMPLOS: </h5></a>
+                <a href onClick={() => abrirCerrar(2)} ><h5>EJEMPLOS: </h5></a>
                 {open[2] ?
                     <div>
                          <ul>

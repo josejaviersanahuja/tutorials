@@ -13,7 +13,7 @@ export default function Trucos() {
                     text: "Es importante la posición relativa del contenedor porque lo vamos a curbrir con un el div.contenedor::after. El overflow es también importante porque el truco proviene de que el after, no pueda verse en overflow"
                 },
                 {
-                    cod:".contenedorrdor ::after { position: absolute; top: 100%; left: 0; content: ''; background: rgba($color: $third-color, $alpha: 0.9); width:100%; height: 100%; transition;}",
+                    cod:".contenedor::after { position: absolute; top: 100%; left: 0; content: ''; background: rgba($color: $third-color, $alpha: 0.9); width:100%; height: 100%; transition;}",
                     text: "position absolute, va a permitir que el ::after se posicione respecto al div contenedor. top:100% va a cultarlo hacia abajo. sin content, el after no existe, usa el colo que mas quieras. opacidad al 0.9 recomendado. width y height 100% respecto al contenedor. haz un transition para que se vea genial."
                 },
                 {

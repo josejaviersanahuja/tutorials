@@ -5,7 +5,6 @@ import 'App.css';
 import BasicTags from './BasicTags'
 import AdvancedTags from './AdvancedTags';
 import Form from './Form';
-import imghtml from 'images/htmlimg.png'
 import DetallesSubtema from 'components/DetallesSubtema';
 
 export default function Html() {
@@ -49,9 +48,14 @@ function Child() {
             arrayCodigo={[]}
             />
             <p>
-                <a href="https://www.youtube.com/watch?v=pQN-pnXPaVg&t=88s" target="_blank" rel="noreferrer">
-                <img className="imgHTML" src={imghtml}  alt="html logo" width="325" height="182"/>
-                </a>
+            <iframe 
+            width="400" 
+            height="210" 
+            src="https://www.youtube.com/embed/pQN-pnXPaVg" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
             </p>
           
           </div>

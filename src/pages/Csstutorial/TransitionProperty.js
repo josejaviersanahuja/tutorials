@@ -49,27 +49,7 @@ export default function TransitionProperty() {
                         <div className="animationbox" ><button id="movimiento"> animacion</button></div>
                     </div> : null}
             </div>
-            <div className="marco"><h4>Lines</h4>
-                <div> Con <b>grid-column</b> puedes elegir de que línea del grid empieza el elemento a que línea termina. <b>grid-row</b> Hace lo mismo de arriba a abajo</div>
-                <a href onClick={() => abrirCerrar(3)} ><h5>EJEMPLOS: </h5></a>
-                {open[3] ?
-                    <div>
-                        <ul>
-                            <li> <b>grid-column:2/10</b> || establece de donde a donde va la caja dentro del grid </li>
-                            <li> <b>grid-row: 3/5</b>  || establece de donde a donde va la caja dentro del grid</li>
-                        </ul>
-                    </div> : null}
-            </div>
-            <div className="marco"><h4>Grid-area</h4>
-                <div>Une en un solo comando, ambas especificaciones de arriba. <b>grid-column</b> y <b>grid-row</b></div>
-                <a href onClick={() => abrirCerrar(4)} ><h5>EJEMPLOS: </h5></a>
-                {open[4] ?
-                    <div>
-                        <ul>
-                            <li> <b>grid-area: 2/3 span 7/ span8;</b> || establece al contenedor que empieza desde el punto de la fila2 y la columna3, hasta la fila 7 y la columna 8 </li>
-                        </ul>
-                    </div> : null}
-            </div>
+           
         </div>
     )
 }

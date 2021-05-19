@@ -3,7 +3,7 @@ import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
 export default function DeployHeroku() {
  
-   const trucos={
+   const detalles={
         primero:{
             title: "Middleware",
             defBreve:"Es una función o método en el que siempre entra a ejecutarse.",
@@ -59,9 +59,9 @@ export default function DeployHeroku() {
     return (
         <div className="cuerpo">
             <DetallesSubtema 
-                title={trucos.primero.title} 
-                defBreve={trucos.primero.defBreve} 
-                arrayCodigo={trucos.primero.arrayCodigo}
+                title={detalles.primero.title} 
+                defBreve={detalles.primero.defBreve} 
+                arrayCodigo={detalles.primero.arrayCodigo}
             />
             
         </div>

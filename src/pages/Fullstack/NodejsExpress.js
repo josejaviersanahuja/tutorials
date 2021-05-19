@@ -3,7 +3,7 @@ import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
 export default function NodejsExpress() {
  
-   const trucos={
+   const detalles={
         primero:{
             title: "Node js Y NPM",
             defBreve:"Node.js desde 0.",
@@ -33,10 +33,10 @@ export default function NodejsExpress() {
                     text: "Añadimos el puerto por donde vamos a escuchar el servidor local que levantamos."
                 },
                 {
-                    cod:"{ 'Content-Type': 'application/json' })response.end('JSON.stringifynotes')} // https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types",
-                    text: "Debemos decir al servidor que tipo de archivos va a crear con los datos que pasamos. Para eso usamos application/json para decir que crearemos un json. y JSON.stringify(array u objeto) nos va a pasar a string de forma correcta los datos"
+                    cod:"{ 'Content-Type': 'application/json' })response.end('JSON.stringifynotes')} ",
+                    text: "Debemos decir al servidor que tipo de archivos va a crear con los datos que pasamos. Para eso usamos application/json para decir que crearemos un json. y JSON.stringify(array u objeto) nos va a pasar a string de forma correcta los datos. "
                 }
-            ]
+            ] 
         },
         segundo:{
             title: "Ahora empecemos a ejecutar nuestro proyecto",
@@ -77,15 +77,11 @@ export default function NodejsExpress() {
                     text: "Por partes. podemos trabajar con parámetros i.e.(id). Podemos dar distintas responses en base al parámetro. "
                 },
                 {
-                    cod:"https://developer.mozilla.org/es/docs/Web/HTTP/Status",
-                    text: "Aquí podemos estudiar que respuestas son las más adecuadas para dar"
-                },
-                {
                     cod:"app.use(express.json())",
                     text: "Para gestión de posts, hace falta un parser que lea objetos en formato json por ejemplo. Esta línea de código, es la forma de usar el parser que ofrece expres."
                 },
                 {
-                    cod:"app.post('/api/notes', (request, response) => {const note = request.body; if (Number(note.base_attack)&&Number(note.base_defense)&&Number(note.base_stamina)&&note.form&&note.pokemon_name) {const newpokemon = {'base_attack': Number(note.base_attack),'base_defense': Number(note.base_defense),'base_stamina': Number(note.base_stamina),'form': note.form,'pokemon_id': 1001,'pokemon_name': note.pokemon_name};notes.push(newpokemon);response.status(201).json(newpokemon)} else{response.status(400).json({error:'no se recibió el objeto que se esperaba debe tener la siguiente forma',obj:{'base_attack': 'type number','base_defense': 'type number','base_stamina': 'type number','form': 'la forma que deba tener','pokemon_name': 'Nombre del pokemon'}}) }})",
+                    cod:"app.post('/api/notes', (request, response) => {const note = request.body; if (Number(note.base_attack) && Number(note.base_defense) && Number(note.base_stamina) && note.form && note.pokemon_name) {const newpokemon = {'base_attack': Number(note.base_attack),'base_defense': Number(note.base_defense),'base_stamina': Number(note.base_stamina),'form': note.form,'pokemon_id': 1001,'pokemon_name': note.pokemon_name}; notes.push(newpokemon); response.status(201).json(newpokemon)} else{response.status(400).json({error:'no se recibió el objeto que se esperaba debe tener la siguiente forma',obj:{'base_attack': 'type number','base_defense': 'type number','base_stamina': 'type number','form': 'la forma que deba tener','pokemon_name': 'Nombre del pokemon'}}) }})",
                     text: "Este es un post que recibe un json dentro de un body. Lo leemos, y si nos gusta el formato y podemos trabajarlo, añadimos el post a nuestro array notes. Sino, devolvemos un status code 400 y explicamos como recibir el objeto"
                 }
             ]
@@ -105,24 +101,26 @@ export default function NodejsExpress() {
     return (
         <div className="cuerpo">
             <DetallesSubtema 
-                title={trucos.primero.title} 
-                defBreve={trucos.primero.defBreve} 
-                arrayCodigo={trucos.primero.arrayCodigo}
+                title={detalles.primero.title} 
+                defBreve={detalles.primero.defBreve} 
+                arrayCodigo={detalles.primero.arrayCodigo}
+                url="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types"
             />
             <DetallesSubtema 
-                title={trucos.segundo.title} 
-                defBreve={trucos.segundo.defBreve} 
-                arrayCodigo={trucos.segundo.arrayCodigo}
+                title={detalles.segundo.title} 
+                defBreve={detalles.segundo.defBreve} 
+                arrayCodigo={detalles.segundo.arrayCodigo}
             />
             <DetallesSubtema 
-                title={trucos.tercero.title} 
-                defBreve={trucos.tercero.defBreve} 
-                arrayCodigo={trucos.tercero.arrayCodigo}
+                title={detalles.tercero.title} 
+                defBreve={detalles.tercero.defBreve} 
+                arrayCodigo={detalles.tercero.arrayCodigo}
+                url="https://developer.mozilla.org/es/docs/Web/HTTP/Status"
             />
             <DetallesSubtema 
-                title={trucos.cuarto.title} 
-                defBreve={trucos.cuarto.defBreve} 
-                arrayCodigo={trucos.cuarto.arrayCodigo}
+                title={detalles.cuarto.title} 
+                defBreve={detalles.cuarto.defBreve} 
+                arrayCodigo={detalles.cuarto.arrayCodigo}
             />
         </div>
     )

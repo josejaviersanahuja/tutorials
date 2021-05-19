@@ -46,8 +46,8 @@ function Child() {
           />
           <p>
           <iframe 
-            width="560" 
-            height="315" 
+            width="400" 
+            height="210" 
             src="https://www.youtube.com/embed/_a5j7KoflTs" 
             title="YouTube video player" 
             frameborder="0" 

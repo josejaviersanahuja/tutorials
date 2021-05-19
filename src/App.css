@@ -60,24 +60,22 @@ h4 {
   font-weight: 700;
 }
 
-.App div:hover {
-  border: 1px solid black;
-}
-
 .cuerpo {
   grid-column: 2/11;
   margin-bottom: 2rem;
 }
 
 .menu {
+  grid-row: 2/3;
   grid-column: 1/2;
-  position: sticky;
-  top: 0;
-  height: 70vh;
+  height: 50vh;
   grid-row: 4;
   font-family: 'Charm', cursive;
   font-weight: 700;
   text-align: start;
+  position: sticky;
+  bottom: 0;
+  top:0;
 }
 
 .marco {
@@ -86,9 +84,13 @@ h4 {
 .marco li{
   text-align: justify;
 }
+a {
+  transition: all 0.3s ease-in-out;
+}
 a:hover {
   color:blue;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 #title {
@@ -202,6 +204,10 @@ a:hover {
     transform: translate(0px,0px);
   }
   
+}
+.efecto__animacion__contenido {
+  animation: submenu;
+  animation-duration: 0.5s;
 }
 /*tarea, mirar modo movil, como cambiar el layout si 2 boxes colapsan*/
 .menu2{
@@ -464,6 +470,20 @@ iframe {
   iframe {
     width:300px;
     height: 170px ;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  iframe {
+    width:600px;
+    height: 340px ;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  iframe {
+    width:800px;
+    height: 450px ;
   }
 }
 @keyframes submenu {
