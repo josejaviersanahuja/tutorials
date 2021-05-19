@@ -48,7 +48,7 @@ console.log(classNameBTN);
         </div>
       <div className={classNameMenu2}>
         
-        <Menu />
+        <Menu handleClick={handleClick}/>
       </div>
     </Router>
   );

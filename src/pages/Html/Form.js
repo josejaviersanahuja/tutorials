@@ -13,7 +13,7 @@ export default function Form() {
                     <div>
 
                         <ul>
-                            <li> <b>{"<select form='buscar_pokemon' name='filtrodebusqueda'>"}</b>|| Contiene las etiquetas meta, title y links </li>
+                            <li> <b>{"<select form='buscar_pokemon' name='filtrodebusqueda'>"}</b>|| Ayuda mucho para cumplimentar un formulario de busqueda con autocompletar </li>
                             </ul>
                     </div> : null}
             </div>

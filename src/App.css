@@ -71,6 +71,8 @@ h4 {
 
 .menu {
   grid-column: 1/2;
+  position: sticky;
+  top: 0;
   height: 70vh;
   grid-row: 4;
   font-family: 'Charm', cursive;
@@ -133,7 +135,7 @@ a:hover {
 #flexboxcontainer {
   display: flex;
   flex-direction:row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-right: 1rem;
   min-height: 30vh;
   justify-content:space-evenly;
@@ -209,7 +211,7 @@ a:hover {
   position: fixed;
   z-index: 2;
   left: 0.5rem;
-  top: 10rem;
+  top: 5rem;
   height: 1.4rem;
   width:1.4rem;
   cursor: pointer;
@@ -259,6 +261,10 @@ a:hover {
   visibility: hidden;
 }
 
+iframe {
+  margin-top: 4rem;
+}
+
 @media screen and (max-width: 620px) {
     #title img{
       width: 200px;
@@ -266,6 +272,7 @@ a:hover {
     }
     .menu {
      visibility: hidden;
+     display: none;
     }
     .btn{
       visibility: visible;
@@ -315,6 +322,11 @@ a:hover {
       transition: all 0.5s ease-in-out;
      }
 
+     .menu2 ol{
+      list-style: none;
+      margin-top: 10rem;
+      transition: all 0.5s ease-in-out;
+    }
 
      .menu2__open ol{
        list-style: none;
@@ -322,21 +334,33 @@ a:hover {
        transition: all 0.5s ease-in-out;
      }
 
+     .menu2 ol li{
+      background-color:rgba(154,154,154,0.9);
+      transform: translateY(100vh);
+      width: 80%;
+      margin: 1rem;
+      padding: 1rem;
+      transition: all 0.5s ease-in-out;
+    }
      .menu2__open ol li{
       background-color:rgba(154,154,154,0.9);
+      transform: translateY(0);
       width: 80%;
       margin: 1rem;
       padding: 1rem;
       transition: all 0.5s ease-in-out;
     }
 
+   
     .menu2__open ol li ul li{
       background-color:rgba(220,220,220,0.9);
       width: 70%;
       margin: 0.5rem;
+      
       padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-      transition: all 0.5s ease-in-out;
-    }
+     }
+
+    
     .btn-menu__open {
       position: absolute;
       top:1rem;
@@ -374,4 +398,79 @@ a:hover {
       rotate(-765deg);
       transition: all 0.5s ease-in-out;
     }
+
+    .menu2__open ol :nth-child(1){
+    transition-delay: 0.1s;  
+    }
+
+    .menu2__open ol :nth-child(2){
+      transition-delay: 0.2s;  
+      }
+    .menu2__open ol :nth-child(3){
+      transition-delay: 0.3s;  
+    }
+    .menu2__open ol :nth-child(4){
+      transition-delay: 0.4s;  
+    }
+    .menu2__open ol :nth-child(5){
+       transition-delay: 0.5s;  
+    }
+    .menu2__open ol :nth-child(6){
+      transition-delay: 0.6s;  
+    }
+    #a0 {
+      animation: submenu;
+      animation-duration: 0.5s;
+    }
+    #a1 {
+      animation: submenu;
+      animation-duration: 0.7s;
+    }
+    #a2 {
+      animation: submenu;
+      animation-duration: 0.9s;
+    }
+    #a3 {
+      animation: submenu;
+      animation-duration: 1.1s;
+    }
+    #a4 {
+      animation: submenu;
+      animation-duration: 1.3s;
+    }
+    #a5 {
+      animation: submenu;
+      animation-duration: 1.5s;
+    }
+    #a6 {
+      animation: submenu;
+      animation-duration: 1.7s;
+    }
+    #a7 {
+      animation: submenu;
+      animation-duration: 1.9s;
+    }
+    iframe {
+      width:330px;
+      height: 190px ;
+    }
+    .imgHTML {
+      width: 250px;
+      height: 132px;
+      padding: 1rem;
+    }
+}
+@media screen and (max-width: 400px) {
+  iframe {
+    width:300px;
+    height: 170px ;
+  }
+}
+@keyframes submenu {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

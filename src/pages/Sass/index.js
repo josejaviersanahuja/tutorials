@@ -3,6 +3,7 @@ import React from 'react'
 import { Switch, Route, useParams} from "react-router-dom";
 import 'App.css';
 import VariablesFunciones from './VariablesFunciones';
+import DetallesSubtema from 'components/DetallesSubtema';
 
 export default function Sass() {
     return (
@@ -35,9 +36,28 @@ function Child() {
 
   function WelcomeSass() {
       return (
-          <>
-          <h3>Bienvenido al curso de Sass.</h3>
-          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar</div>
-          </>
+        <>
+        <h3>Bienvenido al curso de Sass.</h3>
+        <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar
+        <DetallesSubtema 
+          title="Puedes ver el curso de freeboptcamp aquí"
+          defBreve="Deberás saber inglés, y podras aprender las etiquetas más usadas."
+          arrayCodigo={[]}
+          />
+          <p>
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/_a5j7KoflTs" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+            </iframe>
+
+          </p>
+        
+        </div>
+        </>
       )
   }

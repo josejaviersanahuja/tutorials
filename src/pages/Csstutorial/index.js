@@ -9,6 +9,7 @@ import TextManipulation from './TextManipulation'
 import Grid from './Grid'
 import TransitionProperty from './TransitionProperty';
 import Trucos from './Trucos';
+import DetallesSubtema from 'components/DetallesSubtema';
 export default function Csstutorial() {
     return (
         <>
@@ -50,7 +51,22 @@ function Child() {
       return (
           <>
           <h3>Bienvenido al curso de CSS.</h3>
-          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar</div>
+          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar
+          <DetallesSubtema 
+            title="Puedes ver el curso de freeboptcamp aquí"
+            defBreve="Deberás saber inglés, y podras aprender las etiquetas más usadas."
+            arrayCodigo={[]}
+            />
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/1Rs2ND1ryYc" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          </div>
           </>
       )
   }

@@ -16,8 +16,8 @@ const menu = [
     ["Fullstack",fullstackMenu ]
 ]
 
-export default function Menu() {
-    const [menuOpen, setOpenMenu] = useState([false, false, false])
+export default function Menu({handleClick}) {
+    const [menuOpen, setOpenMenu] = useState(false)
 
 
     return (
@@ -29,6 +29,7 @@ export default function Menu() {
                     menuOpen={menuOpen}
                     setOpenMenu={setOpenMenu}
                     index={menu.indexOf(e)}
+                    handleClick={handleClick}
                 />
             )}
         </ol>

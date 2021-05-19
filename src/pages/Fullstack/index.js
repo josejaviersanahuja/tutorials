@@ -48,7 +48,7 @@ function Child() {
             arrayCodigo={[]}
             />
             <iframe 
-                width="560" height="315" 
+                width="400" height="210" 
                 src="https://www.youtube.com/embed/wTpuKOhGfJE" 
                 title="YouTube video player" 
                 frameborder="0" 

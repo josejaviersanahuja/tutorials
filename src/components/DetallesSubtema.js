@@ -7,7 +7,7 @@ export default function DetallesSubtema({title, defBreve, arrayCodigo}) {
     return (
         <div className="marco"><h4>{title}</h4>
                 <div> {defBreve}</div>
-                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
+                {arrayCodigo.length>0? <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>:null}
                 {open[0] ?
                     <div>
 

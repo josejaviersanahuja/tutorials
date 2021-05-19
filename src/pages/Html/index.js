@@ -50,7 +50,7 @@ function Child() {
             />
             <p>
                 <a href="https://www.youtube.com/watch?v=pQN-pnXPaVg&t=88s" target="_blank" rel="noreferrer">
-                <img src={imghtml}  alt="html logo" width="325" height="182"/>
+                <img className="imgHTML" src={imghtml}  alt="html logo" width="325" height="182"/>
                 </a>
             </p>
           

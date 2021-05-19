@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom'
 import Submenu from './Submenu'
 
 
-export default function ManuList({par, menuOpen, setOpenMenu,index}) {
+export default function ManuList({par, menuOpen, setOpenMenu,index, handleClick}) {
     
     const changeState=()=>{
-        let temp=[false,false,false]
+        let temp=[false]
         temp[index]=true
         setOpenMenu(temp)
     }
-    
+    console.log(menuOpen);
     return (
         <li>
             <Link to={`/${par[0]}`} onClick={changeState}>{par[0]}</Link>
-            {menuOpen[index]? <Submenu par={par}/>: null}
+            {menuOpen[index]? <Submenu par={par} handleClick={handleClick} />: null}
         </li>
     )
 }
