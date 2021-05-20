@@ -36,7 +36,7 @@ export default function DeployHeroku() {
                 }
             ]
         },
-        terceroo:{
+        tercero:{
             title: "CORS",
             defBreve:"Es un protocolo de comunicación del servidor. Con esto se establece con quienes puede comunicarse el servidor. Es complejo, solo veremos el caso de cómo dejar abierto nuestro servidor, y usaremos un middleware de EXPRESS para hacerlo",
             arrayCodigo:[
@@ -53,6 +53,29 @@ export default function DeployHeroku() {
                     text: "Así lo seteamos por defecto, abierto para el mundo"
                 }
             ]
+        },
+        cuarto:{
+            title: "Deploy con Heroku",
+            defBreve:"Heroku es un servicio de servidor gratuito para apps pequeñas y servidores pequeños. Soporta bien servicios Nodejs. Perfecto para nuestra API. Hay que descargar Heroku CLI en windows. Dejo el link al final de los apuntes",
+            arrayCodigo:[
+                {
+                    cod:"Añadimos un archivo llamado Profile y añadimos la línea web: npm start",
+                    text: "Este es el archivo que le dirá a Heroku, qué servicio va a deployar y con qué comando lo hará"
+                },
+                {
+                    cod:"const PORT = process.env.PORT || 3002",
+                    text: "Antes del deploy, hay que modificar nuestra constante del puerto. Heroku va a asignar el puerto que ellos consideren, así que process.env.PORT les permite manejar a ellos esa variable."
+                },
+                {
+                    cod:"heroku create",
+                    text: "Heroku trabaja con GIT, así que esa línea de comando, la ejecutamos en un git bash por ejemplo. Esto va a crear mi url, y además añade la url a donde podemos hacer git remote."
+                },
+                {
+                    cod:"git push heroku master",
+                    text: "Como con heroku create, ya tenemos nuestro git remote configurado, podemos hacer push directamente. Tuve que pasar por un proceso de autentificación. Y ya está nuestra API aquí."
+                }
+            ],
+            url:"https://devcenter.heroku.com/articles/heroku-cli"
         }
     }
 
@@ -63,7 +86,22 @@ export default function DeployHeroku() {
                 defBreve={detalles.primero.defBreve} 
                 arrayCodigo={detalles.primero.arrayCodigo}
             />
-            
+            <DetallesSubtema 
+                title={detalles.segundo.title} 
+                defBreve={detalles.segundo.defBreve} 
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema 
+                title={detalles.tercero.title} 
+                defBreve={detalles.tercero.defBreve} 
+                arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+            <DetallesSubtema 
+                title={detalles.cuarto.title} 
+                defBreve={detalles.cuarto.defBreve} 
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+                url={detalles.cuarto.url}
+            />
         </div>
     )
 }

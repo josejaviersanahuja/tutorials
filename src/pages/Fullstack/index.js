@@ -5,6 +5,7 @@ import 'App.css';
 import DetallesSubtema from 'components/DetallesSubtema';
 import NodejsExpress from './NodejsExpress';
 import DeployHeroku from './DeployHeroku';
+import MongoDB from './MongoDB';
 
 
 export default function Fullstack() {
@@ -32,7 +33,7 @@ function Child() {
         <h3>{id}</h3>
         {id==="Nodejs Y Express"? <NodejsExpress/>: null }
         {id==="Middleware y Deploy"? <DeployHeroku/> :null} 
-        {id==="Form"? null : null}             
+        {id==="MongoDB"? <MongoDB/> : null}             
         </>
     );
   }
