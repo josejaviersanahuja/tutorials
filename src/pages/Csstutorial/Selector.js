@@ -4,22 +4,25 @@ import useAbrirCerrar from 'hooks/useAbrirCerrar'
 
 export default function Selector() {
     const {open, abrirCerrar} = useAbrirCerrar()
-   
+    const detalles={
+        primero:{
+            title: "Selectores de elementos",
+            defBreve:"Son modificadores de todos los elementos sin clases ni id's",
+            arrayCodigo:[
+                {
+                    cod:" body {}",
+                    text: "Se usa para estilizar la etiqueta body."
+                },
+                {
+                    cod:"a {} ... div {}  || se usa para...",
+                    text: "Se usa para estilizar los elementos que están dentro de la etiqueta a, los div"
+                }
+            ]
+        }
+    }
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Selectores de elementos</h4>
-                <div>Son modificadores de todos los elementos sin clases ni id's</div>
-                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
-                {open[0]? 
-                <div>
-                
-                    <ul>
-                        <li><b>body {"{}"}</b> || Se usa para... </li>
-                        <li><b>a {"{}"}</b> || se usa para...</li>
-                        <li><b>div {"{}"}</b>  || se usa para...</li>
-                    </ul>  
-                </div> : null}
-            </div>
+             
             <div className="marco"><h4>Clases e ID's</h4>
                 <div>Son modificadores de...</div>
                 <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
@@ -37,7 +40,7 @@ export default function Selector() {
                 <a href onClick={() => abrirCerrar(2)} ><h5>EJEMPLOS: </h5></a>
                 {open[2]? 
                 <div>
-                    <ul>
+                    <ul> 
                         <li><b>:hover</b> || Se usa para... </li>
                         <li><b>:first-child</b> || se usa para...</li>
                         <li> <b>:last-child</b> || se usa para...</li>

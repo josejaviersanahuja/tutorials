@@ -10,6 +10,12 @@ export default function ManuList({par, menuOpen, setOpenMenu,index, handleClick}
         temp[index]=true
         setOpenMenu(temp)
     }
+    const handleClick2 =()=>{
+        handleClick()
+       /*  let temp=[false]
+        temp[index]=false
+        setOpenMenu(temp) */
+    }
     console.log(menuOpen);
     return (
         <li>

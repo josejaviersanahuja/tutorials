@@ -1,22 +1,38 @@
 import React from 'react'
 import 'App.css'
-import useAbrirCerrar from 'hooks/useAbrirCerrar'
+import DetallesSubtema from 'components/DetallesSubtema'
 export default function Form() {
-    const { open, abrirCerrar } = useAbrirCerrar()
+
+    const detalles={
+        primero:{
+            title: "Select",
+            defBreve:"Describamos el select en el form debe tener atributos ... ver link al final de los apuntes",
+            arrayCodigo:[
+                {
+                    cod:"<select form='buscar_pokemon' name='filtrodebusqueda'>",
+                    text: "Ayuda mucho para cumplimentar un formulario de busqueda con autocompletar"
+                },
+                {
+                    cod:"En network acces incluimos la ip 0.0.0.0/0",
+                    text: "Esto nos permitirá dar acceso a todas las IP's. Luego vemos como dar seguridad"
+                },
+                {
+                    cod:"npm install mongoose",
+                    text: "Instalará esta dependencia de producción. Recuerda quitar el caret ^"
+                }
+            ],
+            url:"https://www.htmlquick.com/es/reference/tags/select.html"
+        }
+    }
 
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Select</h4>
-                <div> describamos el select en el form debe tener atributos ... ver página <a rel="noreferrer" href="https://www.htmlquick.com/es/reference/tags/select.html" target="_blank">aqui</a> </div>
-                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
-                {open[0] ?
-                    <div>
-
-                        <ul>
-                            <li> <b>{"<select form='buscar_pokemon' name='filtrodebusqueda'>"}</b>|| Ayuda mucho para cumplimentar un formulario de busqueda con autocompletar </li>
-                            </ul>
-                    </div> : null}
-            </div>
+            <DetallesSubtema
+                title={detalles.primero.title}
+                defBreve={detalles.primero.defBreve}
+                arrayCodigo={detalles.primero.arrayCodigo}
+                url={detalles.primero.url}
+            />
          </div>
     )
 }

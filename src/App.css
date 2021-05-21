@@ -42,6 +42,7 @@ h1 {
   grid-column: 2/11;
   font-family: 'Charm', cursive, sans-serif;
   font-weight: 700;
+  transform: translateY(-1.5rem);
 }
 
 h2 {
@@ -66,18 +67,41 @@ h4 {
 }
 
 .menu {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  height: 50vh;
-  grid-row: 4;
+  position: fixed;
+  left: 0;
+  height: 90vh;
+  width: 230px;
   font-family: 'Charm', cursive;
   font-weight: 700;
+  font-size: 1.2em;
   text-align: start;
-  position: sticky;
-  bottom: 0;
-  top:0;
+  background-color: rgba(64,64,64,0.8);
+  border-top-right-radius:50px;
+  border-bottom-right-radius:50px ;
+  transform: translateX(-215px);
+  margin: 2rem 0;
+  transition: all 0.3s ease-in-out;
 }
 
+.menu:hover {
+  transform: translateX(-15px);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu ol li {
+  padding: 0.5rem 0.5rem;
+  color: rgb(154,154,154);
+}
+.menu ol li a {
+  padding: 0.5rem 0.5rem;
+  color: rgb(154,154,154);
+}
+.menu ol li a:hover {
+  color: rgb(200 ,200,200);
+}
+.menu>ol:first-child{
+  padding-top:2rem ;
+}
 .marco {
   border:1px solid #909090 ;
 }
@@ -87,6 +111,7 @@ h4 {
 a {
   transition: all 0.3s ease-in-out;
 }
+
 a:hover {
   color:blue;
   cursor: pointer;
@@ -99,11 +124,13 @@ a:hover {
   grid-column: 2/11;
   display: flex;
   flex-direction: column;
+  height: 40vh;
+  background-image: url(./images/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-#title img{
-  display: inline-block;
-  margin:0 1rem 2rem 1rem;
- }
+
 #gradient {
   background: linear-gradient(to right, red, blue, yellow);
   height: 2rem;
@@ -216,17 +243,18 @@ a:hover {
 .btn {
   position: fixed;
   z-index: 2;
-  left: 0.5rem;
-  top: 5rem;
+  top: 2rem;
+  left: 50vw;
   height: 1.4rem;
   width:1.4rem;
   cursor: pointer;
-  background: #909090;
+  background: #404040;
   border-radius: 100%;
   padding: 0.3rem;
-  border: 1px solid #404040;
+  border: 1px solid rgba(154,154,154,0.9);
   transition: all 0.5s ease-in-out;
   visibility: hidden;
+  transform: translateX(-47vw);
 }
 
 
@@ -237,7 +265,7 @@ a:hover {
   left:0.5rem;
   width: 15px;
   height: 2px;
-  background: #404040;
+  background: rgb(154,154,154);
   transition: all 0.5s ease-in-out;
  }
 
@@ -248,7 +276,7 @@ a:hover {
   left: 0rem;
   width: 15px;
   height: 2px;
-  background: #404040;
+  background: rgb(154,154,154);
   transition: all 0.5s ease-in-out;
 }
 
@@ -259,7 +287,7 @@ a:hover {
   left: 0;
   width: 15px;
   height: 2px;
-  background: #404040;
+  background: rgb(154,154,154);
   transition: all 0.5s ease-in-out;
 }
 
@@ -271,11 +299,18 @@ iframe {
   margin-top: 4rem;
 }
 
+#divlink {
+  width: 100%;
+  height: 29vh;
+  transform: translateY(-2rem);
+}
+
 @media screen and (max-width: 620px) {
-    #title img{
-      width: 200px;
-      height: 110px;
+    
+    h1{
+      transform: translateY(0);
     }
+
     .menu {
      visibility: hidden;
      display: none;
@@ -286,15 +321,15 @@ iframe {
     }
     .btn__open {
       visibility: visible;
-      transform: translate(14.3rem,-5.5rem);
+      transform: translate(-2vw);
       position: fixed;
   z-index: 2;
-  left: 0.5rem;
-  top: 10rem;
+  left: 50vw;
+  top: 2rem;
   height: 1.4rem;
   width:1.4rem;
   cursor: pointer;
-  background: #909090;
+  background: rgba(154,154,154,0.9);
   border-radius: 100%;
   padding: 0.3rem;
   border: 1px solid #404040;
@@ -330,13 +365,14 @@ iframe {
 
      .menu2 ol{
       list-style: none;
-      margin-top: 10rem;
+      margin-top: 5rem;
       transition: all 0.5s ease-in-out;
     }
 
      .menu2__open ol{
        list-style: none;
-       margin-top: 10rem;
+       margin-top: 5rem;
+       padding-right: 1.5rem;
        transition: all 0.5s ease-in-out;
      }
 
@@ -363,7 +399,7 @@ iframe {
       width: 70%;
       margin: 0.5rem;
       
-      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
      }
 
     
@@ -485,6 +521,11 @@ iframe {
     width:800px;
     height: 450px ;
   }
+
+  .menu ol>li{
+    font-size: 1.3em;
+  }
+
 }
 @keyframes submenu {
   0% {

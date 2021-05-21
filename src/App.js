@@ -7,8 +7,6 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import '../src/images/css3.jpg'
 import './App.css';
-import img from 'images/css3.jpg'
-import imghtml from 'images/htmlimg.png'
 import Sass from 'pages/Sass';
 import ReactPage from 'pages/ReactPage'
 import Fullstack from 'pages/Fullstack';
@@ -22,10 +20,9 @@ console.log(classNameBTN);
     <Router>
       <div className="App">
         <div id="title">
-          <h1>Tutoriales </h1>
+          <h1> Tutoriales </h1>
           <Link to="/">
-            <img src={img} alt="css logo"></img>
-            <img src={imghtml} alt="html logo" width="325" height="182" />
+            <div id="divlink"></div>
           </Link>
 
         </div>
@@ -43,8 +40,10 @@ console.log(classNameBTN);
           <Menu />
         </div>
       </div>
+      <div style={{alignContent:"center"}}>
       <div className={classNameBTN}  onClick={handleClick}>
           <span className={classNameBTNMenu}></span>
+        </div>
         </div>
       <div className={classNameMenu2}>
         

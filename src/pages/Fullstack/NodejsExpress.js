@@ -36,7 +36,8 @@ export default function NodejsExpress() {
                     cod:"{ 'Content-Type': 'application/json' })response.end('JSON.stringifynotes')} ",
                     text: "Debemos decir al servidor que tipo de archivos va a crear con los datos que pasamos. Para eso usamos application/json para decir que crearemos un json. y JSON.stringify(array u objeto) nos va a pasar a string de forma correcta los datos. "
                 }
-            ] 
+            ],
+            url:"https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types" 
         },
         segundo:{
             title: "Ahora empecemos a ejecutar nuestro proyecto",
@@ -84,7 +85,8 @@ export default function NodejsExpress() {
                     cod:"app.post('/api/notes', (request, response) => {const note = request.body; if (Number(note.base_attack) && Number(note.base_defense) && Number(note.base_stamina) && note.form && note.pokemon_name) {const newpokemon = {'base_attack': Number(note.base_attack),'base_defense': Number(note.base_defense),'base_stamina': Number(note.base_stamina),'form': note.form,'pokemon_id': 1001,'pokemon_name': note.pokemon_name}; notes.push(newpokemon); response.status(201).json(newpokemon)} else{response.status(400).json({error:'no se recibió el objeto que se esperaba debe tener la siguiente forma',obj:{'base_attack': 'type number','base_defense': 'type number','base_stamina': 'type number','form': 'la forma que deba tener','pokemon_name': 'Nombre del pokemon'}}) }})",
                     text: "Este es un post que recibe un json dentro de un body. Lo leemos, y si nos gusta el formato y podemos trabajarlo, añadimos el post a nuestro array notes. Sino, devolvemos un status code 400 y explicamos como recibir el objeto"
                 }
-            ]
+            ],
+            url:"https://developer.mozilla.org/es/docs/Web/HTTP/Status"
         },
         cuarto:{
             title: "Eslint",
@@ -104,7 +106,7 @@ export default function NodejsExpress() {
                 title={detalles.primero.title} 
                 defBreve={detalles.primero.defBreve} 
                 arrayCodigo={detalles.primero.arrayCodigo}
-                url="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types"
+                url={detalles.primero.url}
             />
             <DetallesSubtema 
                 title={detalles.segundo.title} 
@@ -115,7 +117,7 @@ export default function NodejsExpress() {
                 title={detalles.tercero.title} 
                 defBreve={detalles.tercero.defBreve} 
                 arrayCodigo={detalles.tercero.arrayCodigo}
-                url="https://developer.mozilla.org/es/docs/Web/HTTP/Status"
+                url={detalles.tercero.url}
             />
             <DetallesSubtema 
                 title={detalles.cuarto.title} 
