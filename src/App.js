@@ -5,7 +5,6 @@ import Home from 'pages/Home';
 import Html from 'pages/Html';
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import '../src/images/css3.jpg'
 import './App.css';
 import Sass from 'pages/Sass';
 import ReactPage from 'pages/ReactPage'
@@ -37,7 +36,7 @@ console.log(classNameBTN);
         </Switch>
 
         <div className="menu">
-          <Menu />
+          <Menu handleClick={handleClick}/>
         </div>
       </div>
       <div style={{alignContent:"center"}}>

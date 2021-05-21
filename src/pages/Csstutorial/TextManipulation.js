@@ -1,67 +1,121 @@
 import React from 'react'
 import 'App.css'
-import useAbrirCerrar from 'hooks/useAbrirCerrar'
+import DetallesSubtema from 'components/DetallesSubtema'
 export default function UnitTypes() {
-    const { open, abrirCerrar } = useAbrirCerrar()
-
+    
+    const detalles = {
+        primero: {
+            title: "Text Manipulation",
+            defBreve: "Existen 2 tipos de manipulaciones a grandes rasgos. Text y Fonts. Ahora veremos las manipulaciones de texto",
+            arrayCodigo: [
+                {
+                    cod: "Link {text-decoration: none;} ",
+                    text: "Los links traen por default un text decoration de subrayado. ahora con none, no lo van a tener"
+                },
+                {
+                    cod: "Link { text-decoration: underline;}",
+                    text: "Los links traen por default un text decoration de subrayado."
+                },
+                {
+                    cod: "Link {text-decoration: line-through;}",
+                    text: "Ahora veremos un link tachado"
+                },
+                {
+                    cod: "Body {text-transform: uppercase;</b> }",
+                    text: "Transforma el texto en todas mayúsculas ."
+                },
+                {
+                    cod: "Body {text-transform: lowercase;} ",
+                    text: "Transforma el texto en todas minúsculas"
+                },
+                {
+                    cod: "Body {text-transform: capitalize;}",
+                    text: "Transforma el texto en palabras capitales, que empiezan en mayúsculas."
+                },
+                {
+                    cod: "Body {text-align: center;}  ",
+                    text: "Como en word, existen los alineados a la izquierda (left), a la derecha (right), centrado (center) y justify"
+                }
+            ]
+        },
+        segundo: {
+            title: "Font Manipulation",
+            defBreve: "Ahora veamos las Font Manipulations. Empecemos por los básicos",
+            arrayCodigo: [
+                {
+                    cod: "Body {font-size: 1.15em ;} ",
+                    text: "Tamaño de la fuente aumenta en un 15%."
+                },
+                {
+                    cod: "Body {font-weight: 700;} ",
+                    text: "Van de 0 a 900, donde 700 es el weight de una letra en bold."
+                },
+                {
+                    cod: "Body {font-style: italic;}",
+                    text: "Cambia la forma de la fuente, puede asumir valores italic, oblique, normal."
+                }
+            ]
+        },
+        tercero: {
+            title: "Font Manipulation Family",
+            defBreve: "Ahora veamos las Font Manipulations más avanzados.",
+            arrayCodigo: [
+                {
+                    cod: "Body {font-family: sans-serif ;} ",
+                    text: "Las san-serif son más legibles en pantallas."
+                },
+                {
+                    cod: "Body {font-family: serif;} ",
+                    text: "Agrega un muy tenue difuminado, que sobre el papel queda bien, pero sobre la pantalla, genera stress."
+                },
+                {
+                    cod: "Body {font-family: monospace;} ",
+                    text: "Como en las máquinas de escribir, toda fuente mantiene la misma separación."
+                }
+            ]
+        },
+        cuarto: {
+            title: "Font Manipulation Imports",
+            defBreve: "Ahora veamos las importaciones de fuentes. Dejo el link al final para google fonts",
+            arrayCodigo: [
+                {
+                    cod: "En google fonts buscamos la fuente que más nos guste y seleccionamos el botón más",
+                    text: "Aparecen, a mano derecha, los códigos o scripts para descargarlo o importarlo."
+                },
+                {
+                    cod: "Lo más fácil es copiar el <link> y pegarlo en el head de nuestro html ",
+                    text: "Procura que quede por encima del link de nuestro stylesheet"
+                },
+                {
+                    cod: "En la misma página de googlefonts donde conseguimos copiar el link, copia el llamado en css",
+                    text: "Pegalo en donde quieras usar esa fuente, y ya está"
+                }
+            ],
+            url: "https://fonts.google.com/specimen/Pattaya#pairings"
+        }
+    }
     return (
         <div className="cuerpo">
-            <div className="marco"><h4>Text Manipulation</h4>
-                <div>Existen 2 tipos de manipulaciones a grandes rasgos. <b>Text</b> y Fonts</div>
-                <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>
-                {open[0] ?
-                    <div>
-
-                        <ul>
-                            <li> Link {"{"} <b>text-decoration: none;</b> {"}"}|| los links traen por default un text decoration de subrayado. ahora con none, no lo van a tener </li>
-                            <li> Link {"{"} <b>text-decoration: underline;</b> {"}"}|| los links traen por default un text decoration de subrayado.</li>
-                            <li> Link {"{"} <b>text-decoration: line-through;</b> {"}"}|| ahora veremos un link tachado </li>
-                            <li> Body {"{"} <b>text-transform: uppercase;</b> {"}"} || transforma el texto en todas mayúsculas </li>
-                            <li> Body {"{"} <b>text-transform: lowercase;</b> {"}"} || transforma el texto en todas minúsculas </li>
-                            <li> Body {"{"} <b>text-transform: capitalize;</b> {"}"} || transforma el texto en palabras capitales, que empiezan en mayúsculas </li>
-                            <li> Body {"{"} <b>text-align: center;</b> {"}"} || como en word, existen los alineados a la izquierda (left), a la derecha (right), centrado (center) y justify  </li>
-                        </ul>
-                    </div> : null}
-            </div>
-            <div className="marco"><h4>Font Manipulation</h4>
-                <div>Ahora veamos las <b>Font Manipulations</b> empecemos por los básicos</div>
-                <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
-                {open[1] ?
-                    <div>
-
-                        <ul>
-                            <li>Body {"{"} <b>font-size: 1.15em ;</b> {"}"} || tamaño de la fuente aumenta en un 15% </li>
-                            <li>Body {"{"} <b>font-weight: 700;</b> {"}"} || van de 0 a 900, donde 700 es el weight de una letra en <b>bold</b> </li>
-                            <li>Body {"{"} <b>font-style: italic;</b> {"}"} || cambia la forma de la fuente, puede asumir valores italic, oblique, normal </li>
-                        </ul>
-                    </div> : null}
-            </div>
-            <div className="marco"><h4>Font Manipulation Family</h4>
-                <div>Ahora veamos las <b>Font Manipulations</b> más avanzados</div>
-                <a href onClick={() => abrirCerrar(2)} ><h5>EJEMPLOS: </h5></a>
-                {open[2] ?
-                    <div>
-
-                        <ul>
-                            <li>Body {"{"} <b>font-family: sans-serif ;</b> {"}"} || más legible </li>
-                            <li>Body {"{"} <b>font-family: serif;</b> {"}"} || agrega un muy tenue difuminado, que sobre el papel queda bien, pero sobre la pantalla se ve fatal </li>
-                            <li>Body {"{"} <b>font-family: monospace;</b> {"}"} || como en las máquinas de escribir, toda fuente mantiene la misma separación. </li>
-                        </ul>
-                    </div> : null}
-            </div>
-            <div className="marco"><h4>Font Manipulation Imports</h4>
-                <div>Ahora veamos las <b>Importaciones</b></div>
-                <a href onClick={() => abrirCerrar(3)} ><h5>EJEMPLOS: </h5></a>
-                {open[3] ?
-                    <div>
-
-                        <ul>
-                            <li>Body {"{"} <b>font-family: sans-serif ;</b> {"}"} || más legible </li>
-                            <li>Body {"{"} <b>font-family: serif;</b> {"}"} || agrega un muy tenue difuminado, que sobre el papel queda bien, pero sobre la pantalla se ve fatal </li>
-                            <li>Body {"{"} <b>font-family: monospace;</b> {"}"} || como en las máquinas de escribir, toda fuente mantiene la misma separación. </li>
-                        </ul>
-                    </div> : null}
-            </div>
+            <DetallesSubtema
+                title={detalles.primero.title}
+                defBreve={detalles.primero.defBreve}
+                arrayCodigo={detalles.primero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
         </div>
     )
 }

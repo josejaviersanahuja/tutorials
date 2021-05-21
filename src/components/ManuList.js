@@ -12,15 +12,15 @@ export default function ManuList({par, menuOpen, setOpenMenu,index, handleClick}
     }
     const handleClick2 =()=>{
         handleClick()
-       /*  let temp=[false]
+        let temp=[false]
         temp[index]=false
-        setOpenMenu(temp) */
+        setOpenMenu(temp)
     }
     console.log(menuOpen);
     return (
         <li>
             <Link to={`/${par[0]}`} onClick={changeState}>{par[0]}</Link>
-            {menuOpen[index]? <Submenu par={par} handleClick={handleClick} />: null}
+            {menuOpen[index]? <Submenu par={par} handleClick={handleClick2} />: null}
         </li>
     )
 }

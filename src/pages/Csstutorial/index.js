@@ -10,6 +10,7 @@ import Grid from './Grid'
 import TransitionProperty from './TransitionProperty';
 import Trucos from './Trucos';
 import DetallesSubtema from 'components/DetallesSubtema';
+import useSeo from 'hooks/useSeo';
 export default function Csstutorial() {
     return (
         <>
@@ -32,6 +33,8 @@ function Child() {
     // the dynamic pieces of the URL.
     let { id } = useParams();
     
+    const title=`Tutorial Css ${id} || by ZitrojjDev`
+    useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="Selectors"? <Selector/>: null }
@@ -48,6 +51,8 @@ function Child() {
   }
 
   function WelcomeCSS() {
+    const title="Tutorial Css || by ZitrojjDev"
+    useSeo({title})
       return (
           <>
           <h3>Bienvenido al curso de CSS.</h3>

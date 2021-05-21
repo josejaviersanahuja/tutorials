@@ -3,7 +3,7 @@ import 'App.css'
 import useAbrirCerrar from 'hooks/useAbrirCerrar'
 export default function TransitionProperty() {
     const { open, abrirCerrar } = useAbrirCerrar()
-
+    
     return (
         <div className="cuerpo">
             <div className="marco"><h4>Transition</h4>

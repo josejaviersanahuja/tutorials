@@ -4,6 +4,7 @@ import { Switch, Route, useParams} from "react-router-dom";
 import 'App.css';
 import VariablesFunciones from './VariablesFunciones';
 import DetallesSubtema from 'components/DetallesSubtema';
+import useSeo from 'hooks/useSeo';
 
 export default function Sass() {
     return (
@@ -25,7 +26,9 @@ function Child() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
     let { id } = useParams();
-    
+   
+    const title=`Tutorial Sass ${id} || by ZitrojjDev`
+    useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="Variables_Funciones"? <VariablesFunciones/>: null }
@@ -35,6 +38,9 @@ function Child() {
   }
 
   function WelcomeSass() {
+    const title="Tutorial Sass || by ZitrojjDev"
+    useSeo({title})
+    
       return (
         <>
         <h3>Bienvenido al curso de Sass.</h3>

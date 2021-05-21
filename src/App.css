@@ -49,6 +49,10 @@ h2 {
   grid-column: 2/11;
   font-family: 'Charm', cursive, sans-serif;
   font-weight: 700;
+  margin-bottom: 0;
+}
+h2>p {
+  margin-bottom: 0;
 }
 h3 {
   grid-column: 2/11;
@@ -82,7 +86,14 @@ h4 {
   margin: 2rem 0;
   transition: all 0.3s ease-in-out;
 }
-
+i {
+  padding: 0 1rem;
+  color: #404040;
+  transition: all 0.5s ease-in-out;
+}
+i:hover{
+  color: blue;
+}
 .menu:hover {
   transform: translateX(-15px);
   transition: all 0.3s ease-in-out;
@@ -123,9 +134,9 @@ a:hover {
   border: 0.7rem double #909090;
   grid-column: 2/11;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   height: 40vh;
-  background-image: url(./images/logo.png);
+  background-image: url(./images/logocolor.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -239,6 +250,7 @@ a:hover {
 /*tarea, mirar modo movil, como cambiar el layout si 2 boxes colapsan*/
 .menu2{
   visibility: hidden;
+  height:0;
 }
 .btn {
   position: fixed;

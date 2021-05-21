@@ -6,6 +6,7 @@ import DetallesSubtema from 'components/DetallesSubtema';
 import NodejsExpress from './NodejsExpress';
 import DeployHeroku from './DeployHeroku';
 import MongoDB from './MongoDB';
+import useSeo from 'hooks/useSeo';
 
 
 export default function Fullstack() {
@@ -28,7 +29,8 @@ function Child() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
     let { id } = useParams();
-    
+    const title=`Tutorial FullStack ${id} || by ZitrojjDev`
+    useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="Nodejs Y Express"? <NodejsExpress/>: null }
@@ -39,6 +41,9 @@ function Child() {
   }
 
   function WelcomeFullstack() {
+    const title="Tutorial FullStack || by ZitrojjDev"
+    useSeo({title})
+    
       return (
           <>
           <h3>Bienvenido al curso de Fullstack.</h3>

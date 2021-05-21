@@ -1,3 +1,11 @@
+# Si te gusta mi contenido, y deseas añadir apuntes, te recomiendo que estudies 4 componentes nada más.
+
+Los componentes que están en la carpeta componentes.
+1) Añadir en el componente Menu, cualquier menú adicional, y anteriormente el submenu.
+2) Si deseas crear un tutorial nuevo, revisa la carpeta pages y si sigue su formato, y estudia a fondo el index.js de cualquier página. Crea tu carpeta nueva, y tu index nuevo
+3) Añade en App.js la nueva ruta.
+4) Para crear el contenido de cada subtema, estudia el componente DetallesSubtema.js y sigue su formato para que no se rompan los estilos.
+5) Gracias de antemano si decides colaborar.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

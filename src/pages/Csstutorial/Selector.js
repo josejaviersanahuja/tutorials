@@ -1,85 +1,140 @@
 import React from 'react'
 import 'App.css'
-import useAbrirCerrar from 'hooks/useAbrirCerrar'
+import DetallesSubtema from 'components/DetallesSubtema'
 
 export default function Selector() {
-    const {open, abrirCerrar} = useAbrirCerrar()
-    const detalles={
-        primero:{
+    const detalles = {
+        primero: {
             title: "Selectores de elementos",
-            defBreve:"Son modificadores de todos los elementos sin clases ni id's",
-            arrayCodigo:[
+            defBreve: "Son modificadores de todos los elementos sin clases ni id's",
+            arrayCodigo: [
                 {
-                    cod:" body {}",
+                    cod: " body {}",
                     text: "Se usa para estilizar la etiqueta body."
                 },
                 {
-                    cod:"a {} ... div {}  || se usa para...",
+                    cod: "a {} ... div {}  || se usa para...",
                     text: "Se usa para estilizar los elementos que están dentro de la etiqueta a, los div"
+                },
+                {
+                    cod: ".nombre_clase {}",
+                    text: "Estiliza a las etiquetas con className='nombre_clase'"
+                },
+                {
+                    cod: "#nombre_id {}",
+                    text: "Estiliza a las etiquetas con id='nombre_id'"
+                },
+                {
+                    cod: "Es importantisimo entender el orden de especificidad. #id es más específico que las .clases y este más específico que los selectores básicos",
+                    text: ""
+                }
+            ]
+        },
+        segundo: {
+            title: "Psedo selectores",
+            defBreve: "Son selectores de elementos, cuando cumplen una condición",
+            arrayCodigo: [
+                {
+                    cod: ":hover",
+                    text: "Se usa para estilizar cuando el mouse está sobre el elemento."
+                },
+                {
+                    cod: ":first-child",
+                    text: "Se usa para estilizar a los primeros elementos de una consecución de elementos. Por ejemplo, el primer li de un ol o un ul."
+                },
+                {
+                    cod: ":last-child",
+                    text: "Se usa para estilizar a los últimos elementos de una consecución de elementos. Por ejemplo, el último li de un ol o un ul."
+                },
+                {
+                    cod: "ol:nth-child(3)",
+                    text: "Se usa para estilizar al elemento n de una consecución de elementos. En este ejemplo, el tercer li de un ol"
+                },
+                {
+                    cod: ":only-child",
+                    text: "Se usa para estilizar al único elemento de una consecución de elementos. Por ejemplo, si un ol, tiene un único li."
+                },
+                {
+                    cod: ":link",
+                    text: "Se usa para estilizar los links"
+                },
+                {
+                    cod: ":visited",
+                    text: "Se usa para estilizar algún link que ya haya sido visitado."
+                }
+            ]
+        },
+        tercero: {
+            title: "Advanced selectores",
+            defBreve: "Son modificadores de las etiquetas que cumplan cierta condición en cuando al orden de aparición dentro del código html",
+            arrayCodigo: [
+                {
+                    cod: " input + button{}",
+                    text: "Se usa para estilizar a los botones que están inmediatamente después de un input. Nota: no importa que el botón esté fuera de la sección del input"
+                },
+                {
+                    cod: "input ~ button {}",
+                    text: "Se usa para estilizar a los botones, inmediatamente después de un input PERO, deben estar dentro de la misma sección, por ejemplo, que su contenedor padre sea el mismo form"
+                },
+                {
+                    cod: "ul > li {}",
+                    text: "Estiliza a las etiquetas li, pero solo a la que son hijas directas del ul"
+                },
+                {
+                    cod: "ul li {}",
+                    text: "Estiliza a las etiquetas li dentro de ul. Sean li hijas directas o indirectas"
+                }
+            ]
+        },
+        cuarto: {
+            title: "ATRIBUTE selectores",
+            defBreve: "Son modificadores de todos los elementos sin clases ni id's",
+            arrayCodigo: [
+                {
+                    cod: "img[src^='/rootpath'] {}",
+                    text: "va a cambiar todas las imagenes que empiezan por esa ruta '/rootpath'"
+                },
+                {
+                    cod: "img[src$='/rootpath'] {}",
+                    text: " va a cambiar todas las imagenes que terminan por esa ruta"
+                },
+                {
+                    cod: "img[src*='/rootpath'] {}",
+                    text: " va a cambiar todas las imagenes que pasan por esa ruta"
+                },
+                {
+                    cod: "h2[className~= segunda_palabra] {}",
+                    text: " va a cambiar todos los h2 que tengan un espacio y una segunda_palabra"
+                },
+                {
+                    cod: "h2[className|= primera_palabra] {} va a cambiar todos los h2 que tengan un espacio y una primera_palabra",
+                    text: " va a cambiar todos los h2 que tengan un espacio y una primera_palabra"
                 }
             ]
         }
     }
     return (
         <div className="cuerpo">
-             
-            <div className="marco"><h4>Clases e ID's</h4>
-                <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(1)} ><h5>EJEMPLOS: </h5></a>
-                {open[1]? 
-                <div>
-                    <ul>
-                        <li><b>.nombre_clase {"{}"}</b> || Se usa para... </li>
-                        <li><b>#nombre_id {"{}"}</b> || se usa para...</li>
-                    </ul>
-                Es importantisimo entender el orden de especificidad. #id es más específico que las .clases y este más específico que los selectores básicos
-            </div>:null }
-            </div>
-            <div className="marco"><h4>Psedo selectores</h4>
-                <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(2)} ><h5>EJEMPLOS: </h5></a>
-                {open[2]? 
-                <div>
-                    <ul> 
-                        <li><b>:hover</b> || Se usa para... </li>
-                        <li><b>:first-child</b> || se usa para...</li>
-                        <li> <b>:last-child</b> || se usa para...</li>
-                        <li><b>:nth-child(2)</b> || se usa para ...</li>
-                        <li><b>:only-child</b> ||| se usa para...</li>
-                        <li> <b>:link</b> || se usa para...</li>
-                        <li> <b>:visited</b> || se usa para ...</li>
-                    </ul>
-                </div> :null}
-                </div>
-            <div className="marco"><h4>Advanced selectores</h4>
-                <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(3)}><h5>EJEMPLOS: </h5></a>
-                {open[3]? 
-                <div>
-                    <ul>
-                        <li><b>input + button{"{}"}</b> a button immediately after an input, could be from different sections</li>
-                        <li><b>input ~ button {"{}"}</b> a button inmediatly after an input BUT inside the same section</li>
-                        <li><b>ul {">"} li {"{}"}</b> all direct childs of ul</li>
-                        <li><b>ul li - {"{}"}</b> all li childs of an ul, direct or indirect</li>
-                    </ul>
-                </div>: null}
-                </div>
-            <div className="marco">
-                <h4>ATRIBUTE selectores</h4>
-                <div>Son modificadores de...</div>
-                <a href onClick={() => abrirCerrar(4)}><h5>EJEMPLOS: </h5></a>
-                {open[4]? 
-                <div>
-                    <ul>
-                        <li><b>h2[className=marco] {"{}"}</b> y no hará casi nada pero veamos otro ejemplo</li>
-                        <li><b>img[src^="/rootpath"] {"{}"}</b> va a cambiar todas las imagenes que empiezan por esa ruta</li>
-                        <li><b>img[src$="/rootpath"] {"{}"}</b> va a cambiar todas las imagenes que terminan por esa ruta</li>
-                        <li><b>img[src*="/rootpath"] {"{}"}</b> va a cambiar todas las imagenes que pasan por esa ruta</li>
-                        <li><b>h2[className~= segunda_palabra] {"{}"} </b> va a cambiar todos los h2 que tengan un espacio y una segunda_palabra</li>
-                        <li><b>h2[className|= primera_palabra] {"{}"}</b> va a cambiar todos los h2 que tengan un espacio y una primera_palabra</li>
-                    </ul>
-                </div> :null}
-            </div>
+            <DetallesSubtema
+                title={detalles.primero.title}
+                defBreve={detalles.primero.defBreve}
+                arrayCodigo={detalles.primero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
         </div>
     )
 }

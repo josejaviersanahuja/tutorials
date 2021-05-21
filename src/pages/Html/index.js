@@ -6,6 +6,7 @@ import BasicTags from './BasicTags'
 import AdvancedTags from './AdvancedTags';
 import Form from './Form';
 import DetallesSubtema from 'components/DetallesSubtema';
+import useSeo from 'hooks/useSeo';
 
 export default function Html() {
     return (
@@ -28,6 +29,8 @@ function Child() {
     // the dynamic pieces of the URL.
     let { id } = useParams();
     
+    const title=`Tutorial Html ${id} || by ZitrojjDev`
+    useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="Basic-tags"? <BasicTags/>: null }
@@ -38,6 +41,9 @@ function Child() {
   }
 
   function WelcomeHTML() {
+    const title="Tutorial Html || by ZitrojjDev"
+    useSeo({title})
+    
       return (
           <>
           <h3>Bienvenido al curso de HTML.</h3>

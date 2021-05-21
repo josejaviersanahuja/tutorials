@@ -4,6 +4,7 @@ import { Switch, Route, useParams} from "react-router-dom";
 import 'App.css';
 import IniciosReact from './IniciosReact';
 import DetallesSubtema from 'components/DetallesSubtema'
+import useSeo from 'hooks/useSeo';
 
 export default function ReactPage() {
     return (
@@ -25,7 +26,8 @@ function Child() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
     let { id } = useParams();
-    
+    const title=`Tutorial React ${id} || by ZitrojjDev`
+    useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="inicios"? <IniciosReact/>: null }
@@ -35,6 +37,9 @@ function Child() {
   }
 
   function WelcomeReact() {
+    const title="Tutorial React || by ZitrojjDev"
+    useSeo({title})
+    
       return (<>
         <h3>Bienvenido al curso de React.</h3>
         <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar
