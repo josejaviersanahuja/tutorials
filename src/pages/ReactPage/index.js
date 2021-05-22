@@ -10,7 +10,7 @@ export default function ReactPage() {
     return (
         <>
             <h2>
-                Esta es la pag React
+            Apuntes del tutorial de React
                 <p><a href="https://www.youtube.com/watch?v=T_j60n1zgu0" target="_blank" rel="noreferrer">Link del curso.</a></p>
             </h2>
             

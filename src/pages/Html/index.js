@@ -12,7 +12,7 @@ export default function Html() {
     return (
         <>
             <h2>
-                Esta es la pag HTML
+            Apuntes del tutorial de HTML
                 <p><a href="https://www.youtube.com/watch?v=pQN-pnXPaVg&t=88s" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h2>
             

@@ -15,7 +15,7 @@ export default function Csstutorial() {
     return (
         <>
             <h2>
-                Esta es la pag CSS
+            Apuntes del tutorial de CSS
                 <p><a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=1" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h2>
             

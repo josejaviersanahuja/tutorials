@@ -10,7 +10,7 @@ export default function Sass() {
     return (
         <>
             <h2>
-                Esta es la pag Sass
+            Apuntes del tutorial de Sass
                 <p><a href="https://www.youtube.com/watch?v=_a5j7KoflTs" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h2>
             

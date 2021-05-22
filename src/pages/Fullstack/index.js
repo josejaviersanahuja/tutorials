@@ -13,7 +13,7 @@ export default function Fullstack() {
     return (
         <>
             <h2>
-                Esta es la pag HTML
+                Apuntes del tutorial de FullStack
                 <p><a href="https://fullstackopen.com/es/about" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h2>
             
