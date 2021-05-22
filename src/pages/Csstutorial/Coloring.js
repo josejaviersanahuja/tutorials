@@ -48,11 +48,11 @@ export default function Selector() {
     defBreve:"Una imagen background se puede añadir con una url",
     arrayCodigo:[
         {
-            cod:"background:url('https://th.bing.com/th/id/OIP.Hlx_5IVMuFs2PWRqnI_C8gHaHX?w=184&h=184&c=7&o=5&pid=1.7');",
+            cod:"background: url ('https://ejemplo.com');",
             text: "Esto pintará el background con la imagen de esa url"
         },
         {
-            cod:"background-image:url('../imagenes/logo.jpg');",
+            cod:"background-image: url ('../imagenes/logo.jpg');",
             text: "Esto pintará el background con la foto de la url local"
         },
         {
@@ -120,16 +120,16 @@ export default function Selector() {
         <a href onClick={() => abrirCerrar(4)} ><h5>EJEMPLOS: </h5></a>
         {open[4] ?
           <><div id="gradient">
-            Normal gradient <b>{"background:linear-gradient(to right, red, blue, yellow)"}</b>
+            Normal gradient <b>{"background : linear-gradient (to right, red, blue, yellow)"}</b>
           </div>
           <div id="gradient2">
-            Transparent diagonal gradient <b>{"#gradient2 {background: linear-gradient(to bottom right, rgb(255,0,0),rgba(255,0,0,0) ); height: 2rem;}"}</b>
+            Transparent diagonal gradient <b>{"#gradient2 {background: linear-gradient (to bottom right, rgb(255,0,0),rgba(255,0,0,0) ); height: 2rem;}"}</b>
           </div>
           <div id="gradient3">
-            Transparent gradient -60 grados de dirección <b>{"#gradient3 {background: linear-gradient(-60deg, rgb(0,0,255),rgba(0,0,255,0) ); height: 2rem;}"}</b>
+            Transparent gradient -60 grados de dirección <b>{"#gradient3 {background: linear-gradient (-60deg, rgb(0,0,255),rgba(0,0,255,0) ); height: 2rem;}"}</b>
           </div>
           <div id="gradient4">
-            Transparent radial gradient de adentro hacia afuera y elipse por defecto <b>{"#gradient4 { background: radial-gradient(circle, rgba(0,255,0,0) 30%, rgb(0,255,0), rgb(0,150,255));  height: 5rem;}"}</b>
+            Transparent radial gradient de adentro hacia afuera y elipse por defecto <b>{"#gradient4 { background: radial-gradient (circle, rgba(0,255,0,0) 30%, rgb(0,255,0), rgb(0,150,255));  height: 5rem;}"}</b>
           </div></> : null}
       </div>
     </div>
