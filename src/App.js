@@ -10,6 +10,7 @@ import Sass from 'pages/Sass';
 import ReactPage from 'pages/ReactPage'
 import Fullstack from 'pages/Fullstack';
 import useClassNames from 'hooks/useClassNames';
+import Git from 'pages/Git';
 
 function App() {
 
@@ -33,6 +34,7 @@ console.log(classNameBTN);
           <Route path="/sass" ><Sass /></Route>
           <Route path="/react" ><ReactPage /></Route>
           <Route path="/fullstack" ><Fullstack /></Route>
+          <Route path="/git" ><Git /></Route>
         </Switch>
 
         <div className="menu">

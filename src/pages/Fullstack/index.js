@@ -7,6 +7,7 @@ import NodejsExpress from './NodejsExpress';
 import DeployHeroku from './DeployHeroku';
 import MongoDB from './MongoDB';
 import useSeo from 'hooks/useSeo';
+import JestTesting from './JestTesting';
 
 
 export default function Fullstack() {
@@ -35,7 +36,8 @@ function Child() {
         <h3>{id}</h3>
         {id==="Nodejs Y Express"? <NodejsExpress/>: null }
         {id==="Middleware y Deploy"? <DeployHeroku/> :null} 
-        {id==="MongoDB"? <MongoDB/> : null}             
+        {id==="MongoDB"? <MongoDB/> : null}   
+        {id==="Jest-testing"? <JestTesting/> : null}            
         </>
     );
   }

@@ -6,14 +6,16 @@ const htmlMenu = ["Basic-tags", "Advanced-tags", "Form"]
 const cssMenu = ["Selectors", "Coloring", "Unit-types", "Text-manipulation", "Layouts", "Grid","Transition-property", "Tricks"]
 const sassMenu =["Variables_Funciones"]
 const reactMenu=["inicios"]
-const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB"]
+const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB","Jest-testing"]
+const gitMenu=["SSH-keys"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
     ["Css", cssMenu],
     ["Sass", sassMenu],
     ["React", reactMenu],
-    ["Fullstack",fullstackMenu ]
+    ["Fullstack",fullstackMenu ],
+    ["Git", gitMenu]
 ]
 
 export default function Menu({handleClick}) {

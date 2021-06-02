@@ -247,6 +247,10 @@ a:hover {
   animation: submenu;
   animation-duration: 0.5s;
 }
+
+.efecto__animacion__contenido li{
+  padding-right: 0.5rem;
+}
 /*tarea, mirar modo movil, como cambiar el layout si 2 boxes colapsan*/
 .menu2{
   visibility: hidden;
