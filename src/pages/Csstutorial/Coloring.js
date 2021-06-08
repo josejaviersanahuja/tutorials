@@ -8,6 +8,7 @@ export default function Selector() {
   const detalles={
     primero:{
         title: "Tipos de Colores",
+        language:"css",
         defBreve:"Color by name, Hex code, Decimal code RGB. Al final de los apuntes, hay un link muy bueno para ver la tabla de colores ",
         arrayCodigo:[
             {
@@ -28,6 +29,7 @@ export default function Selector() {
     segundo:{
       title: "Background colors",
       defBreve:"Background se puede añadir al body { background: aqua;}",
+      language:"css",
       arrayCodigo:[
           {
               cod:"body {background: aqua;}",
@@ -46,6 +48,7 @@ export default function Selector() {
   tercero:{
     title: "Background con imagenes",
     defBreve:"Una imagen background se puede añadir con una url",
+    language:"css",
     arrayCodigo:[
         {
             cod:"background: url ('https://ejemplo.com');",
@@ -76,6 +79,7 @@ export default function Selector() {
   cuarto:{
     title:"Transparencia u opacidad de Colores",
     defBreve:"Al Decimal code RGB puede añadirse un campo más. rgbA",
+    language:"css",
     arrayCodigo:[
       {
         cod:"{color: rgba(0,159,255,0)}",
@@ -98,22 +102,26 @@ export default function Selector() {
           title={detalles.primero.title} 
           defBreve={detalles.primero.defBreve} 
           arrayCodigo={detalles.primero.arrayCodigo}
+          language={detalles.primero.language}
           url={detalles.primero.url}
         />
       <DetallesSubtema 
                 title={detalles.segundo.title} 
                 defBreve={detalles.segundo.defBreve} 
                 arrayCodigo={detalles.segundo.arrayCodigo}
+                language={detalles.primero.language}
       />
       <DetallesSubtema 
                 title={detalles.tercero.title} 
                 defBreve={detalles.tercero.defBreve} 
                 arrayCodigo={detalles.tercero.arrayCodigo}
+                language={detalles.primero.language}
       />
       <DetallesSubtema 
                 title={detalles.cuarto.title} 
                 defBreve={detalles.cuarto.defBreve} 
                 arrayCodigo={detalles.cuarto.arrayCodigo}
+                language={detalles.primero.language}
       />
       <div className="marco"><h4>Gradiants de Colores</h4>
         <div>Es una degradación de colores <b>{"background:linear-gradient(to right, red, blue, yellow)"}</b></div>
