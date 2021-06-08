@@ -1,4 +1,5 @@
 import React from 'react'
+
 import useAbrirCerrar from 'hooks/useAbrirCerrar'
 
 export default function DetallesSubtema({title, defBreve, arrayCodigo, url, video}) {

@@ -244,6 +244,8 @@ a:hover {
   
 }
 .efecto__animacion__contenido {
+  display: flex;
+  flex-direction: row;
   animation: submenu;
   animation-duration: 0.5s;
 }
@@ -480,6 +482,18 @@ iframe {
     .menu2__open ol :nth-child(6){
       transition-delay: 0.6s;  
     }
+    .menu2__open ol :nth-child(7){
+      transition-delay: 0.7s;  
+   }
+   .menu2__open ol :nth-child(8){
+     transition-delay: 0.8s;  
+   }
+   .menu2__open ol :nth-child(9){
+    transition-delay: 0.9s;  
+ }
+ .menu2__open ol :nth-child(10){
+   transition-delay: 1s;  
+ }
     #a0 {
       animation: submenu;
       animation-duration: 0.5s;
@@ -511,6 +525,18 @@ iframe {
     #a7 {
       animation: submenu;
       animation-duration: 1.9s;
+    }
+    #a8 {
+      animation: submenu;
+      animation-duration: 2.1s;
+    }
+    #a9 {
+      animation: submenu;
+      animation-duration: 2.3s;
+    }
+    #a10 {
+      animation: submenu;
+      animation-duration: 2.4s;
     }
     iframe {
       width:330px;

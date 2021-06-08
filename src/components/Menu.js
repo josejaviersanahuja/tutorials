@@ -8,6 +8,8 @@ const sassMenu =["Variables_Funciones"]
 const reactMenu=["inicios"]
 const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB","Jest-testing"]
 const gitMenu=["SSH-keys"]
+const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
+const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -15,7 +17,9 @@ const menu = [
     ["Sass", sassMenu],
     ["React", reactMenu],
     ["Fullstack",fullstackMenu ],
-    ["Git", gitMenu]
+    ["Git", gitMenu],
+    ["NextJS/Typescript", nextMenu],
+    ["Webpack", webpackMenu]
 ]
 
 export default function Menu({handleClick}) {

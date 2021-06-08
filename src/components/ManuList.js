@@ -16,7 +16,7 @@ export default function ManuList({par, menuOpen, setOpenMenu,index, handleClick}
         temp[index]=false
         setOpenMenu(temp)
     }
-    console.log(menuOpen);
+   
     return (
         <li>
             <Link to={`/${par[0]}`} onClick={changeState}>{par[0]}</Link>

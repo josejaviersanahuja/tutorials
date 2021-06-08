@@ -11,11 +11,13 @@ import ReactPage from 'pages/ReactPage'
 import Fullstack from 'pages/Fullstack';
 import useClassNames from 'hooks/useClassNames';
 import Git from 'pages/Git';
+import NextConTypescript from 'pages/NextConTypescript';
+import Webpack from 'pages/Webpack';
 
 function App() {
 
   const {handleClick, classNameBTN, classNameBTNMenu, classNameMenu2} =useClassNames()
-console.log(classNameBTN);
+
   return (
     <Router>
       <div className="App">
@@ -35,6 +37,8 @@ console.log(classNameBTN);
           <Route path="/react" ><ReactPage /></Route>
           <Route path="/fullstack" ><Fullstack /></Route>
           <Route path="/git" ><Git /></Route>
+          <Route path="/nextjs/typescript"><NextConTypescript/></Route>
+          <Route path="/webpack"><Webpack/></Route>
         </Switch>
 
         <div className="menu">
