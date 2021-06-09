@@ -9,15 +9,21 @@ export default function Grid() {
         defBreve:"display:grid Va a generar un campo de grids para manipular. Solo hay subgrids en Mozilla Firefox Beta a día de 06/05/2021",
         arrayCodigo:[
             {
-                cod:"grid-template-rows y grid-template-columns",
+                cod:`grid-template-rows y grid-template-columns`,
                 text: "Establecer el número de columnas y filas"
             },
             {
-                cod:"grid-template-columns: repeat(11,1fr)",
+                cod:`body {
+  display:grid;
+  grid-template-columns: repeat(11,1fr);
+}`,
                 text: "establece 11 columnas iguales a 1/11vo de la pantalla"
             },
             {
-                cod:"grid-template-rows: auto auto",
+                cod:`body {
+  display:grid;
+  grid-template-rows: repeat(11,1fr);
+}`,
                 text: "establece la altura de las filas de forma automática"
             }
         ]
@@ -85,6 +91,7 @@ export default function Grid() {
           title={detalles.primero.title} 
           defBreve={detalles.primero.defBreve} 
           arrayCodigo={detalles.primero.arrayCodigo}
+          language="css"
       />
       <DetallesSubtema 
                 title={detalles.segundo.title} 

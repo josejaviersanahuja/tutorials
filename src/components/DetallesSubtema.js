@@ -31,7 +31,7 @@ export default function DetallesSubtema({ title, defBreve, arrayCodigo, url, vid
                                     </pre>
                                     )}
                                 </Highlight>
-                            || {e.text}
+                             {e.text}
                         </li>)}
                         {url ? <li>Para más información, visita este <a href={url} target="_blank" rel="noreferrer">link</a></li> : null}
                                 {video ? <li><video src={video} controls width="250">desierto</video></li> : null}
