@@ -9,15 +9,20 @@ export default function DeployHeroku() {
             defBreve:"Es una función o método en el que siempre entra a ejecutarse.",
             arrayCodigo:[
                 {
-                    cod:"app.use(path?, función)",
+                    cod:`app.use(path?, función)`,
                     text: "el path es solo si queremos que se ejecute para ciertos path. sin el path se ejecuta siempre. La función recibe de parámetros el request, el response y el next"
                 },
                 {
-                    cod:"(request, response, next) => {haga lo que haga. ya sea console.log(request.path) debe terminar en next()}",
+                    cod:`(request, response, next) => {
+    haga lo que haga. ya sea 
+    console.log(request.path) 
+    debe terminar en 
+    next()
+}`,
                     text: "Para lo que queramos que se use el middleware, debe terminar en next()"
                 },
                 {
-                    cod:"app.use(express.json())",
+                    cod:`app.use(express.json())`,
                     text: "Esto es un middleware, solo que express.json() ya incorpora todo lo que hay que hacer, hasta el next()"
                 }
             ]
@@ -41,11 +46,11 @@ export default function DeployHeroku() {
             defBreve:"Es un protocolo de comunicación del servidor. Con esto se establece con quienes puede comunicarse el servidor. Es complejo, solo veremos el caso de cómo dejar abierto nuestro servidor, y usaremos un middleware de EXPRESS para hacerlo",
             arrayCodigo:[
                 {
-                    cod:"npm install cors -E",
+                    cod:`npm install cors -E`,
                     text: "OJO. Es una dependencia de producción. Nota: el -E es para evitar el ^ en las dependencias"
                 },
                 {
-                    cod:"const cors = require('cors')",
+                    cod:`const cors = require('cors')`,
                     text: "Así lo importamos"
                 },
                 {
@@ -59,7 +64,8 @@ export default function DeployHeroku() {
             defBreve:"Heroku es un servicio de servidor gratuito para apps pequeñas y servidores pequeños. Soporta bien servicios Nodejs. Perfecto para nuestra API. Hay que descargar Heroku CLI en windows. Dejo el link al final de los apuntes",
             arrayCodigo:[
                 {
-                    cod:"Añadimos un archivo llamado Profile y añadimos la línea web: npm start",
+                    cod:`Añadimos un archivo llamado Profile y añadimos la línea 
+web: npm start`,
                     text: "Este es el archivo que le dirá a Heroku, qué servicio va a deployar y con qué comando lo hará"
                 },
                 {
