@@ -13,7 +13,7 @@ export default function Selector() {
                     text: "Se usa para estilizar la etiqueta body."
                 },
                 {
-                    cod: "a {} ... div {}  || se usa para...",
+                    cod: "a {} ... div {}",
                     text: "Se usa para estilizar los elementos que están dentro de la etiqueta a, los div"
                 },
                 {

@@ -68,7 +68,7 @@ export default function BasicTags() {
                     text: "Comentar un código html"
                 },
                 {
-                    cod:"<img src alt />",
+                    cod:`<img src="./img.jpg" alt="img" />`,
                     text: "Para importar imágenes "
                 },
                 {
@@ -88,11 +88,13 @@ export default function BasicTags() {
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
+                language="html"
             />
             <DetallesSubtema
                 title={detalles.segundo.title}
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
+                language="html"
             />
         </div>
     )

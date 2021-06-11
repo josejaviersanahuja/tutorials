@@ -21,7 +21,7 @@ export default function UnitTypes() {
                     text: "Ahora veremos un link tachado"
                 },
                 {
-                    cod: "Body {text-transform: uppercase;</b> }",
+                    cod: "Body {text-transform: uppercase; }",
                     text: "Transforma el texto en todas mayúsculas ."
                 },
                 {
@@ -100,16 +100,19 @@ export default function UnitTypes() {
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
+                language="css"
             />
             <DetallesSubtema
                 title={detalles.segundo.title}
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
+                language="css"
             />
             <DetallesSubtema
                 title={detalles.tercero.title}
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
+                language="css"
             />
             <DetallesSubtema
                 title={detalles.cuarto.title}

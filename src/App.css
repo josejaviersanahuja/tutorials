@@ -112,6 +112,8 @@ i:hover{
 }
 .menu>ol:first-child{
   padding-top:2rem ;
+  display: block;
+
 }
 .marco {
   border:1px solid #909090 ;
@@ -244,12 +246,15 @@ a:hover {
   
 }
 .efecto__animacion__contenido {
-  display: flex;
-  flex-direction: row;
+ 
   animation: submenu;
   animation-duration: 0.5s;
 }
+#highlighter {
+  display: block;
+  overflow-x: scroll;
 
+}
 .efecto__animacion__contenido li{
   padding-right: 0.5rem;
 }
@@ -553,12 +558,18 @@ iframe {
     width:300px;
     height: 170px ;
   }
+  #highlighter {
+    font-size: 1.1em;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   iframe {
     width:600px;
     height: 340px ;
+  }
+  #highlighter {
+    font-size: 1.2em;
   }
 }
 
@@ -571,7 +582,13 @@ iframe {
   .menu ol>li{
     font-size: 1.3em;
   }
-
+  #highlighter {
+    font-size: 1.3em;
+  }
+  .menu {
+    width: 300px;
+    transform: translateX(-285px);
+  }
 }
 @keyframes submenu {
   0% {
