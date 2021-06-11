@@ -64,6 +64,21 @@ export default function Trucos() {
                     text: "Esto va a hacer que los links dentro del nav, dejen de ser invisibles. y podremos ver e interactuar con los elementos"
                 }
             ]
+        },
+        tercero:{
+            title: "Botones con estilo.",
+            defBreve:"Les presento una página web que muestra varios botones con estilos comunes de donde poder sacar ideas.",
+            arrayCodigo:[
+                {
+                    cod:`boton:hover {
+    box-shadow: 0 6px 2px -4px rgba(0, 0, 0, 0.2),
+        0 4px 4px 0 rgba(0, 0, 0, 0.14),
+        0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}`,
+                    text: "Este efecto de botón elevado que es típico de google, se puede usar en varios sitios. Hay más que ver y aprender en el link de abajo."
+                }
+            ],
+            url:"https://entrellaves.com/css/botones-css-elegantes-y-accesibles/"
         }
     }
 
@@ -80,6 +95,13 @@ export default function Trucos() {
                 defBreve={trucos.segundo.defBreve} 
                 arrayCodigo={trucos.segundo.arrayCodigo}
                 language="css"
+            />
+            <DetallesSubtema 
+                title={trucos.tercero.title} 
+                defBreve={trucos.tercero.defBreve} 
+                arrayCodigo={trucos.tercero.arrayCodigo}
+                language="css"
+                url={trucos.tercero.url}
             />
         </div>
     )

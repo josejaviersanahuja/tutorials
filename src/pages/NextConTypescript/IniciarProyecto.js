@@ -10,7 +10,7 @@ export default function IniciarProyecto() {
             defBreve: "Así creamos un proyecto de NextJS. Muy similar a React en muchos sentidos. Nos centraremos en las diferencias y en la integración con Typescript",
             arrayCodigo: [
                 {
-                    cod: "|1| Crear archivo tsconfig.json vacío en el root del proyecto. |2| hacer un 'npm run dev' en consola",
+                    cod: "|1| Crear archivo tsconfig.json vacío en el root del proyecto. |2| npm run dev en consola",
                     text: "Automáticamente Next detecta lo que deseamos hacer y nos sugiere importar ciertas librerías y dependencias de nuestro proyecto."
                 },
                 {
@@ -22,7 +22,10 @@ export default function IniciarProyecto() {
                     text: "Muchas veces Next crea el proyecto sin el _app.tsx que nos permitirá crear una SPA."
                 },
                 {
-                    cod: "import { AppProps } from 'next/app'; function App({ Component, pageProps }: AppProps) { return <Component {...pageProps} /> }",
+                    cod: `import { AppProps } from 'next/app'; 
+function App({ Component, pageProps }: AppProps) { 
+    return <Component {...pageProps} /> 
+}`,
                     text: "Así debe inicializarse el archivo _app.tsx. Nota: Ya sabemos que aquí debemos indicar todos los componentes comunes a la SPA."
                 }
             ],
@@ -33,7 +36,19 @@ export default function IniciarProyecto() {
             defBreve: "Los estilos con NextJS tienen muchísimo potencial, porque uno puede añadir varias a la carta. Mostremos la forma de crear los estilos y usarlos.",
             arrayCodigo: [
                 {
-                    cod: "function Style(){ return ( <style jsx={true}>{' main { width:100%; height:100vh; text-align:center; margin-top: -10vh; padding: 10vh 0; } '} </style> ) }",
+                    cod: `function Style(){ 
+return ( 
+    <style jsx={true}>
+        {' main { 
+            width:100%; 
+            height:100vh; 
+            text-align:center; 
+            margin-top: -10vh; 
+            padding: 10vh 0; 
+          } 
+        '} 
+    </style> 
+) }`,
                     text: "No se si es buena práctica o no, pero creo una función de estilos dentro del componente con las etiquetas <style jsx={true}>. Recuerda que debes usar backticks"
                 },
                 {
