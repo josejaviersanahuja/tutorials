@@ -11,7 +11,7 @@ export default function AdvancedTags() {
         defBreve:"Como añadir un vídeo que tenemos guardado ",
         arrayCodigo:[
             {
-                cod:"<video src='' controls width='' poster='imgsrc' (loop or autoplay)",
+                cod:"<video src='' controls width='' poster='imgsrc' (loop or autoplay)/>",
                 text: "puedes cargar el vídeo "
             }
         ],
@@ -46,15 +46,15 @@ export default function AdvancedTags() {
         defBreve:"inputs, checkbox y mas",
         arrayCodigo:[
             {
-                cod:"<input type=''> types='password, date, range'",
+                cod:"<input type=''/> <!--types='password, date, range'-->",
                 text: "Si el type es password, sirve en log ins con password, type date es util para fechas, range puede poner una barra de rango"
             },
             {
-                cod:"<input type='' types='files, checkbox, radio'>",
+                cod:"<input type=''/> <!--types='files, checkbox, radio'-->",
                 text: "Puedes introducir un archivo, o un checkbox, radio con el mismo nombre es un checkbox excluyente. Para más input types, revisa el link al final de estos apuntes "
             },
             {
-                cod:"<textarea rows='5' cols='10'> {children} ",
+                cod:"<textarea rows='5' cols='10'/> {children} ",
                 text:"es un bloque para introducir texto, el children pude aparecer  "
             }
         ],
@@ -82,27 +82,32 @@ export default function AdvancedTags() {
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
                 video={detalles.primero.video}
+                language="html"
             />
             <DetallesSubtema
                 title={detalles.segundo.title}
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
+                language="html"
             />
             <DetallesSubtema
                 title={detalles.tercero.title}
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
+                language="html"
             />
             <DetallesSubtema
                 title={detalles.cuarto.title}
                 defBreve={detalles.cuarto.defBreve}
                 arrayCodigo={detalles.cuarto.arrayCodigo}
                 url={detalles.cuarto.url}
+                language="html"
             />
             <DetallesSubtema
                 title={detalles.quinto.title}
                 defBreve={detalles.quinto.defBreve}
                 arrayCodigo={detalles.quinto.arrayCodigo}
+                language="html"
             />
         </div>
     )
