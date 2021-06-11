@@ -5,6 +5,7 @@ import 'App.css';
 import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import SshKeys from './SshKeys';
+import PrimerosComandos from './PrimerosComandos'
 
 
 export default function Git() {
@@ -32,6 +33,7 @@ function Child() {
     return (<>
         <h3>{id}</h3>
         {id==="SSH-keys"? <SshKeys/>: null }
+        {id==="Primeros-Pasos"? <PrimerosComandos/>: null }
         </>
     );
   }
