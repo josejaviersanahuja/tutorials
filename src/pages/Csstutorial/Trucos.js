@@ -79,6 +79,24 @@ export default function Trucos() {
                 }
             ],
             url:"https://entrellaves.com/css/botones-css-elegantes-y-accesibles/"
+        },
+        cuarto:{
+            title: "Efecto blur.",
+            defBreve:"Cuando en un overflow scroll se pasa por detrás de un componente header con transparencia, podemos hacer que se vea con un efecto blur.",
+            arrayCodigo:[
+                {
+                    cod:`header {
+    position: fixed,
+    top:0;
+    height:2rem;
+    width:100vw;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(5px);
+    z-index:1;
+}`,
+                    text: "Los elementos que pasen detrás del header se verán con un efecto difuminado."
+                }
+            ]
         }
     }
 
