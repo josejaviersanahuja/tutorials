@@ -43,6 +43,87 @@ export default function TimeLine({ userName }: TimeLineProps): ReactElement {
                     text: "Lo interesante de esto, es cómo se devuelve una función dentro de una interface."
                 }
             ]
+        },
+        segundo : {
+            title: "Más Types en useState y handleSubmits",
+            defBreve:" Acumular experiencia para aprender más sobre typescript ",
+            arrayCodigo: [
+                {
+                    cod: `const [user, setUser] = useState<User | null | undefined>(undefined)`,
+                    text: "Previamente quedó definida la interfaz User"
+                },
+                {
+                    cod:`const handleSubmit: React.FormEventHandler<HTMLFormElement> = (
+    e: React.FormEvent<HTMLFormElement>
+    ): void => {
+        e.preventDefault()
+        setterState()
+    }`,
+                    text:"Este ejemplo muestra los types de un submit de un form."
+                },
+                {
+                    cod:` const handleInputClick : React.MouseEventHandler = (
+    e : React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+        const element = e.target as HTMLInputElement
+        element.value = ''
+    }`,
+                    text:"Este ejemplo es un uso que va más allá. No solo gestiona los typos de MouseEvent, también obtenemos un evento ligado a un elemento que puede ser abstracto y complejo, en este caso solo es un input type file, y a ese elemento podemos manipular su value."
+                }
+            ]
+        },
+        tercero : {
+            title: "Types con FIREBASE",
+            defBreve:" Acumular experiencia para aprender más sobre typescript ",
+            arrayCodigo: [
+                {
+                    cod: `interface sendTwitProps {
+    user: User;
+    textAreaValue: string;
+    imgURL?: string | null;
+}
+                      
+export const sendTwit = ({
+    user,
+    textAreaValue,
+    imgURL
+    }: sendTwitProps): 
+Promise<
+    firebase.firestore.DocumentReference<firebase.firestore.DocumentData>
+> => {
+    const twitToStore = {
+        user: user,
+        content: textAreaValue,
+        createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+        likes: 0,
+        shared: 0,
+        imgURL: imgURL
+    }
+        // console.log(twitToStore, 'en funcion en firebase client')
+    return db.collection('twits').add(twitToStore)
+}`,
+                    text: "Podemos definir correctamente todos los types de firebase ya que ellos lo proveen"
+                },
+                {
+                    cod:`export const uploadImage = (file : File) => {
+    const ref = file ? firebase.storage().ref('images/$ {file.name}') : null
+    const task : firebase.storage.UploadTask = ref.put(file)
+    return task
+}`,
+                    text:"Más de lo mismo."
+                },
+                {
+                    cod:` const getUser = (user: firebase.User): User => {
+    const username: string = user.displayName
+    // eslint-disable-next-line camelcase
+    const avatar: string = user.providerData[0].photoURL
+    const email: string = user.email
+    const id: string = user.uid
+    const result: User = { avatar, username, email, id }
+    return result
+}`,
+                    text:"Una vez recibimos el usuario autentificado con los servicios de firebase, podemos extraer la información que necesitamos de un objeto que nos devuelve firebase del tipo firebase.User."
+                }
+            ]
         }
     }
    
@@ -53,7 +134,16 @@ export default function TimeLine({ userName }: TimeLineProps): ReactElement {
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
             />
-            
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+            />
         </div>
     )
 }

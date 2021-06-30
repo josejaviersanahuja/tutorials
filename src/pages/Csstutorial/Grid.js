@@ -15,9 +15,9 @@ export default function Grid() {
             {
                 cod:`body {
   display:grid;
-  grid-template-columns: repeat(11,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }`,
-                text: "establece 11 columnas iguales a 1/11vo de la pantalla"
+                text: "Establece multiples columnas si hay espacio, o solo 1 si no hay espacio"
             },
             {
                 cod:`body {

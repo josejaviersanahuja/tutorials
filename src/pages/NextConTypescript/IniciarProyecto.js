@@ -33,27 +33,28 @@ function App({ Component, pageProps }: AppProps) {
         },
         segundo: {
             title: "Estilos en NextJS",
-            defBreve: "Los estilos con NextJS tienen muchísimo potencial, porque uno puede añadir varias a la carta. Mostremos la forma de crear los estilos y usarlos.",
+            defBreve: "Los estilos con NextJS tienen muchísimo potencial, porque uno puede añadir varias a la carta. Mostremos la forma de crear los estilos y usarlos. Para ello hay que importar css de styled-jsx/css.",
             arrayCodigo: [
                 {
-                    cod: `function Style(){ 
-return ( 
-    <style jsx={true}>
-        {' main { 
-            width:100%; 
-            height:100vh; 
-            text-align:center; 
-            margin-top: -10vh; 
-            padding: 10vh 0; 
-          } 
-        '} 
-    </style> 
-) }`,
-                    text: "No se si es buena práctica o no, pero creo una función de estilos dentro del componente con las etiquetas <style jsx={true}>. Recuerda que debes usar backticks"
+                    cod: `import css from 'styled-jsx/css'
+
+const componentStyle = css' 
+    main { 
+    width:100%; 
+    height:100vh; 
+    text-align:center; 
+    margin-top: -10vh; 
+    padding: 10vh 0; 
+    } 
+`,
+                    text: "Esta es una buena forma de separar el estilo del cuerpo del componente. PERO no permite introducir las variables JS para darle potencia al estilo jsx."
                 },
                 {
-                    cod: "<Style/>",
-                    text: "Añadimos Esta etiqueta al componente donde creamos la función. Otra gran propiedad de NextJS es que este estilo será único para ese componente. Next gestiona todos los className por ti."
+                    cod: `<style jsx>{componentStyle}</style>
+<style jsx>{'main {
+    background: $ {aqui si puede ir una variable JS en el cuerpo}
+}'}</style>`,
+                    text: "Añadimos esta etiqueta al componente donde creamos nuestro objeto componentStyle. Otra gran propiedad de NextJS es que este estilo será único para ese componente. Next gestiona todos los className por ti. y la segunda etiqueta, con estilos la uso para introducir los estilos dependientes de variables JS"
                 }
             ],
         },
@@ -68,6 +69,28 @@ return (
                 {
                     cod: "<Link><a>link</a></Link>",
                     text: "Debemos añadir la etiqueta <a> sin atributos."
+                },
+                {
+                    cod: `import {useRouter} from 'next/router'
+    const router = useRouter()`,
+                    text: "Así lo importamos y lo usamos. Ahora podemos usar el hook"
+                },
+                {
+                    cod: "router.replace('path') || router.push('path')",
+                    text: "Debemos escoger correctamente el método adecuado según lo que necesitemos."
+                },
+                {
+                    cod: `Como el sistema de rutas es por carpetas, una carpeta con ruta dinámica se declara de 2 formas posibles.
+    // 1
+    status/[id]/index.tsx
+    // 2
+    status/[id].tsx`,
+                    text: "Cualquier forma es válida para la fecha Octubre 2020."
+                },
+                {
+                    cod: `<Link href="status/[id]" as="status/$ {id}"><a>link</a></Link>
+    route.push('status/[id]', ''status/$ {id})`,
+                    text: "En rutas dinamicas debemos añadir los atributos as tanto al Link como al Hook router para que se comporte como un SPA."
                 }
             ],
         }
