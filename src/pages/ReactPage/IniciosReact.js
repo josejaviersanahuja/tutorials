@@ -1,6 +1,7 @@
 import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
+import PublishDay from 'components/PublishDay'
 
 export default function IniciosReact() {
     
@@ -10,16 +11,20 @@ export default function IniciosReact() {
             defBreve:"Estos son los 2 primeros comando que aprederemos. Empecemos...",
             arrayCodigo:[
                 {
-                    cod:"npx y npm es un gestor de paquetes que viene con nodejs",
+                    cod:"npx create-react-app name-app",
                     text: "npx ejecuta, npm descarga. npx ejecuta la creación del proyecto. npm descarga paquetes como npm start. se ve en las herramientas de desarrollo"
                 },
                 {
-                    cod:"yarn es lo mismo pero de facebook, no de Nodejs.",
-                    text: "yarn es una alternativa"
+                    cod:"npx create-react-app name-app --template redux.",
+                    text: "Esto va a crear un boilerplate para usar react con redux"
                 },
                 {
-                    cod:"pnpm es otra opcion...",
-                    text: ""
+                    cod:"npx create-react-app name-app --template typescript",
+                    text: "Esto va a crear un boilerplate para empezar a trabajar con typescript desde el principio."
+                },
+                {
+                    cod:"npm start",
+                    text: "Este es uno de los scripts que más usaremos, levanta un servidor en modo desarrollo que va a levantar nuestra APP."
                 }
             ]
         }
@@ -27,6 +32,7 @@ export default function IniciosReact() {
 
     return (
         <div className="cuerpo">
+            <PublishDay date="15/12/2020"/>
             <DetallesSubtema
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}

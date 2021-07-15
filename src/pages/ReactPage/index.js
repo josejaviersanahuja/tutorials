@@ -5,6 +5,7 @@ import 'App.css';
 import IniciosReact from './IniciosReact';
 import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
+import ReactReduxBasics from './ReactReduxBasics';
 
 export default function ReactPage() {
     return (
@@ -31,7 +32,7 @@ function Child() {
     return (<>
         <h3>{id}</h3>
         {id==="inicios"? <IniciosReact/>: null }
-       
+        {id==="react-redux-basics"? <ReactReduxBasics/>: null }
         </>
     );
   }

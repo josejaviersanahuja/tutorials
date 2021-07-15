@@ -1,11 +1,13 @@
 import React from 'react'
 import 'App.css'
 import useAbrirCerrar from 'hooks/useAbrirCerrar'
+import PublishDay from 'components/PublishDay'
 export default function TransitionProperty() {
     const { open, abrirCerrar } = useAbrirCerrar()
     
     return (
         <div className="cuerpo">
+            <PublishDay date="15/11/2020"/>
             <div className="marco"><h4>Transition</h4>
                 <div>Con <b>transition:</b> Podemos pasar una propiedad de un estado a otro en cuestión de tiempo. </div>
                 <a href onClick={() => abrirCerrar(0)} ><h5>EJEMPLOS: </h5></a>

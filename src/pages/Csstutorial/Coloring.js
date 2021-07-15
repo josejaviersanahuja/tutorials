@@ -2,6 +2,7 @@ import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
 import useAbrirCerrar from 'hooks/useAbrirCerrar'
+import PublishDay from 'components/PublishDay'
 
 export default function Selector() {
   const {open, abrirCerrar} = useAbrirCerrar()
@@ -98,6 +99,7 @@ export default function Selector() {
 }
   return (
     <div className="cuerpo">
+      <PublishDay date="15/11/2020"/>
        <DetallesSubtema 
           title={detalles.primero.title} 
           defBreve={detalles.primero.defBreve} 

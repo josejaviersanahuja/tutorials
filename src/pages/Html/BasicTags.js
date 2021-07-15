@@ -1,6 +1,7 @@
 import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
+import PublishDay from 'components/PublishDay'
 
 export default function BasicTags() {
     
@@ -84,6 +85,7 @@ export default function BasicTags() {
     }
     return (
         <div className="cuerpo">
+            <PublishDay date="15/10/2020"/>
             <DetallesSubtema
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}

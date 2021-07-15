@@ -1,6 +1,7 @@
 import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
+import PublishDay from 'components/PublishDay'
 export default function Trucos() {
  
    const trucos={
@@ -102,6 +103,7 @@ export default function Trucos() {
 
     return (
         <div className="cuerpo">
+            <PublishDay date="15/11/2020"/>
             <DetallesSubtema 
                 title={trucos.primero.title} 
                 defBreve={trucos.primero.defBreve} 

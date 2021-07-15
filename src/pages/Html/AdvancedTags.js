@@ -2,6 +2,7 @@ import React from 'react'
 import 'App.css'
 import desierto from 'video/desierto.mp4'
 import DetallesSubtema from 'components/DetallesSubtema'
+import PublishDay from 'components/PublishDay'
 
 export default function AdvancedTags() {
     
@@ -77,6 +78,7 @@ export default function AdvancedTags() {
 }
     return (
         <div className="cuerpo">
+            <PublishDay date="15/10/2020"/>
             <DetallesSubtema
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}

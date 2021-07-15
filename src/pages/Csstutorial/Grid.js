@@ -1,6 +1,7 @@
 import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
+import PublishDay from 'components/PublishDay'
 export default function Grid() {
   
   const detalles={
@@ -87,6 +88,7 @@ export default function Grid() {
 }
   return (
     <div className="cuerpo">
+      <PublishDay date="15/11/2020"/>
      <DetallesSubtema 
           title={detalles.primero.title} 
           defBreve={detalles.primero.defBreve} 
