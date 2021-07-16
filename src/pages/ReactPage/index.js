@@ -6,6 +6,7 @@ import IniciosReact from './IniciosReact';
 import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
 import ReactReduxBasics from './ReactReduxBasics';
+import ReactReduxAdvanced from './ReactReduxAdvanced';
 
 export default function ReactPage() {
     return (
@@ -33,6 +34,7 @@ function Child() {
         <h3>{id}</h3>
         {id==="inicios"? <IniciosReact/>: null }
         {id==="react-redux-basics"? <ReactReduxBasics/>: null }
+        {id==="modern-redux"? <ReactReduxAdvanced/>: null }
         </>
     );
   }
