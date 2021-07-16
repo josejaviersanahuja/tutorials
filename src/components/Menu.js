@@ -4,7 +4,7 @@ import MenuList from 'components/ManuList'
 const homeMenu = []
 const htmlMenu = ["Basic-tags", "Advanced-tags", "Form"]
 const cssMenu = ["Selectors", "Coloring", "Unit-types", "Text-manipulation", "Layouts", "Grid","Transition-property", "Tricks"]
-const sassMenu =["Variables_Funciones"]
+const sassMenu =["Variables_Funciones", "modern-sass"]
 const reactMenu=["inicios","react-redux-basics","modern-redux"]
 const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB","Jest-testing"]
 const gitMenu=["SSH-keys", "Primeros-Pasos"]

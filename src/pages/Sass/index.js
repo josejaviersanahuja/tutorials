@@ -3,6 +3,7 @@ import React from 'react'
 import { Switch, Route, useParams} from "react-router-dom";
 import 'App.css';
 import VariablesFunciones from './VariablesFunciones';
+import ModernSassCompile from './ModernSassCompile'
 import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 
@@ -32,7 +33,7 @@ function Child() {
     return (<>
         <h3>{id}</h3>
         {id==="Variables_Funciones"? <VariablesFunciones/>: null }
-       
+        {id==="modern-sass"? <ModernSassCompile/>: null }
         </>
     );
   }
