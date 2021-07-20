@@ -7,7 +7,7 @@ export default function ReactSuspense() {
     
     const detalles={
         primero:{
-            title: "Intersection Observer",
+            title: "Lazy-load con IntersectionObserver",
             defBreve:"La finalidad de esta sección es conseguir un LazyLoad. Para ello debemos usar React.Lazy, Suspense y un Intersection Observer. Empecemos por crear un hook que llamaremos isNearScreen donde llamaremos al intersection observer",
             arrayCodigo:[
                 {
