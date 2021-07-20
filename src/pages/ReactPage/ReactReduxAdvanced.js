@@ -80,7 +80,7 @@ export const store = configureStore({
     }
 })
 
-export type AddDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
 `,
                     text: "Como adelanté antes, no solo creamos el store, ya viene por defecto con thunk middleware y ahora somos agnósticos a este middleware. combineReducers ya no es necesario. y los export types son una maravilla."

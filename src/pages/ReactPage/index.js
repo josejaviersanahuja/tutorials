@@ -7,6 +7,8 @@ import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
 import ReactReduxBasics from './ReactReduxBasics';
 import ReactReduxAdvanced from './ReactReduxAdvanced';
+import ReactSuspense from './ReactSuspense';
+import ReactTricks from './ReactTricks';
 
 export default function ReactPage() {
     return (
@@ -35,6 +37,8 @@ function Child() {
         {id==="inicios"? <IniciosReact/>: null }
         {id==="react-redux-basics"? <ReactReduxBasics/>: null }
         {id==="modern-redux"? <ReactReduxAdvanced/>: null }
+        {id==="Lazy-Load"? <ReactSuspense/>: null }
+        {id==="Tricks"? <ReactTricks/>: null }
         </>
     );
   }

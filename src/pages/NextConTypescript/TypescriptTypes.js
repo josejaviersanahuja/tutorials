@@ -125,6 +125,23 @@ Promise<
                     text:"Una vez recibimos el usuario autentificado con los servicios de firebase, podemos extraer la información que necesitamos de un objeto que nos devuelve firebase del tipo firebase.User."
                 }
             ]
+        },
+        cuarto:{
+            title: "Types useRef",
+            defBreve:" Hay 2 formas de usar referencias. Las referencias que usamos para detectar un elemento del DOM (HTML ref properties) o las referencias que son datos, constantes o variables que nos interesan que se salven tras cada renderizado.",
+            arrayCodigo: [
+                {
+                    cod:`const referencia = useRef<boolean>(false)`,
+                    text:"Esto hará que referencia.current sea del type boolean"
+                },
+                {
+                    cod:`const referencia = useRef<HTMLHeadingElement>(null)
+
+<div ref={referencia} > objeto div referenciado </div>
+`,
+                    text:"Esto hará que referencia sea del type que se le pueda asignar a un elemento HTML"
+                }
+            ]
         }
     }
    
