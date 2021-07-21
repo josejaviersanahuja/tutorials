@@ -4,7 +4,7 @@
 
 <br/>
 
-<blockquote>" Intentar explicar es una de las mejores formas de aprender"</blockquote> 
+<blockquote><i>" Intentar explicar es una de las mejores formas de aprender"</i></blockquote> 
 
 <br/>
 
@@ -36,7 +36,7 @@
 <ol>Los componentes que están en la carpeta componentes.
     <li>Añadir en el componente un nuevo Menu ó Submenú. <img alt="fotoMenu" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F1.jpg?alt=media&token=cdc00f44-bf86-49ae-95ca-d6dac1dce618"/></li>
     <li>Si deseas crear un tutorial nuevo, revisa la carpeta pages y si sigue su formato, y estudia a fondo el index.js de cualquier página. Crea tu carpeta nueva, y tu index nuevo. Si solo deseas añadir un submenú (un tema que encaje bien en algún tema principal descrito en el menú) entonces, asegurate de colocarlo dentro de la función Child dentro del index.js de la carpeta asociada al menú. <img alt="foto-submenu" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F2.jpg?alt=media&token=b6f78711-6a40-4ade-8dc7-6eecded0140e" /></li>
-    <li>Añade en App.js la nueva ruta.  Si has añadido un nuevo temario o menú completo.</li>
+    <li>Añade en App.js la nueva ruta, si es que has añadido un nuevo temario o menú completo.</li>
     <li>Para crear el contenido de cada subtema, estudia el componente DetallesSubtema.js y sigue su formato para que no se rompan los estilos. Deberás crear un archivo de la siguiente forma. <img alt="foto-subtema" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F3.jpg?alt=media&token=84a703f0-840c-4dca-8884-c7490c79e465" /></li>
     <li>Solicita PR cuando quieras. ¿Qué sacas de todo esto? El proyecto está deployado y podrás consultar tus apuntes desde el móvil o PC.</li>
     <li>Gracias de antemano si decides colaborar.</li>
