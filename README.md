@@ -1,78 +1,43 @@
-# Si te gusta mi contenido, y deseas añadir apuntes, te recomiendo que estudies 4 componentes nada más.
+<h1> Tutorial No es un blog. Es una App de apuntes. </h1>
 
-Los componentes que están en la carpeta componentes.
-1) Añadir en el componente Menu, cualquier menú adicional, y anteriormente el submenu.
-2) Si deseas crear un tutorial nuevo, revisa la carpeta pages y si sigue su formato, y estudia a fondo el index.js de cualquier página. Crea tu carpeta nueva, y tu index nuevo
-3) Añade en App.js la nueva ruta.
-4) Para crear el contenido de cada subtema, estudia el componente DetallesSubtema.js y sigue su formato para que no se rompan los estilos.
-5) Gracias de antemano si decides colaborar.
-# Getting Started with Create React App
+<p> La mejor forma de aprender contenido nuevo, al menos me funciona a mi, es intentar duplicar el contenido como si de una clase o explicación se  tratase. Es muy probable, que mucho del contenido que aquí expongo, tenga errores conceptuales, pero los códigos funcionan y son duplicables. Eso significa que con la práctica, los problemas conceptuales desaparecerán con el tiempo.</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+<blockquote>" Intentar explicar es una de las mejores formas de aprender"</blockquote> 
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+<p>Esta APP ya está deployada y activa. Puedes ver la página <a href="https://tutorials-vert.vercel.app/" target="_blank">aquí</a></p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p><b>Quiero invitarte a que tomes apuntes en esta APP y me solicites un PULL REQUETS</b></p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p>Intentaré guiarte cómo trabajar con esta APP</p>
 
-### `npm test`
+<h2>Instalación</h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p>Esta es la típica app creada con <i>npx create-react-app my-app</i> por tanto, hay que seguir las instrucciones básicas de instalación.</p>
 
-### `npm run build`
+<h3>Requisitos: <small>NODE JS y conocimientos básicos, MUY básicos de REACT y GIT</small></h3>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<ol>
+    <li>Clonas el proyecto</li>
+    <li>Abres la consola en la root del proyecto</li>
+    <li><i>npm i</i> // Para instalar las dependencias</li>
+    <li><i>npm start</i> // Para ejecutar la App en modo desarrollo</li>
+    <li>Ahora abre el navegador, y tu editor de texto y ya puedes aportar a este proyecto.</li>
+</ol>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2>¿Cómo agregar nuevos menús y/o submenús?</h2>
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>Mejor ilustramos los componentes que debes tocar para añadirlos.</p>
+<ol>Los componentes que están en la carpeta componentes.
+    <li>Añadir en el componente un nuevo Menu ó Submenú. <img alt="fotoMenu" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F1.jpg?alt=media&token=cdc00f44-bf86-49ae-95ca-d6dac1dce618"/></li>
+    <li>Si deseas crear un tutorial nuevo, revisa la carpeta pages y si sigue su formato, y estudia a fondo el index.js de cualquier página. Crea tu carpeta nueva, y tu index nuevo. Si solo deseas añadir un submenú (un tema que encaje bien en algún tema principal descrito en el menú) entonces, asegurate de colocarlo dentro de la función Child dentro del index.js de la carpeta asociada al menú. <img alt="foto-submenu" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F2.jpg?alt=media&token=b6f78711-6a40-4ade-8dc7-6eecded0140e" /></li>
+    <li>Añade en App.js la nueva ruta.  Si has añadido un nuevo temario o menú completo.</li>
+    <li>Para crear el contenido de cada subtema, estudia el componente DetallesSubtema.js y sigue su formato para que no se rompan los estilos. Deberás crear un archivo de la siguiente forma. <img alt="foto-subtema" src="https://firebasestorage.googleapis.com/v0/b/twitter-clone-d82aa.appspot.com/o/images%2F3.jpg?alt=media&token=84a703f0-840c-4dca-8884-c7490c79e465" /></li>
+    <li>Solicita PR cuando quieras. ¿Qué sacas de todo esto? El proyecto está deployado y podrás consultar tus apuntes desde el móvil o PC.</li>
+    <li>Gracias de antemano si decides colaborar.</li>
+</ol>

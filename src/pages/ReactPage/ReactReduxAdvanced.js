@@ -171,7 +171,8 @@ export const dogsApiSlice = createApi({
              fetchBreeds: builder.query<Breed[], number|void>({
               query(limit = 10) {
                 return '/breeds?limit=$ {limit}'
-              } 
+              },
+              keepUnusedDataFor:2 // Por defecto es 60, guarda en caché el resultado del fetch y evita un nuevo fetch. 
              })
         }
     }
@@ -179,7 +180,7 @@ export const dogsApiSlice = createApi({
 
 export const { useFetchBreedsQuery } = dogsApiSlice
 `,
-                    text:"Un stateSlice sincrono, sería de la forma {name, initialstate, reducers}. Un apiSlice sería de la forma {reducerPath, baseQuery, endpoints}. Pero hay que añadir un nuevo hook inteligente y customizado (useFetchBreedsQuery)."
+                    text:"Un stateSlice sincrono, sería de la forma {name, initialstate, reducers}. Un apiSlice sería de la forma {reducerPath, baseQuery, endpoints}. Pero hay que añadir un nuevo hook inteligente y customizado (useFetchBreedsQuery). El cacheo del dato se puede customizar con la propiedad keepUnusedDataFor... el valor en segundos."
                 },
                 {
                     cod:`/*volvamos al archivo store y vamos a añadir un custom Middleware de nuestro apiSlice*/

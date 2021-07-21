@@ -1,5 +1,3 @@
-    // no lo dejé en este proyecto porque no soporta typescript pero la idea es estupenda
-    /*  */
     import React from 'react'
     import 'App.css'
     import DetallesSubtema from 'components/DetallesSubtema'
