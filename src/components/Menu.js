@@ -10,6 +10,7 @@ const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB","Jest-
 const gitMenu=["SSH-keys", "Primeros-Pasos","git-branches"]
 const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
 const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
+const nodejsMasterClass=["File-System","Z-Lib"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -19,7 +20,8 @@ const menu = [
     ["Fullstack",fullstackMenu ],
     ["Git", gitMenu],
     ["NextJS/Typescript", nextMenu],
-    ["Webpack", webpackMenu]
+    ["Webpack", webpackMenu],
+    ["NodeJS", nodejsMasterClass]
 ]
 
 export default function Menu({handleClick}) {

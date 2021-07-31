@@ -13,6 +13,7 @@ import useClassNames from 'hooks/useClassNames';
 import Git from 'pages/Git';
 import NextConTypescript from 'pages/NextConTypescript';
 import Webpack from 'pages/Webpack';
+import NodeJS from 'pages/NodeJS';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/git" ><Git /></Route>
           <Route path="/nextjs/typescript"><NextConTypescript/></Route>
           <Route path="/webpack"><Webpack/></Route>
+          <Route path="/nodejs"><NodeJS/></Route>
         </Switch>
 
         <div className="menu">
