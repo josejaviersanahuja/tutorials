@@ -10,7 +10,7 @@ const fullstackMenu=["Nodejs Y Express", "Middleware y Deploy", "MongoDB","Jest-
 const gitMenu=["SSH-keys", "Primeros-Pasos","git-branches"]
 const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
 const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
-const nodejsMasterClass=["File-System","Z-Lib"]
+const nodejsMasterClass=["File-System","Z-Lib","Server"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],

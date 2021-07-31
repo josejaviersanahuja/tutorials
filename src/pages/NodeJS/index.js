@@ -6,6 +6,7 @@ import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
 import FileSystem from './FileSystem';
 import Zlib from './Zlib';
+import BuildServer from './BuildServer';
 
 export default function NodeJS() {
     return (
@@ -33,6 +34,7 @@ function Child() {
         <h3>{id}</h3>
         {id==="File-System"? <FileSystem/>: null }
         {id==="Z-Lib"? <Zlib/>: null }
+        {id==="Server"? <BuildServer/>: null }
         </>
     );
   }
