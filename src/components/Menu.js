@@ -11,6 +11,7 @@ const gitMenu=["SSH-keys", "Primeros-Pasos","git-branches"]
 const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
 const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
 const nodejsMasterClass=["File-System","Z-Lib","Server"]
+const apicallsMenu =["Twilio","Verify-email"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -21,7 +22,8 @@ const menu = [
     ["Git", gitMenu],
     ["NextJS/Typescript", nextMenu],
     ["Webpack", webpackMenu],
-    ["NodeJS", nodejsMasterClass]
+    ["NodeJS", nodejsMasterClass],
+    ["Apicalls", apicallsMenu]
 ]
 
 export default function Menu({handleClick}) {

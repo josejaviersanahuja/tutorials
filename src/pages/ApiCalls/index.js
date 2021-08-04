@@ -1,0 +1,68 @@
+
+import React from 'react'
+import { Switch, Route, useParams} from "react-router-dom";
+import 'App.css';
+import DetallesSubtema from 'components/DetallesSubtema';
+import useSeo from 'hooks/useSeo';
+import Twilio from './Twilio';
+import VerifyEmail from './VerifyEmail';
+
+export default function ApiCalls() {
+    return (
+        <>
+            <h2>
+            Apuntes del tutorial de ApiCalls
+                <p>Apuntes de llamadas exitosas a API's importantes o útiles</p>
+            </h2>
+            
+            <Switch>
+            <Route path="/apicalls/:id" children={<Child />} />
+            <Route path="/apicalls" children={<WelcomeApiCalls />} />
+            </Switch>
+        </>
+    )
+}
+
+function Child() {
+    // We can use the `useParams` hook here to access
+    // the dynamic pieces of the URL.
+    let { id } = useParams();
+    
+    const title=`Apuntes de Api-calls ${id} || by ZitrojjDev`
+    useSeo({title})
+    return (<>
+        <h3>{id}</h3>
+        {id==="Twilio"? <Twilio/>: null }
+        {id==="Verify-email"? <VerifyEmail/>: null }
+        </>
+    );
+  }
+
+  function WelcomeApiCalls() {
+    const title="Apuntes de Api-calls || by ZitrojjDev"
+    useSeo({title})
+    
+      return (
+          <>
+          <h3>Bienvenido a los apuntes de llamas a API's.</h3>
+          <div className="cuerpo"> Seleccione en el menú de la izquierda lo que desee revisar
+          <DetallesSubtema 
+            title="Twilio, Stripe, NodeMailer, Mailgun "
+            defBreve="Todas estas API's son valiosas y las primeras llamadas a estas API's marcarán un antes y un después en el potencial y alcance de tus aplicaciones. Así que vamos a ello."
+            arrayCodigo={[]}
+            />
+            <p>
+            <iframe 
+            width="400" 
+            height="210" 
+            src="https://www.youtube.com/embed/o9eij8FEvuA" 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+            </iframe>
+            </p>
+          
+          </div>
+          </>
+      )
+  }

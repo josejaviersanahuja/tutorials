@@ -496,10 +496,18 @@ iframe {
    }
    .menu2__open ol :nth-child(9){
     transition-delay: 0.9s;  
- }
- .menu2__open ol :nth-child(10){
+  }
+  .menu2__open ol :nth-child(10){
    transition-delay: 1s;  
- }
+  }
+
+  .menu2__open ol :nth-child(11){
+    transition-delay: 1.1s;  
+  }
+  .menu2__open ol :nth-child(12){
+    transition-delay: 1.2s;  
+  }
+
     #a0 {
       animation: submenu;
       animation-duration: 0.5s;

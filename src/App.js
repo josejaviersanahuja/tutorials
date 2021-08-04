@@ -14,6 +14,7 @@ import Git from 'pages/Git';
 import NextConTypescript from 'pages/NextConTypescript';
 import Webpack from 'pages/Webpack';
 import NodeJS from 'pages/NodeJS';
+import ApiCalls from 'pages/ApiCalls';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/nextjs/typescript"><NextConTypescript/></Route>
           <Route path="/webpack"><Webpack/></Route>
           <Route path="/nodejs"><NodeJS/></Route>
+          <Route path="/apicalls"><ApiCalls/></Route>
         </Switch>
 
         <div className="menu">
