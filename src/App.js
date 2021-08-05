@@ -15,6 +15,7 @@ import NextConTypescript from 'pages/NextConTypescript';
 import Webpack from 'pages/Webpack';
 import NodeJS from 'pages/NodeJS';
 import ApiCalls from 'pages/ApiCalls';
+import Curl from 'pages/Curl';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/webpack"><Webpack/></Route>
           <Route path="/nodejs"><NodeJS/></Route>
           <Route path="/apicalls"><ApiCalls/></Route>
+          <Route path="/curl"><Curl/></Route>
         </Switch>
 
         <div className="menu">

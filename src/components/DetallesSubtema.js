@@ -8,7 +8,7 @@ export default function DetallesSubtema({ title, defBreve, arrayCodigo, url, vid
     return (
         <div className="marco"><h4>{title}</h4>
             <div > {defBreve}</div>
-            {arrayCodigo.length > 0 ? <a href onClick={() => abrirCerrar(0)} className="ejemplo"><h5>EJEMPLOS ó APUNTES: </h5></a> : null}
+            {arrayCodigo.length > 0 ? <button onClick={() => abrirCerrar(0)} className="ejemplo"><h5>EJEMPLOS ó APUNTES: </h5></button> : null}
             {open[0] ?
                 <div className="efecto__animacion__contenido">
                     <ul>

@@ -19,6 +19,20 @@ img {
 -moz-transform: ; */
     
 }
+.ejemplo {
+  cursor: pointer;
+  border-radius: 50%;
+}
+.ejemplo:hover {
+  box-shadow: 2px 2px 0 0 black;
+}
+.ejemplo:focus {
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 0 black;
+}
+.ejemplo:hover h5{
+  color: blue;
+}
 .boton:hover{
 background-color:lightblue;
 color: blue;
@@ -73,18 +87,17 @@ h4 {
 .menu {
   position: fixed;
   left: 0;
-  height: 90vh;
+  height: 100vh;
   width: 250px;
   font-family: 'Charm', cursive;
   font-weight: 700;
   font-size: 1.2em;
   text-align: start;
   background-color: rgba(64,64,64,0.8);
-  border-top-right-radius:50px;
-  border-bottom-right-radius:50px ;
-  transform: translateX(-235px);
-  margin: 2rem 0;
+  transform: translateX(-225px);
+  margin:0;
   transition: all 0.3s ease-in-out;
+  overflow-y: scroll;
 }
 i {
   padding: 0 1rem;
@@ -596,7 +609,9 @@ iframe {
   }
   .menu {
     width: 300px;
+    height: 100vh;
     transform: translateX(-285px);
+    margin:0;
   }
 }
 @keyframes submenu {
