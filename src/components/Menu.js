@@ -12,7 +12,7 @@ const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
 const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
 const nodejsMasterClass=["File-System","Z-Lib","Server"]
 const apicallsMenu =["Twilio","Verify-email"]
-const curlMenu = ["crashcourse"]
+const curlMenu = ["crashcourse","Comandos Populares"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],

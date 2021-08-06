@@ -5,6 +5,7 @@ import 'App.css';
 import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import CurlCourse from './CurlCourse';
+import CurlMostPopulars from './CurlMostPopulars';
 
 export default function Curl() {
     return (
@@ -32,6 +33,7 @@ function Child() {
     return (<>
         <h3>{id}</h3>
         {id==="crashcourse"? <CurlCourse/>: null }
+        {id==="Comandos Populares"? <CurlMostPopulars/>: null }
         </>
     );
   }

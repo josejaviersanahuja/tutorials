@@ -106,8 +106,40 @@ curl https://example.com/ --resolve example.com:443:127.0.0.1 // This would solv
 curl https://example.com/ --connect-to example.com:443:host.tld:8443 // This would solve the problem aswell
 `,
                     text:"Podemos probar nuestros servidores https en local con estos métodos de las dos últimas líneas. AVOID the -k"
+                },{
+                    cod:`// More Details, more options to check, is like a verbose but more info.
+    curl https://example.com/ -d sendthisdata --trace-ascii`,
+                    text:"Esto va a mostrar toda la información que curl manda y recibe."
+                },{
+                    cod:`//Extracting transfer meta-data
+--write-out (-w) is your friend
+--write-out 'text and %{variable}'
+//VARIABLES INCLUDED
+//content_type
+//http_version
+/remote_ip
+//local_ip
+//speed_download
+curl https://example.com/ -o saved -w '%{json}' | jq
+//response of metadata will come as a json`,
+                    text:"Esta es otra forma de buscar datos de las comunicaciones por si algo va mal."
+                },{
+                    cod:`//Lets BUILD a CLI for curls call
+curl https://example.com --libcurl courcecoe.c`,
+                    text:"Con este comando descargamos en formato txt todo el código fuente de una librería de curl. Así podríamos empezar a aprender como crear nuestras propias llamadas customizadas a modo de APP."
+                },{
+                    cod:`//MIMIC what browsers can do
+     `,
+                    text:"Se puede conseguir cuando entramos a las developer tools a la sección de network y damos click derecho a cualquier transmición de datos. Podemos encontrar la opción copy as y dentro ver que hay opciones de copiado en curl."
+                },{
+                    cod:`//Multiple Requests
+    curl -d user=daniel https://example.com https://another.example.com
+    //or
+    curl -d user=daniel https://example.com --next https://another.example.com`,
+                    text:"Hay diferencias en ambas líneas. En la primera hacemos 2 métodos POST donde pasamos el usuario daniel. En la segunda hacemos un POST y un GET. ¿Por qué? porque --next limpia por defecto las opciones de la llamada anterior."
                 }
-            ]
+            ],
+            url:"https://curl.haxx.se/book.html"
         }
     }
 
@@ -118,7 +150,7 @@ curl https://example.com/ --connect-to example.com:443:host.tld:8443 // This wou
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
-                
+                url={detalles.primero.url}
             />
         </div>
     )
