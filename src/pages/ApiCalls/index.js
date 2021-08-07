@@ -6,6 +6,8 @@ import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import Twilio from './Twilio';
 import VerifyEmail from './VerifyEmail';
+import Stripe from './Stripe';
+import Mailgun from './Mailgun';
 
 export default function ApiCalls() {
     return (
@@ -34,6 +36,8 @@ function Child() {
         <h3>{id}</h3>
         {id==="Twilio"? <Twilio/>: null }
         {id==="Verify-email"? <VerifyEmail/>: null }
+        {id==="Stripe"? <Stripe/>: null }
+        {id==="Mailgun"? <Mailgun/>: null }
         </>
     );
   }

@@ -11,7 +11,7 @@ const gitMenu=["SSH-keys", "Primeros-Pasos","git-branches"]
 const nextMenu=["Iniciar Proyecto", "Typescrip-Types"]
 const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
 const nodejsMasterClass=["File-System","Z-Lib","Server"]
-const apicallsMenu =["Twilio","Verify-email"]
+const apicallsMenu =["Twilio","Verify-email","Stripe","Mailgun"]
 const curlMenu = ["crashcourse","Comandos Populares"]
 const menu = [
     ["Home", homeMenu],

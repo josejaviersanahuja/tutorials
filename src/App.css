@@ -613,6 +613,9 @@ iframe {
     transform: translateX(-285px);
     margin:0;
   }
+  .App{
+    grid-template-columns: 230px repeat(9, 1fr) 230px
+  }
 }
 @keyframes submenu {
   0% {
