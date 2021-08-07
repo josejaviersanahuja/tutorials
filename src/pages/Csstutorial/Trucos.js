@@ -98,6 +98,89 @@ export default function Trucos() {
                     text: "Los elementos que pasen detrás del header se verán con un efecto difuminado."
                 }
             ]
+        },
+        quinto:{
+            title: "Z-INDEX.",
+            defBreve:"Saber usar el z-index es muy importante al momento de jugar con las animaciones básicas de toggle y scroll. Pero ¿sabes cómo se usa?",
+            arrayCodigo:[
+                {
+                    cod:`header {
+    /* position: fixed, */
+    z-index:1;
+}`,
+                    text: "Truco número 1, nunca nunca un z-index funcionará sin un position... ya sea fixed o relative o absolute, nunca funcionará sin esa propiedad."
+                },{
+                    cod:`// EL HTML ES FUNDAMENTAL PARA ENTENDER EL Z-INDEX.
+<div class="wrapper1">
+    <div class="object1"></div>
+    <div class="object2"></div>
+    <div class="object3"></div>
+</div>
+<div class="wrapper2">
+    <div class="item"></div>
+    <div class="item2"></div>
+    <div class="item3"></div>
+</div>
+// CSS
+.wrapper1 {
+    position:relative;
+    z-index:2
+}
+.wrapper2 {
+    position:relative;
+    z-index:1
+}
+`,
+                    text:"En este ejemplo wrapper1 y wrapper2 están en el mismo contexto, por tanto, todos los objects van a estar superpuestos a todos los items, aun si le pusieramos z-index:99999 a los items. OJO. veamoslo más detallado."
+                },{
+                    cod:`<div class="wrapper1">
+    <div class="object1"></div>
+</div>
+<div class="wrapper2">
+    <div class="item"></div>
+</div>
+// CSS
+.wrapper1 {
+    position:relative;
+    z-index:2
+}
+.wrapper2 {
+    position:relative;
+    z-index:1
+}
+.item {
+    position: relative;
+    z-index:99999
+}
+`,
+                    text:"Podría parecer que item quedaría superpuesto a todo lo demás... ERROR. como wrapper1 y wrapper2 son comparables y wrapper 1 está por encima de wrapper 2, el object 1 estará por encima de cualquier item dentro de wrapper2, aunque no tenga z-index."
+                }
+            ],
+            url:"https://www.youtube.com/watch?v=uS8l4YRXbaw"
+        },
+        sexto:{
+            title: "Toggle menus mobile first.",
+            defBreve:"Cuando desarrollamos mobile first, casi todo el diseño es muy sencillo, excepto el despliegue del menú. Hay 1 truco que uso para que el despliegue se haga bien sin romper ningún diseño.",
+            arrayCodigo:[
+                {
+                    cod:`.menu {
+    position: fixed;
+    inset:0; /*Si deseas que el menu ocupe toda la pantalla*/
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding:0;
+    transition: all 0.5s ease-in-out;
+    transform:translateX(100vw);
+}
+open {
+    transform:translateX(0);
+}
+`,
+                    text: "El menu cerrado estará haciendo display fuera de la pantalla, pero al abrirlo, ocupará toda la pantalla. Luego abría que limpiar cada propiedad que no es deseada en el responsivness media query."
+                }
+            ]
         }
     }
 
@@ -122,6 +205,25 @@ export default function Trucos() {
                 arrayCodigo={trucos.tercero.arrayCodigo}
                 language="css"
                 url={trucos.tercero.url}
+            />
+            <DetallesSubtema 
+                title={trucos.cuarto.title} 
+                defBreve={trucos.cuarto.defBreve} 
+                arrayCodigo={trucos.cuarto.arrayCodigo}
+                language="css"
+            />
+            <DetallesSubtema 
+                title={trucos.quinto.title} 
+                defBreve={trucos.quinto.defBreve} 
+                arrayCodigo={trucos.quinto.arrayCodigo}
+                language="css"
+                url={trucos.quinto.url}
+            />
+            <DetallesSubtema 
+                title={trucos.sexto.title} 
+                defBreve={trucos.sexto.defBreve} 
+                arrayCodigo={trucos.sexto.arrayCodigo}
+                language="css"
             />
         </div>
     )
