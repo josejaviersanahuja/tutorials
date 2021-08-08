@@ -210,7 +210,7 @@ server.router = {
     
 })
 }); `,
-                    text:"Se entiende bastante bien, solo entender que toda esta lógica corre aún dentro del req.on('end, ()=> { ... Ya esta lectura del req es asincrona, para llevar un control del flujo del timeline correcto, la respuesta se prepara dentro de ese callback."
+                    text:"Se entiende bastante bien, solo entender que toda esta lógica corre aún dentro del req.on('end, ()=> { ... Ya esta lectura del req es asincrona, para llevar un control del flujo del timeline correcto, la respuesta se prepara dentro de ese callback. NOTA: Esta lógica puede modificarse y ampliarse para servir archivos estáticos como css, jpg, png, html, javascripts. PERO lo veremos en otro módulo."
                 }
             ]
         },
