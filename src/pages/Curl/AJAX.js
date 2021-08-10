@@ -174,7 +174,7 @@ app.client.request = function (
                     cod:`  // Send the payload as json
   const payloadString = JSON.stringify(payload);
   xhr.send(payloadString);`,
-                    text:"Sinceramente, no se que hace aquí la línea del stringify. Pudo definirse más arriba? eso creo. Pero lo queda didacticamente claro, es que ya habíamos pasado path, queries, headers, ahora solo queda el body. Sería interesante ver más peticiones AJAX de otros content-types "
+                    text:"Sinceramente, no se que hace aquí la línea del stringify. Pudo definirse más arriba? eso creo. Pero lo que si está claro es que ya habíamos pasado path, queries, headers, ahora solo queda el payload o req.body. Sería interesante ver más peticiones AJAX de otros content-types "
                 }
             ]            
         }
