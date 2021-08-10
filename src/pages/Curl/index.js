@@ -6,12 +6,13 @@ import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import CurlCourse from './CurlCourse';
 import CurlMostPopulars from './CurlMostPopulars';
+import AJAX from './AJAX';
 
 export default function Curl() {
     return (
         <>
             <h2>
-            Apuntes del tutorial de CURL
+            Apuntes del tutorial de CURL Y AJAX
                 <p><a href="https://www.youtube.com/watch?v=I6id1Y0YuNk&t=88s" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h2>
             
@@ -28,24 +29,25 @@ function Child() {
     // the dynamic pieces of the URL.
     let { id } = useParams();
     console.log(id);
-    const title=`Tutorial Curl ${id} || by ZitrojjDev`
+    const title=`Tutorial Curl y AJAX${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
         <h3>{id}</h3>
         {id==="crashcourse"? <CurlCourse/>: null }
         {id==="Comandos Populares"? <CurlMostPopulars/>: null }
+        {id==="Ajax"? <AJAX/>: null }
         </>
     );
   }
 
   function WelcomeCurl() {
-    const title="Tutorial Curl || by ZitrojjDev"
+    const title="Tutorial Curl y AJAX || by ZitrojjDev"
     useSeo({title})
     
       return (
           <>
-          <h3>Bienvenido al curso de Curl.</h3>
-          <div className="cuerpo"> Siempre fui rehacio a aprender Curl, hasta que en el curso de Node js me di cuenta de su importancia. Cada vez es más común que las llamadas a las API's más importantes se hagan a través de librerías creadas por sus empresas y cada vez es menor el control que tienen los programadores en las llamadas a las API's. Muchos estarán contentos con esto, pero yo no. Yo deseo saber que objetos requieren cada endpoint y donde conseguir esos objetos o saber como crearlos. Resulta que CURL trabaja de una forma muy similar a lo que yo busco. De ahí mi repentino interés por conocer como funciona.
+          <h3>Bienvenido al curso de Curl y AJAX.</h3>
+          <div className="cuerpo"> Siempre fui rehacio a aprender Curl, hasta que en el curso de Node js me di cuenta de su importancia. Cada vez es más común que las llamadas a las API's más importantes se hagan a través de librerías creadas por sus empresas y cada vez es menor el control que tienen los programadores en las llamadas a las API's. Muchos estarán contentos con esto, pero yo no. Yo deseo saber que objetos requieren cada endpoint y donde conseguir esos objetos o saber como crearlos. Resulta que CURL trabaja de una forma muy similar a lo que yo busco. De ahí mi repentino interés por conocer como funciona. AJAX es exactamente lo mismo.
           <DetallesSubtema 
             title="Puedes ver el curso de freeboptcamp aquí con el mismisimo creador de CURL"
             defBreve="Deberás saber inglés, y podras aprender Curl con su mismisimo creador."
