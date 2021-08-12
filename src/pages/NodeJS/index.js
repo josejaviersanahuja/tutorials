@@ -8,6 +8,7 @@ import FileSystem from './FileSystem';
 import Zlib from './Zlib';
 import BuildServer from './BuildServer';
 import PrepareServerForStaticHTML from './PrepareServerForStaticHTML';
+import CLI from './CLI';
 
 export default function NodeJS() {
     return (
@@ -37,6 +38,7 @@ function Child() {
         {id==="Z-Lib"? <Zlib/>: null }
         {id==="Server"? <BuildServer/>: null }
         {id==="How to serve statics"? <PrepareServerForStaticHTML/>: null }
+        {id==="CLI"? <CLI/>: null }
         </>
     );
   }

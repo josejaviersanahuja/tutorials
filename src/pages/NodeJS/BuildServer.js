@@ -210,7 +210,7 @@ server.router = {
     
 })
 }); `,
-                    text:"Se entiende bastante bien, solo entender que toda esta lógica corre aún dentro del req.on('end, ()=> { ... Ya esta lectura del req es asincrona, para llevar un control del flujo del timeline correcto, la respuesta se prepara dentro de ese callback. NOTA: Esta lógica puede modificarse y ampliarse para servir archivos estáticos como css, jpg, png, html, javascripts. PERO lo veremos en otro módulo."
+                    text:"Se entiende bastante bien. 2 cositas que quiero destacar. 1. res.setHeader es una forma de setear un header, pero existe otra, res.writeHead(statusCode, headers?), pero headers es opcional. 2 entender que toda esta lógica corre aún dentro del req.on('end, ()=> { ... A cada petición req que llega, tarda en procesarse, por tanto como todo evento, es asincrono, para llevar un control del flujo del timeline correcto, la respuesta se prepara dentro de la funcion(statusCode, payload) (callback). NOTA: Esta lógica puede modificarse y ampliarse para servir archivos estáticos como css, jpg, png, html, javascripts. PERO lo veremos en otro módulo."
                 }
             ]
         },
