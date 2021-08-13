@@ -12,10 +12,10 @@ import Mailgun from './Mailgun';
 export default function ApiCalls() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de ApiCalls
                 <p>Apuntes de llamadas exitosas a API's importantes o útiles</p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/apicalls/:id" children={<Child />} />
@@ -33,7 +33,7 @@ function Child() {
     const title=`Apuntes de Api-calls ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="Twilio"? <Twilio/>: null }
         {id==="Verify-email"? <VerifyEmail/>: null }
         {id==="Stripe"? <Stripe/>: null }

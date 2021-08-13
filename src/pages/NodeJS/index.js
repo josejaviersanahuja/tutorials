@@ -9,14 +9,15 @@ import Zlib from './Zlib';
 import BuildServer from './BuildServer';
 import PrepareServerForStaticHTML from './PrepareServerForStaticHTML';
 import CLI from './CLI';
+import BlindandoLaAPP from './BlindandoLaAPP';
 
 export default function NodeJS() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de NodeJS Master-Class
                 <p><a href="https://www.pirple.com" target="_blank" rel="noreferrer">Link del curso.</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/nodejs/:id" children={<Child />} />
@@ -33,12 +34,13 @@ function Child() {
     const title=`Tutorial Node JS ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="File-System"? <FileSystem/>: null }
         {id==="Z-Lib"? <Zlib/>: null }
         {id==="Server"? <BuildServer/>: null }
         {id==="How to serve statics"? <PrepareServerForStaticHTML/>: null }
         {id==="CLI"? <CLI/>: null }
+        {id==="Blindando La APP"? <BlindandoLaAPP/>: null }
         </>
     );
   }

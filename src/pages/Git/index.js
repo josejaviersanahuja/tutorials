@@ -12,10 +12,10 @@ import GitBranches from './GitBranches'
 export default function Git() {
     return (
         <>
-            <h2>
+            <h1>
                 Apuntes del tutorial de Git y Github
                 <p><a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" rel="noreferrer">Link del curso</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/git/:id" children={<Child />} />
@@ -32,7 +32,7 @@ function Child() {
     const title=`Tutorial Git ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="SSH-keys"? <SshKeys/>: null }
         {id==="Primeros-Pasos"? <PrimerosComandos/>: null }
         {id==="git-branches"? <GitBranches/>: null }

@@ -13,10 +13,10 @@ import JestTesting from './JestTesting';
 export default function Fullstack() {
     return (
         <>
-            <h2>
+            <h1>
                 Apuntes del tutorial de FullStack
                 <p><a href="https://fullstackopen.com/es/about" target="_blank" rel="noreferrer">Link del curso</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/fullstack/:id" children={<Child />} />
@@ -33,7 +33,7 @@ function Child() {
     const title=`Tutorial FullStack ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="Nodejs Y Express"? <NodejsExpress/>: null }
         {id==="Middleware y Deploy"? <DeployHeroku/> :null} 
         {id==="MongoDB"? <MongoDB/> : null}   

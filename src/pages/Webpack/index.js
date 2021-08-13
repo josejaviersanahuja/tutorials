@@ -13,10 +13,10 @@ import PlantillaWebpack from './PlantillaWebpack';
 export default function Webpack() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de Webpack. A diferencia que en el vídeo tutorial. Mis apuntes contendrán la configuración de una plantilla de Webpack, para trabajar con React y Typescript, usando Babel como loader.
                 <p><a href="https://www.youtube.com/watch?v=ansUGkcrhwY" target="_blank" rel="noreferrer">Link del curso.</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/webpack/:id" children={<Child />} />
@@ -33,7 +33,7 @@ function Child() {
     const title=`Tutorial Webpack ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="Dependencias"? <PlantillaWebpack/>: null }
         {id==="Input-File"? <InputFile/>: null }
         {id==="Output"? <OutputFile/>: null }

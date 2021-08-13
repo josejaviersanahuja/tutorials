@@ -14,10 +14,10 @@ import useSeo from 'hooks/useSeo';
 export default function Csstutorial() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de CSS
                 <p><a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=1" target="_blank" rel="noreferrer">Link del curso</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/Css/:id" children={<Child />} />
@@ -36,7 +36,7 @@ function Child() {
     const title=`Tutorial Css ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="Selectors"? <Selector/>: null }
         {id==="Coloring"? <Coloring/>:null}
         {id==="Layouts"? <Layouts/>:null}

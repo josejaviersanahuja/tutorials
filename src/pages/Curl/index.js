@@ -11,10 +11,10 @@ import AJAX from './AJAX';
 export default function Curl() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de CURL Y AJAX
                 <p><a href="https://www.youtube.com/watch?v=I6id1Y0YuNk&t=88s" target="_blank" rel="noreferrer">Link del curso</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/curl/:id" children={<Child />} />
@@ -32,7 +32,7 @@ function Child() {
     const title=`Tutorial Curl y AJAX${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="crashcourse"? <CurlCourse/>: null }
         {id==="Comandos Populares"? <CurlMostPopulars/>: null }
         {id==="Ajax"? <AJAX/>: null }

@@ -13,10 +13,10 @@ import ReactTricks from './ReactTricks';
 export default function ReactPage() {
     return (
         <>
-            <h2>
+            <h1>
             Apuntes del tutorial de React
                 <p><a href="https://www.youtube.com/watch?v=T_j60n1zgu0" target="_blank" rel="noreferrer">Link del curso.</a></p>
-            </h2>
+            </h1>
             
             <Switch>
             <Route path="/React/:id" children={<Child />} />
@@ -33,7 +33,7 @@ function Child() {
     const title=`Tutorial React ${id} || by ZitrojjDev`
     useSeo({title})
     return (<>
-        <h3>{id}</h3>
+        <h2>{id}</h2>
         {id==="inicios"? <IniciosReact/>: null }
         {id==="react-redux-basics"? <ReactReduxBasics/>: null }
         {id==="modern-redux"? <ReactReduxAdvanced/>: null }
