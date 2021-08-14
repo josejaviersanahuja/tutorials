@@ -10,6 +10,7 @@ import BuildServer from './BuildServer';
 import PrepareServerForStaticHTML from './PrepareServerForStaticHTML';
 import CLI from './CLI';
 import BlindandoLaAPP from './BlindandoLaAPP';
+import PerformanceTricks from './PerformanceTricks';
 
 export default function NodeJS() {
     return (
@@ -41,6 +42,7 @@ function Child() {
         {id==="How to serve statics"? <PrepareServerForStaticHTML/>: null }
         {id==="CLI"? <CLI/>: null }
         {id==="Blindando La APP"? <BlindandoLaAPP/>: null }
+        {id==="Performance Tricks"? <PerformanceTricks/>: null }
         </>
     );
   }
