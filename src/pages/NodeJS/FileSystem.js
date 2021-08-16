@@ -2,6 +2,7 @@ import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
 import PublishDay from 'components/PublishDay'
+import Subtitle from 'components/Subtitle'
 
 export default function FileSystem() {
     
@@ -125,12 +126,130 @@ export default function FileSystem() {
                     text: "Recibe 2 parámetros, el file path, y una función callback que nos permitirá controlar el flujo del programa por si hay un error. TAREA: CREA TU PROPIO DOTENV"
                 }
             ]
+        },
+        sexto:{
+            title: "Usar Streams en vez de leer archivos",
+            defBreve:"Esto va a acelerar y a mejorar muchísimo la calidad y el performance de nuextro código.",
+            arrayCodigo:[
+                {
+                    cod:`
+const fs = require('fs');
+
+
+console.time("tiempo de respuesta readFileSync");
+
+
+ for(let i=0; i<= 10; i++) {
+   fs.readFileSync('archivo.txt', 'utf8');
+ }
+
+ console.timeEnd("tiempo de respuesta readFileSync");
+
+ console.time("tiempo de respuesta readStream");
+for(let i=0; i<= 10; i++) {
+  const streamEscritura = fs.createReadStream("archivo.txt", {
+    encoding: "utf-8"
+  });
+}
+console.timeEnd("tiempo de respuesta readStream");
+
+// RESULTADO DE LA CONSOLA
+tiempo de respuesta readFileSync: 15.926ms
+tiempo de respuesta readStream: 0.999ms
+`,
+                    text:"1500% más lento es el método readFile y hacen exactamente lo mismo."
+                },{
+                    cod:`const fs = require("fs");
+
+var contenido = "1234567890";
+var iteraciones = 15;
+
+
+const streamEscritura = fs.createWriteStream( "./archivos/mi_archivo.txt");
+
+for (var i = 0; i < iteraciones; i++) {
+    contenido += contenido;
+
+    streamEscritura.write(contenido, res => {
+        console.log("...");
+    });
+}`,
+                    text:"No solo podemos hacer el trabajo más rápido, en este ejemplo, se ve que podemos ir trabajando en la escritura desde el mismo momento que recopilamos datos, no siempre es as así pero si los detos llegan en chuncks, (el for loop simula esa situación) podemos ir escribiendo los datos desde que van llegando."
+                }
+            ]
+        },
+        septimo:{
+            title: "Método pipe de los streams",
+            defBreve:"El método pipe nos va a permitir hacer muchas cosas cuando trabajamos con streams, desde chequear en medio de la captura de chunks, si los datos están bien, como transformarlos. Vamos a ver algunos ejemplos básicos de código.",
+            arrayCodigo:[
+                {
+                    cod:`const fs = require("fs");
+
+const streamLectura = fs.createReadStream( "./archivos/base.txt" );
+const streamEscritura = fs.createWriteStream("./archivos/destino.txt");
+
+streamLectura.pipe(streamEscritura);
+
+streamLectura.on("end" , () => {
+    console.log("proceso finalizado");
+});`,
+                    text:"Esto se lee así, streamLectura lee y produce un evento on('data') (al que no llamamos ni hacemos referencia) que el método pipe recoge y pasa al streamEscritura que genera un evento de escritura. Y todo esto en una sola línea de código."
+                },{
+                    cod:`const fs = require("fs");
+const { Duplex } = require("stream");
+
+const streamLectura = fs.createReadStream( "./archivos/base.txt" );
+const streamEscritura = fs.createWriteStream("./archivos/destino.txt");
+
+const reporte = new Duplex( {
+    write(data, encode, callback){
+        // para ver directamente el texto, reemplaza la llamada anterior por 
+         console.log(data.toString()) 
+        callback();
+    },
+    read(size){}
+})
+
+streamLectura.pipe(reporte).pipe(streamEscritura);`,
+                    text:"Del módulo stream podemos definir un tipo de stream nuevo para nosotros, Duplex. Este nos permitiría crear un punto intermedio del pipe entre streamLectura y streamEscritura, ahí podríamos verificar si los datos van bien o no y tomardecisiones."
+                },{
+                    cod:`//DEPENDENCIES
+const fs = require("fs");
+const { Transform } = require("stream");
+
+//INICIALIZING
+const streamLectura = fs.createReadStream( "./archivos/base.txt" );
+const streamEscritura = fs.createWriteStream("./archivos/destino.txt");
+
+streamLectura.setEncoding("utf8");
+
+//CREATING OUR FILTER AND TRANSFORMATION from Capital to UPPERCASE
+const filtro = new Transform( {
+    writableObjectMode: true,
+    transform( data, encoding, callback){
+        this.push(data.toString().toUpperCase())
+        callback();
+    },
+    final(callback){
+        callback();
+    }
+})
+//Calling the pipe with the filter
+streamLectura.pipe(filtro).pipe(streamEscritura);
+`,
+                    text:"Aquí vemos el 4to tipo de stream (TRANSFORM) y como podemos definirlo."
+                }
+            ]
         }
     }
 
     return (
         <div className="cuerpo">
             <PublishDay date="30/07/2021"/>
+            <Subtitle
+                subtitle="FileSystem en NODEJS. "
+                parrafo="Es un módulo extremadamente útil para todo programador, nos permite crear, abrir, leer, escribir, truncar y eliminar archivos de todo tipo. En un principio aprenderemos de PIRPLE los usos del readFile, writeFile, ftrnctate, pero luego de LINKEDIN TUTORIALS aprenderemos que es mejor usar streams en vez de trabajar con las lecturas síncronas o asíncronas."
+            />
             <DetallesSubtema
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
@@ -156,6 +275,16 @@ export default function FileSystem() {
                 title={detalles.quinto.title}
                 defBreve={detalles.quinto.defBreve}
                 arrayCodigo={detalles.quinto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.sexto.title}
+                defBreve={detalles.sexto.defBreve}
+                arrayCodigo={detalles.sexto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.septimo.title}
+                defBreve={detalles.septimo.defBreve}
+                arrayCodigo={detalles.septimo.arrayCodigo}
             />
         </div>
     )

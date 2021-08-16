@@ -11,6 +11,7 @@ import PrepareServerForStaticHTML from './PrepareServerForStaticHTML';
 import CLI from './CLI';
 import BlindandoLaAPP from './BlindandoLaAPP';
 import PerformanceTricks from './PerformanceTricks';
+import FromCallbacksToPromises from './FromCallbacksToPromises';
 
 export default function NodeJS() {
     return (
@@ -43,6 +44,7 @@ function Child() {
         {id==="CLI"? <CLI/>: null }
         {id==="Blindando La APP"? <BlindandoLaAPP/>: null }
         {id==="Performance Tricks"? <PerformanceTricks/>: null }
+        {id==="Promesas vs Callbacks"? <FromCallbacksToPromises/>: null }
         </>
     );
   }
