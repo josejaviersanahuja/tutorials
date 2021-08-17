@@ -16,6 +16,7 @@ import Webpack from 'pages/Webpack';
 import NodeJS from 'pages/NodeJS';
 import ApiCalls from 'pages/ApiCalls';
 import Curl from 'pages/Curl';
+import Express from 'pages/Express';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/nodejs"><NodeJS/></Route>
           <Route path="/apicalls"><ApiCalls/></Route>
           <Route path="/curl"><Curl/></Route>
+          <Route path="/express"><Express/></Route>
         </Switch>
 
         <div className="menu">
