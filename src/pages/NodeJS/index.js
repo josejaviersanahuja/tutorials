@@ -12,6 +12,7 @@ import CLI from './CLI';
 import BlindandoLaAPP from './BlindandoLaAPP';
 import PerformanceTricks from './PerformanceTricks';
 import FromCallbacksToPromises from './FromCallbacksToPromises';
+import ConfigNodeWithTypescript from './ConfigNodeWithTypescript';
 
 export default function NodeJS() {
     return (
@@ -45,6 +46,7 @@ function Child() {
         {id==="Blindando La APP"? <BlindandoLaAPP/>: null }
         {id==="Performance Tricks"? <PerformanceTricks/>: null }
         {id==="Promesas vs Callbacks"? <FromCallbacksToPromises/>: null }
+        {id==="Node Con Typescript"? <ConfigNodeWithTypescript/>: null }
         </>
     );
   }
