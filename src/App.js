@@ -17,6 +17,7 @@ import NodeJS from 'pages/NodeJS';
 import ApiCalls from 'pages/ApiCalls';
 import Curl from 'pages/Curl';
 import Express from 'pages/Express';
+import MongoDB from 'pages/MongoDB';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/apicalls"><ApiCalls/></Route>
           <Route path="/curl"><Curl/></Route>
           <Route path="/express"><Express/></Route>
+          <Route path="/mongodb"><MongoDB/></Route>
         </Switch>
 
         <div className="menu">

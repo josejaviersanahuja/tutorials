@@ -14,6 +14,7 @@ const nodejsMasterClass=["File-System","Z-Lib","Server","How to serve statics", 
 const apicallsMenu =["Twilio","Verify-email","Stripe","Mailgun"]
 const curlMenu = ["crashcourse","Comandos Populares","Ajax"]
 const expressMenu = ["Metodos basicos","Express Generator"]
+const mongoDBMenu = ["Mongoose"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -24,6 +25,7 @@ const menu = [
     ["Git", gitMenu],
     ["NodeJS", nodejsMasterClass],
     ["Express", expressMenu],
+    ["MongoDB", mongoDBMenu],
     ["Curl", curlMenu],
     ["Apicalls", apicallsMenu],
     ["Fullstack",fullstackMenu ],
