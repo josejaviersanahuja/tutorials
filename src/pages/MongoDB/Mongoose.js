@@ -174,6 +174,57 @@ usersModel.findOneAndDelete({phone:"666666666"})`,
                     text:"Ya conocemos todos los métodos CRUD de mongoose. A echar código."
                 }
             ]
+        },
+        sexto:{
+            title: "Populate",
+            defBreve:"Seguimod añadiendo métodos avanzados para que la vida se haga realmente muy fácil al momento de trabajar con Mongoose. Empecemos por populate, que es una forma de establecer relaciones entre colecciones distintas, en el ejemplo que  mostraré, la colección tokens (session token), está muy relacionada con la colección users. Veamos cómo. Vamos a ello",
+            arrayCodigo:[
+                {
+                    cod:`//Empezamos por establecer en el Schema la relación
+//tokens schema
+const tokensSchema = new Schema({
+  phone: String,
+  id: {
+      type:String,
+      unique:true,
+      required:true
+    },
+  expires: Number,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref:'usersModel'
+  }
+});
+
+/*
+    DOCUMENTATION AND OTHER EXAMPLES
+example 1:
+    m.user = new mongoose.Types.ObjectId;
+example 2:
+    const toId = mongoose.Types.ObjectId
+    m.user = toId(var)
+*/
+`,
+                    text:"Esta es la forma de crear una relación o referencia entre 2 colecciones. Mira más abajo para qué puede servir."
+                },{
+                    cod:`//Llamamos a un token
+const token = await tokensModel.find({}).populate('users')`,
+                    text:"Ahora, junto con el token, va a venir un campo user, traído de la colección users. Solo debemos asegurarnos que le pasamos el id correcto. A quién? bueno, cuando guardamos el token en la DB, la tuvimos que crear con un mongoose.Types.ObjectId o pasar el _id del user."
+                }
+            ]
+        },
+        septimo:{
+            title: "Mayor y Menos que",
+            defBreve:"Ahora vamos a ver como hacer delete, o update a multiples elementos sin tener que ir uno a uno. Vamos a ello",
+            arrayCodigo:[
+                {
+                    cod:`//delete o update es similar
+tokensModel.deleteMany({expires:{lte: Date.now()}})
+
+checksModel.updateMany({timeResponse:{gte: 3}},{timeResponse:5})`,
+                    text:"En uno hemos borrado a todos los tokens que ya hayan expirado, en el segundo, modificamos a los timeResponse mayores a 3, para que sean 5"
+                }
+            ]
         }
     }
 
@@ -204,6 +255,16 @@ usersModel.findOneAndDelete({phone:"666666666"})`,
                 title={detalles.quinto.title}
                 defBreve={detalles.quinto.defBreve}
                 arrayCodigo={detalles.quinto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.sexto.title}
+                defBreve={detalles.sexto.defBreve}
+                arrayCodigo={detalles.sexto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.septimo.title}
+                defBreve={detalles.septimo.defBreve}
+                arrayCodigo={detalles.septimo.arrayCodigo}
             />
         </div>
     )

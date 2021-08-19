@@ -6,6 +6,7 @@ import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
 import ExpressGenerator from './ExpressGenerator'
 import ExpressBasics from './ExpressBasics';
+import Miscelanious from './Miscelanious';
 
 export default function Express() {
     return (
@@ -33,6 +34,7 @@ function Child() {
         <h2>{id}</h2>
         {id==="Metodos basicos"? <ExpressBasics/>: null }
         {id==="Express Generator"? <ExpressGenerator/>: null }
+        {id==="Miscelanious"? <Miscelanious/>: null }
         </>
     );
   }
