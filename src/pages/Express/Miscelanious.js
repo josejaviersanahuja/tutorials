@@ -4,7 +4,7 @@ import DetallesSubtema from 'components/DetallesSubtema'
 import PublishDay from 'components/PublishDay'
 import Subtitle from 'components/Subtitle'
 
-export default function AJAX() {
+export default function Miscelanious() {
     
     const detalles={
         primero:{

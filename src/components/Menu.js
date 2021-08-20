@@ -13,7 +13,7 @@ const webpackMenu=["Dependencias","Input-File", "Output", "Loaders", "Plugins"]
 const nodejsMasterClass=["File-System","Z-Lib","Server","How to serve statics", "CLI","Blindando La APP", "Performance Tricks","Promesas vs Callbacks","Node Con Typescript"]
 const apicallsMenu =["Twilio","Verify-email","Stripe","Mailgun"]
 const curlMenu = ["crashcourse","Comandos Populares","Ajax"]
-const expressMenu = ["Metodos basicos","Express Generator","Miscelanious"]
+const expressMenu = ["Metodos basicos","Express Generator","NodeMailer","Miscelanious"]
 const mongoDBMenu = ["Mongoose"]
 const menu = [
     ["Home", homeMenu],
