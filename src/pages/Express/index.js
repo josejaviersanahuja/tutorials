@@ -8,6 +8,7 @@ import ExpressGenerator from './ExpressGenerator'
 import ExpressBasics from './ExpressBasics';
 import Miscelanious from './Miscelanious';
 import NodeMailer from './NodeMailer';
+import ViewEngines from './ViewEngines';
 
 export default function Express() {
     return (
@@ -35,6 +36,7 @@ function Child() {
         <h2>{id}</h2>
         {id==="Metodos basicos"? <ExpressBasics/>: null }
         {id==="Express Generator"? <ExpressGenerator/>: null }
+        {id==="View Engine"? <ViewEngines/>: null }
         {id==="NodeMailer"? <NodeMailer/>: null }
         {id==="Miscelanious"? <Miscelanious/>: null }
         </>

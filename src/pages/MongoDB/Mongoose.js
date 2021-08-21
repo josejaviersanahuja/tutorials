@@ -32,12 +32,19 @@ export default function Mongoose() {
                 {
                     cod:`const mongoose = require('mongoose'); 
 const password = require('./password')`,
-                    text: "Requerimos mongoose, recuerdas el password que dijimos era tan importante??? lo copiamos también."
+                    text: "Requerimos mongoose, recuerdas el password que dijimos era tan importante??? lo copiamos también en el .env."
                 },
                 {
                     // eslint-disable-next-line no-template-curly-in-string
-                    cod:'const connectionString = mongodb+srv://zitrojj: ${password}@mypokemons. j6lhy.mongodb.net /MyPokemons ?retryWrites= true&w= majority',
-                    text: "El driver de mongoDB también dijimoms que es importante guardar??? bueno, es importante."
+                    cod:`// Ejemplo del conection string
+// const connectionString = mongodb+srv://zitrojj: $ {password}@mypokemons. j6lhy.mongodb.net /MyPokemons ?retryWrites= true&w= majority
+
+//Ahora las buenas prácticas. Requerimos el conection string del .end
+const { MONGODB_URI, MONGODB_URI_TEST, NODE_ENV } = process.env
+
+const connectionString = NODE_ENV === 'testing' ? MONGODB_URI_TEST : MONGODB_URI
+`,
+                    text: "El driver de mongoDB también dijimoms que es importante guardar??? bueno, es importante, por eso lo guardamos en un .env. Más allá de eso, creamos una BD paralela para poder correr nuestros tests, por eso MONGODB_URI_TEST existe."
                 },
                 {
                     cod:`mongoose.connect( connectionString, { 
