@@ -227,9 +227,9 @@ const token = await tokensModel.find({}).populate('user') // porque user es el k
             arrayCodigo:[
                 {
                     cod:`//delete o update es similar
-tokensModel.deleteMany({expires:{lte: Date.now()}})
+tokensModel.deleteMany({expires:{$lte: Date.now()}})
 
-checksModel.updateMany({timeResponse:{gte: 3}},{timeResponse:5})`,
+checksModel.updateMany({timeResponse:{$gte: 3}},{timeResponse:5})`,
                     text:"En uno hemos borrado a todos los tokens que ya hayan expirado, en el segundo, modificamos a los timeResponse mayores a 3, para que sean 5"
                 }
             ]
