@@ -199,7 +199,7 @@ const tokensSchema = new Schema({
   expires: Number,
   user: {
     type: Schema.Types.ObjectId,
-    ref:'usersModel'
+    ref:'users' // collection
   }
 });
 
@@ -215,7 +215,8 @@ example 2:
                     text:"Esta es la forma de crear una relación o referencia entre 2 colecciones. Mira más abajo para qué puede servir."
                 },{
                     cod:`//Llamamos a un token
-const token = await tokensModel.find({}).populate('users')`,
+const token = await tokensModel.find({}).populate('user') // porque user es el key que vamos a popular
+//We must populate with the parameter of the field name`,
                     text:"Ahora, junto con el token, va a venir un campo user, traído de la colección users. Solo debemos asegurarnos que le pasamos el id correcto. A quién? bueno, cuando guardamos el token en la DB, la tuvimos que crear con un mongoose.Types.ObjectId o pasar el _id del user."
                 }
             ]
