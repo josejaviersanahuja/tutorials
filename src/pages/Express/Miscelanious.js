@@ -105,22 +105,6 @@ app.post("/confirmacion", upload.single("photo"), (req, res, next) => {
                 }
             ],
             url:"https://www.npmjs.com/package/multer"
-        },
-        tercero:{
-            title: "Helmet",
-            defBreve:"Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!.",
-            arrayCodigo:[
-                {
-                    cod:`const express = require("express");
-const helmet = require("helmet");
-
-const app = express();
-
-app.use(helmet());`,
-                    text:"Eso es todo para que nuestra app con express sea un poquito más segura."
-                }
-            ],
-            url:"https://www.npmjs.com/package/helmet"
         }
     }
     return (
@@ -141,12 +125,6 @@ app.use(helmet());`,
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
                 url={detalles.segundo.url}
-            />
-            <DetallesSubtema
-                title={detalles.tercero.title}
-                defBreve={detalles.tercero.defBreve}
-                arrayCodigo={detalles.tercero.arrayCodigo}
-                url={detalles.tercero.url}
             />
         </div>
     )

@@ -9,6 +9,8 @@ import ExpressBasics from './ExpressBasics';
 import Miscelanious from './Miscelanious';
 import NodeMailer from './NodeMailer';
 import ViewEngines from './ViewEngines';
+import OwaspTop10 from './OwaspTop10';
+import SecureNodejs from './SecureNodeJs';
 
 export default function Express() {
     return (
@@ -38,6 +40,8 @@ function Child() {
         {id==="Express Generator"? <ExpressGenerator/>: null }
         {id==="View Engine"? <ViewEngines/>: null }
         {id==="NodeMailer"? <NodeMailer/>: null }
+        {id==="top10Node OwaspReport"? <OwaspTop10/>: null }
+        {id==="Security Packages"? <SecureNodejs/>: null }
         {id==="Miscelanious"? <Miscelanious/>: null }
         </>
     );
