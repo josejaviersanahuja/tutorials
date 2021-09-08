@@ -233,6 +233,165 @@ checksModel.updateMany({timeResponse:{$gte: 3}},{timeResponse:5})`,
                     text:"En uno hemos borrado a todos los tokens que ya hayan expirado, en el segundo, modificamos a los timeResponse mayores a 3, para que sean 5"
                 }
             ]
+        },
+        octavo:{
+            title:"Queries.exec() Promesas",
+            defBreve:"Mongoose tiene muchos métodos que son promesas como connect, o save, pero ninguna de sus queries son promesas aunque si son thenable. Esto quiere decir que aceptan .then como método, pero no significa que sean promesas. Sin embargo, podemos construirlas en promesas facilmente. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`const query = Band.findOne({name: "Guns N' Roses"});
+assert.ok(!(query instanceof Promise));
+
+// A query is not a fully-fledged promise, but it does have a .then().
+query.then(function(doc) {
+  // use doc
+});
+
+// .exec() gives you a fully-fledged promise
+const promise = Band.findOne({name: "Guns N' Roses"}).exec();
+assert.ok(promise instanceof Promise);
+
+promise.then(function (doc) {
+  // use doc
+});`,
+                    text:"Esto está sacado de la documentación oficial de Mongoose. Dejo el Link por si se quiere ver en más detalle. ¿Entonces debemos usar las queries con o sin exec? La única ventaja funcional de usar promesas, es el rastreo de los errores que puedan ocurrir. Mirar más a abajo."
+                },{
+                    cod:`//Ejemplo 1, funciona sin exec
+const doc = await Band.findOne({ name: "Guns N' Roses" }); // works
+
+//ejemplo 2, lanzamos error, sin exec
+const badId = 'this is not a valid id';
+try {
+  await Band.findOne({ _id: badId });
+} catch (err) {
+  // Without exec(), the stack trace does **not** include the
+  // calling code. Below is the stack trace:
+  //
+  // CastError: Cast to ObjectId failed for value "this is not a valid id" at path "_id" for model "band-promises"
+  //   at new CastError (/app/node_modules/mongoose/lib/error/cast.js:29:11)
+  //   at model.Query.exec (/app/node_modules/mongoose/lib/query.js:4331:21)
+  //   at model.Query.Query.then (/app/node_modules/mongoose/lib/query.js:4423:15)
+  //   at process._tickCallback (internal/process/next_tick.js:68:7)
+  err.stack;
+}
+
+try {
+  await Band.findOne({ _id: badId }).exec();
+} catch (err) {
+  // With exec(), the stack trace includes where in your code you
+  // called exec(). Below is the stack trace:
+  //
+  // CastError: Cast to ObjectId failed for value "this is not a valid id" at path "_id" for model "band-promises"
+  //   at new CastError (/app/node_modules/mongoose/lib/error/cast.js:29:11)
+  //   at model.Query.exec (/app/node_modules/mongoose/lib/query.js:4331:21)
+  // AQUI LA MAGIA 
+  //   at Context.<anonymous> (/app/test/index.test.js:138:42) 
+  // AQUI LA MAGIA
+  //   at process._tickCallback (internal/process/next_tick.js:68:7)
+  err.stack;
+}`,
+                    text:"Se entiende la ventaja de usar exec, aunque si no se usa, el resultado es el mismo."
+                }
+            ],
+            url:"https://mongoosejs.com/docs/promises.html"
+        },
+        noveno:{
+            title:"Mongoose Hooks",
+            defBreve:"Mongoose permite que el dearrollador pueda implementar lógica dentro de los esquemas, y para ello, vamos a estudiar solo uno. Vamos a ver como un experto en bases de datos, implementa el esquema de un user.",
+            arrayCodigo:[
+                {
+                    cod:`const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const UserSchema = mongoose.Schema({
+  email: {
+    // Trim and lowercase
+    type: String, 
+    required: true, 
+    index: { unique: true }, 
+    lowercase: true, 
+    trim: true,
+  },
+  password: {
+    type: String, 
+    required: true, 
+    trim: true,
+  },
+  //Observa como usa un segundo parámetro en el esquema para pedir un timestamp 
+  //cada vez que se crea y/o modifica un usuario.
+}, { timestamps: true });
+
+async function generateHash(password) {
+  const COST = 12;
+  return bcrypt.hash(password, COST);
+}
+
+//EL HOOK DEL QUE HABLABA
+
+UserSchema.pre('save', function preSave(next) {
+  const user = this;
+
+  // Only create a new password hash if the field was updated
+  if(user.isModified('password')) {
+    return generateHash(user.password).then(hash => {
+      user.password = hash;
+      return next();
+    }).catch(error => {
+      return next(error);
+    });
+  }
+  return next();
+});
+
+UserSchema.methods.comparePassword = async function comparePassword(candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
+};
+
+module.exports = mongoose.model('User', UserSchema);`,
+                    text:"Ahora, esta implementación es algo antigua. A partir de mongoose 5.0 el uso del next, se ha vuelto menos necesario y algo impredecible. Vamos a documentar un poco de lo que hablo."
+                },
+                {
+                    cod:`//Pre middleware functions are executed one after another, when each middleware calls next.
+const schema = new Schema(..);
+schema.pre('save', function(next) {
+  // do stuff
+  next();
+});
+
+//Ahora la nueva forma
+
+//In mongoose 5.x, instead of calling next() manually, 
+//you can use a function that returns a promise. In particular, you can use async/await.
+schema.pre('save', function() {
+    return doStuff().
+      then(() => doMoreStuff());
+  });
+  
+  // Or, in Node.js >= 7.6.0:
+  schema.pre('save', async function() {
+    await doStuff();
+    await doMoreStuff();
+  });
+
+  //WARNING
+  //If you use next(), the next() call does not stop the rest of the code 
+  //in your middleware function from executing. Use the early return pattern 
+  //to prevent the rest of your middleware function from running when you call next().
+`,
+                    text:"Básicamente se usa este Hook, para dejar que el esquema maneje la operación de hashear o encriptar la contraseña. Un uso ciertamente interesante. Pero hay más."
+                },
+                {
+                    cod:`//Use Cases
+//Middleware are useful for atomizing model logic. Here are some other ideas:
+//
+//complex validation
+//removing dependent documents (removing a user removes all their blogposts)
+//asynchronous defaults
+//asynchronous tasks that a certain action triggers`,
+                    text:"Pueden ser muy poderosas para no embasurar nuestros códigos dentro de los endpoints. Dejo link para que se pueda buscar más información si fuera necesario."
+                }
+            ],
+            url:"https://mongoosejs.com/docs/middleware.html#pre"
         }
     }
 
@@ -273,6 +432,18 @@ checksModel.updateMany({timeResponse:{$gte: 3}},{timeResponse:5})`,
                 title={detalles.septimo.title}
                 defBreve={detalles.septimo.defBreve}
                 arrayCodigo={detalles.septimo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.octavo.title}
+                defBreve={detalles.octavo.defBreve}
+                arrayCodigo={detalles.octavo.arrayCodigo}
+                url={detalles.octavo.url}
+            />
+            <DetallesSubtema
+                title={detalles.noveno.title}
+                defBreve={detalles.noveno.defBreve}
+                arrayCodigo={detalles.noveno.arrayCodigo}
+                url={detalles.noveno.url}
             />
         </div>
     )
