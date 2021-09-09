@@ -16,6 +16,7 @@ const curlMenu = ["crashcourse", "Comandos Populares", "Ajax"]
 const expressMenu = ["Metodos basicos", "Express Generator", "View Engine", "NodeMailer", "top10Node OwaspReport", "Security Packages", "Miscelanious"]
 const mongoDBMenu = ["Mongo DB", "Mongoose"]
 const reactNativeMenu = ["Setting Enviroment", "Antes de publicar", "Splash Image", "Building", "Primera Publicación"]
+const redisMenu = ["Básico"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -28,6 +29,7 @@ const menu = [
     ["NodeJS", nodejsMasterClass],
     ["Express", expressMenu],
     ["MongoDB", mongoDBMenu],
+    ["Redis", redisMenu],
     ["Curl", curlMenu],
     ["Apicalls", apicallsMenu],
     ["Fullstack", fullstackMenu],

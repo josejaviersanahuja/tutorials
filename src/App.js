@@ -19,10 +19,11 @@ import ApiCalls from 'pages/ApiCalls';
 import Curl from 'pages/Curl';
 import Express from 'pages/Express';
 import MongoDB from 'pages/MongoDB';
+import Redis from 'pages/Redis';
 
 function App() {
 
-  const {handleClick, classNameBTN, classNameBTNMenu, classNameMenu2} =useClassNames()
+  const { handleClick, classNameBTN, classNameBTNMenu, classNameMenu2 } = useClassNames()
 
   return (
     <Router>
@@ -44,27 +45,28 @@ function App() {
           <Route path="/react native" ><ReactNativeExperience /></Route>
           <Route path="/fullstack" ><Fullstack /></Route>
           <Route path="/git" ><Git /></Route>
-          <Route path="/nextjs/typescript"><NextConTypescript/></Route>
-          <Route path="/webpack"><Webpack/></Route>
-          <Route path="/nodejs"><NodeJS/></Route>
-          <Route path="/apicalls"><ApiCalls/></Route>
-          <Route path="/curl"><Curl/></Route>
-          <Route path="/express"><Express/></Route>
-          <Route path="/mongodb"><MongoDB/></Route>
+          <Route path="/nextjs/typescript"><NextConTypescript /></Route>
+          <Route path="/webpack"><Webpack /></Route>
+          <Route path="/nodejs"><NodeJS /></Route>
+          <Route path="/apicalls"><ApiCalls /></Route>
+          <Route path="/curl"><Curl /></Route>
+          <Route path="/express"><Express /></Route>
+          <Route path="/mongodb"><MongoDB /></Route>
+          <Route path="/redis"><Redis /></Route>
         </Switch>
 
         <div className="menu">
-          <Menu handleClick={handleClick}/>
+          <Menu handleClick={handleClick} />
         </div>
       </div>
-      <div style={{alignContent:"center"}}>
-      <div className={classNameBTN}  onClick={handleClick}>
+      <div style={{ alignContent: "center" }}>
+        <div className={classNameBTN} onClick={handleClick}>
           <span className={classNameBTNMenu}></span>
         </div>
-        </div>
+      </div>
       <div className={classNameMenu2}>
-        
-        <Menu handleClick={handleClick}/>
+
+        <Menu handleClick={handleClick} />
       </div>
     </Router>
   );
