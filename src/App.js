@@ -20,6 +20,7 @@ import Curl from 'pages/Curl';
 import Express from 'pages/Express';
 import MongoDB from 'pages/MongoDB';
 import Redis from 'pages/Redis';
+import Docker from 'pages/Docker';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="/express"><Express /></Route>
           <Route path="/mongodb"><MongoDB /></Route>
           <Route path="/redis"><Redis /></Route>
+          <Route path="/docker"><Docker /></Route>
         </Switch>
 
         <div className="menu">

@@ -17,6 +17,7 @@ const expressMenu = ["Metodos basicos", "Express Generator", "View Engine", "Nod
 const mongoDBMenu = ["Mongo DB", "Mongoose"]
 const reactNativeMenu = ["Setting Enviroment", "Antes de publicar", "Splash Image", "Building", "Primera Publicación"]
 const redisMenu = ["Básico"]
+const dockerMenu = ["Instalación Windows10", "Primer Uso"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -30,6 +31,7 @@ const menu = [
     ["Express", expressMenu],
     ["MongoDB", mongoDBMenu],
     ["Redis", redisMenu],
+    ["Docker", dockerMenu],
     ["Curl", curlMenu],
     ["Apicalls", apicallsMenu],
     ["Fullstack", fullstackMenu],
