@@ -21,6 +21,7 @@ import Express from 'pages/Express';
 import MongoDB from 'pages/MongoDB';
 import Redis from 'pages/Redis';
 import Docker from 'pages/Docker';
+import Mysql from 'pages/Mysql';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="/mongodb"><MongoDB /></Route>
           <Route path="/redis"><Redis /></Route>
           <Route path="/docker"><Docker /></Route>
+          <Route path="/mysql"><Mysql /></Route>
         </Switch>
 
         <div className="menu">
