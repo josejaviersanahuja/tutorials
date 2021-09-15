@@ -9,6 +9,8 @@ import PrepararIconos from './PrepararIconos';
 import SplashImage from './SplashImage';
 import CreandoBundle from './CreandoBundle';
 import PublishingApp from './PublishingApp';
+import Animations from './Animations';
+import PanResponder from './PanResponder';
 
 export default function ReactNativeExperience() {
     return (
@@ -39,6 +41,8 @@ function Child() {
         {id==="Splash Image"? <SplashImage/>: null }
         {id==="Building"? <CreandoBundle/>: null }
         {id==="Primera Publicación"? <PublishingApp/>: null }
+        {id==="Animaciones"? <Animations/>: null }
+        {id==="PanResponder"? <PanResponder/>: null }
 
         </>
     );
