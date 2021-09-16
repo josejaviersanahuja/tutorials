@@ -32,7 +32,6 @@ const menu = [
     ["Express", expressMenu],
     ["MongoDB", mongoDBMenu],
     ["Redis", redisMenu],
-    ["Redis", redisMenu],
     ["MYSQL", mysqlMenu],
     ["Docker", dockerMenu],
     ["Curl", curlMenu],
