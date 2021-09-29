@@ -38,6 +38,13 @@ docker run --name mysql -p 3406:3306 -e MYSQL_ROOT_PASSWORD=****** -d mysql
 
 `,
                     text: "My sql requiere un password y usa por defecto el puerto 3306. Eso es todo, con esto ya podemos usar nuestros programas GUI favoritos para conectar con nuestras bases de datos locales, o usar nodejs para conectar con nuestras bases de datos."
+                },{
+                    cod:`// Paso 1: decargamos postgres
+docker pull postgres
+
+// paso 2
+docker run --name postgres -p 5532:5432 -e POSTGRES_PASSWORD=****** -d postgres`,
+                    text:"Postgres usa por defecto el puerto 5432, y al igual que Mysql require que configuremos la contraseña desde que corremos la imagen."
                 }
             ]
         }

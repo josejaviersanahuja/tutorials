@@ -22,6 +22,7 @@ import MongoDB from 'pages/MongoDB';
 import Redis from 'pages/Redis';
 import Docker from 'pages/Docker';
 import Mysql from 'pages/Mysql';
+import AndroidJava from 'pages/AndroidJava';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
           <Route path="/redis"><Redis /></Route>
           <Route path="/docker"><Docker /></Route>
           <Route path="/mysql"><Mysql /></Route>
+          <Route path="/androidapp with java"><AndroidJava /></Route>
         </Switch>
 
         <div className="menu">

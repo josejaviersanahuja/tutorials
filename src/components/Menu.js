@@ -19,6 +19,7 @@ const reactNativeMenu = ["Setting Enviroment", "Antes de publicar", "Splash Imag
 const redisMenu = ["Básico"]
 const dockerMenu = ["Instalación Windows10", "Primer Uso"]
 const mysqlMenu = ["Básico"]
+const androidJavaMenu = ["Basics"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -37,7 +38,8 @@ const menu = [
     ["Curl", curlMenu],
     ["Apicalls", apicallsMenu],
     ["Fullstack", fullstackMenu],
-    ["Webpack", webpackMenu]
+    ["Webpack", webpackMenu],
+    ["Androidapp with java", androidJavaMenu]
 ]
 
 export default function Menu({ handleClick }) {
