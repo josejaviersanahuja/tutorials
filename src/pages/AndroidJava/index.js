@@ -6,12 +6,15 @@ import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import AndroidJavaBasics from './AndroidJavaBasics';
 import DeeperJava from './DeeperJava';
+import DeeperXML from './DeeperXML';
+import AppMenu from './AppMenu';
+import ListOfItems from './ListOfItems';
 
 export default function AndroidJava() {
     return (
         <>
             <h1>
-            Apuntes del tutorial de Andoird Apps con Java
+            Apuntes del tutorial de Android Apps con Java
                 <p><a href="https://www.youtube.com/watch?v=fis26HvvDII" target="_blank" rel="noreferrer">Link del curso</a></p>
             </h1>
             
@@ -34,6 +37,9 @@ function Child() {
         <h2>{id}</h2>
         {id==="Basics"? <AndroidJavaBasics/>: null }
         {id==="Java Part"? <DeeperJava/>: null }
+        {id==="XML Part"? <DeeperXML/>: null }
+        {id==="Main Menu"? <AppMenu/>: null }
+        {id==="Listas"? <ListOfItems/>: null }
         </>
     );
   }

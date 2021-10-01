@@ -109,6 +109,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text:"1. Implementamos la interfaz View.OnClickListener. 2. Definimos todos los onClick en un mismo sitio, y con un switch, podremos decir que código pertenece a qué View de nuestro código. 3. Iniciamos el listener con imgView.setOnClickListener(this); dentro del onCreate. "
                 }
             ]
+        },
+        segundo: {
+            title:"Toast (Pop up message)",
+            defBreve:"Aunque es un elemento del UI, es un elemento temporal que no vale la pena declarar en el activity_main.xml En cambio, vamos a crearlo en la parte de nuestro código en JAVA.",
+            arrayCodigo:[
+                {
+                    cod:`Toast.makeText(this,"Hello", Toast.LENGTH_LONG).show();`,
+                    text:"Cuando el método show se ejecuta en nuestro onCreate method, va a aparecer en pantalla, un mensaje pop up, en la parte de abajo de la pantalla diciendo hello. Si la duración del mensaje es Toast.LENGTH_LONG, el mensaje durará alrededor de 4 segundos. Pero si usamos Toast.LENGTH_SHORT durará 2 segundos."
+                }
+            ]
         }
     }
 
