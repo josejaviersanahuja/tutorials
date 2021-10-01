@@ -91,6 +91,56 @@ android:textColorHighlight="@color/teal_700"
                     text:"Aquí se pueden leer estilos que trae nuestro proyecto por defecto. shortcut dde colores, status bar etc."
                 }
             ]
+        }, cuarto:{
+            title:"Layout.xml",
+            defBreve:"Aquí podemos redefinir como debe verse nuestra app en una versión tablet, o una versión landscape. Puede verse de formas muy distintas. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// Paso 1 vamos al directorio app/res/layout/ y damos click derecho
+
+// Paso 2 Damos click en new y luego en layout resource file.
+
+// Paso 3 nombramos el archivo como layout.xml
+
+// Paso 4 En available qualifiers le damos a orientation y luego a landscape.
+
+// Paso 5 damos click en ok y esto genera una carpeta activity_main con 2 activity_main uno para portrait y otro para landscape.`,
+                    text:"Recomiendo copiar y pegar el del portrait en el landscape y luego modificar el landscape hasta dar con el nuevo layout que deseamos mostrar. En las opciones no solo podemos escoger orientation, también dimension, andoird version y mucho más."
+                }
+            ]
+        },
+        quinto:{
+            title:"AndroidManifest.xml",
+            defBreve:"Este es el archivo más importante de todo el proyecto de una App, es el equivalente al index.html de un proyecto en React.",
+            arrayCodigo:[
+                {
+                    cod:`<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zitrojjdev.basicui">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BasicUI">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>`,
+                    text:"Aquí podemos encontrar y definir cosas cómo los icons, roundIcons, theme, label (App Title),The intent-filter las activities y muchas cosas más. Para obtener documentación sobre todo tipo de material UI dejo un link más abajo."
+                }
+            ],
+            url:"https://material.io/design"
         }
     }
 
@@ -115,6 +165,17 @@ android:textColorHighlight="@color/teal_700"
                 title={detalles.tercero.title}
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.quinto.title}
+                defBreve={detalles.quinto.defBreve}
+                arrayCodigo={detalles.quinto.arrayCodigo}
+                url={detalles.quinto.url}
             />
         </div>
     )
