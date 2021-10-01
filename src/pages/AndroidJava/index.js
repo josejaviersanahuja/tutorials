@@ -5,6 +5,7 @@ import 'App.css';
 import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import AndroidJavaBasics from './AndroidJavaBasics';
+import DeeperJava from './DeeperJava';
 
 export default function AndroidJava() {
     return (
@@ -32,6 +33,7 @@ function Child() {
     return (<>
         <h2>{id}</h2>
         {id==="Basics"? <AndroidJavaBasics/>: null }
+        {id==="Java Part"? <DeeperJava/>: null }
         </>
     );
   }

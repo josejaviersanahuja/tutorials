@@ -19,7 +19,7 @@ const reactNativeMenu = ["Setting Enviroment", "Antes de publicar", "Splash Imag
 const redisMenu = ["Básico"]
 const dockerMenu = ["Instalación Windows10", "Primer Uso"]
 const mysqlMenu = ["Básico"]
-const androidJavaMenu = ["Basics"]
+const androidJavaMenu = ["Basics", "Java Part"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
