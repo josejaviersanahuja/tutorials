@@ -9,6 +9,7 @@ import DeeperJava from './DeeperJava';
 import DeeperXML from './DeeperXML';
 import AppMenu from './AppMenu';
 import ListOfItems from './ListOfItems';
+import Navigation from './Navegation';
 
 export default function AndroidJava() {
     return (
@@ -40,6 +41,7 @@ function Child() {
         {id==="XML Part"? <DeeperXML/>: null }
         {id==="Main Menu"? <AppMenu/>: null }
         {id==="Listas"? <ListOfItems/>: null }
+        {id==="Navegación"? <Navigation/>: null }
         </>
     );
   }

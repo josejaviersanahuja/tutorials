@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             ]
         },cuarto:{
-            title: "Creamos el elemento en el xml.",
+            title: "Ahora veamos otro tipo de listado el SPINNER (select). XML part",
             defBreve:"Crear este elemento no es para nada dificil, la mayor parte del trabajo se genera en el MainActivity.java. Así que no perdamos más tiempo y veamos como se crea..",
             arrayCodigo:[
                 {
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             ]
         },
         quinto:{
-            title:"Creamos los detalles de este elemento en nuestro MainActivity.java",
+            title:"Creamos los detalles del SPINNER en nuestro MainActivity.java",
             defBreve:"Esta parte es más compleja, así que iremos por partes. Vamos a ello.",
             arrayCodigo:[
                 {
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             ]
         },
         sexto:{
-            title:"Añadimos funcionalidad a nuestro list of items",
+            title:"Añadimos funcionalidad al SPINNER",
             defBreve:"Vamos a querer añadir funciones a nuestro spinner (select), desde onItemSlectedListener y cosas más complicadas.",
             arrayCodigo:[
                 {
@@ -190,6 +190,247 @@ public class MainActivity extends AppCompatActivity {
 
     `,
                     text:"Hemos creado un onItemSelectedListener."
+                }
+            ]
+        }, septimo:{
+            title: "Ahora veamos otro tipo de listado RecylerView. XML part",
+            defBreve:"Este elemento es similar al ListView pero eficiente, ya que solo se carga cuando está por entrar en la pantalla. Es como si tuviera un LazyLoad incorporado.",
+            arrayCodigo:[
+                {
+                    cod:`<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/allBooks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/titleSeeAllBooks"/>`,
+                    text: "Necesitaremos definir un custom layout así que vamos a ello. En el directorio res/layout creamos un nuevo leyout resource file y luego definimos los siguientes componentes UI"
+                },{
+                    cod:`<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgBook"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:background="@color/big_stone"/>
+    <TextView
+        android:id="@+id/titleBook"
+        android:layout_below="@+id/imgBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:hint="Title"
+        android:textSize="20sp"/>        
+        
+</RelativeLayout>`,
+                    text:"Ahora este es el custom layout que va a tomar cada elemento de nuestro RecyclerView. Pasemos a la parte de JAVA"
+                }
+            ]
+        },
+        octavo:{
+            title:"Creamos los detalles del RecyclerView.",
+            defBreve:"Esta parte es más compleja, porque a diferencia del ListView que ya tenemos el ArrayAdapter en nuestra librería, con el RecyclerView debemos crear nuestro propio custom Adapter antes de poder definir nuestro RecyclerView en nuestro MainActivity.java. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`package com.zitrojjdev.sampleapp1;
+
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+// Step 2, extend our custom adapter with the ViewHolder we defined in step 1
+
+public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRecyclerViewAdapter.ViewHolder>{
+    private static final String TAG = "AllBooksRecyclerViewAdapter";
+
+    // Step 3. must include 3 methods to implement because we extended our custom adapter in step 2.
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+
+    //Step 1. create and extend this View Holder
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView bookImage;
+        private TextView bookName;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            bookImage = itemView.findViewById(R.id.imgBook);
+            bookName = itemView.findViewById(R.id.titleBook);
+
+        }
+    }
+}
+`,
+                    text:"Se que parece caotico, pero lo primero es crear una clase de Java con el nombre que haga referencia a RecyclerViewAdapter, en este caso es para el listado de libros, así que se llama AllBooksRecyclerViewAdapater. Luego definimos una clase interna llamada ViewHolder que debemos extender en el step1 puedes ver el código. Luego añadimos el siguiente código extends RecyclerView.Adapter<AllBooksRecyclerViewAdapter.ViewHolder> a nuestra clase principal del custom adapter, y luego al hacer esta extensión debemos implementar los métodos de la clase que recién extendimos en el step3. ctrl+i es el shortcut. Esto aún no ha terminado, así que sigamos paso a paso."
+                },
+                {
+                    cod:`package com.zitrojjdev.sampleapp1;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRecyclerViewAdapter.ViewHolder>{
+    private static final String TAG = "AllBooksRecViewAdapter";
+
+    // fields of this class
+    private ArrayList<Book> listOfBooks = new ArrayList<>();
+    private Context context;
+
+    // Un constructor para el context. 
+    // Si recuerdas el ListViewAdapter requiere pasar un contexto (this ó MainActivity.this)
+    public AllBooksRecyclerViewAdapter(Context context) {
+        this.context = context;
+    }
+
+    //this method will inflate or populate the data array with the layout we prepared before.
+    // It won´t provide anything else
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    
+        // 99% of the times, this will be the code needed.
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_books_recycler_view, null);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    // this method will provide the extra logic to our layout to get live interactions
+    // or extra logic to add data after the first inflation
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: called");
+
+        holder.bookName.setText(listOfBooks.get(position).getName());
+        holder.bookName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final int index = holder.getAdapterPosition();
+                Toast.makeText(context, listOfBooks.get(index).toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // just passing the size of the data array
+    @Override
+    public int getItemCount() {
+        return listOfBooks.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView bookImage;
+        private TextView bookName;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            bookImage = itemView.findViewById(R.id.imgBook);
+            bookName = itemView.findViewById(R.id.titleBook);
+
+        }
+    }
+
+    // setter of the list of books
+    public void setListOfBooks(ArrayList<Book> listOfBooks) {
+        this.listOfBooks = listOfBooks;
+        // next line is like a listener that will trigger the update the view of the RecyclerView
+        notifyDataSetChanged();
+    }
+}
+`,
+                    text:"Aquí añadimos más elementos imprescindibles a nuestro adapter. Definimos el contexto, y el ArrayList<Book>, previamente definimos la clase Book, Creamos un constructor del context, Implementamos el ViewHolder que es la hidratación del layout para cada elemento del recyclerview, solo se hidrata el layout, cualquier lógica adicional debe implementarse en onBindViewHolder, que también implementamos para hidratar el textview que ya creamos, con los datos del objeto del RecyclerView (Book). Aprovechamos también de añadir en ese mismo método el onClickListener para hacer un Toast con los datos del objeto, implementamos el getItemCount y creamos un setter para poder pasar un listado de libros que queramos."
+                }
+            ]
+        },
+        noveno:{
+            title:"Implementamos el RecyclerView en nuestra actividad",
+            defBreve:"Vamos a tener que implementar nuestro adapter en nuestra actividad.",
+            arrayCodigo:[
+                {
+                    cod:`package com.zitrojjdev.sampleapp1;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import java.util.ArrayList;
+
+public class SeeAllBooks extends AppCompatActivity {
+
+    // 1. definimos el recycler view
+    private RecyclerView booksRecView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_see_all_books);
+
+        // 2. initializing
+        booksRecView = findViewById(R.id.allBooks);
+
+        // 3. data array
+        ArrayList<Book> books = new ArrayList<>();
+
+        // 4. adding books (Constructor creado en la clase Book)
+        books.add(new Book("1Q84","Haruki Murakami", "https://images.gr-assets.com/bokks/14831033311/10357575.jpg","A work of maddeling brilliance",1350 ));
+        books.add(new Book("Iliad","Homer", "https://images-na.ssl-images-amazon.com/images/I/AlsXo113HML.jpg","Greek heroes and tragedies",1000 ));
+        books.add(new Book("Beyond Good and Evil","Nietzsche", "https://pressbooks.com/app/uploads/sites/27444/2014/03/beyondgoogandevill.jpg","The philosofo",350 ));
+
+        // 5. Definimos el adapter y lo pasamos el recyclerView
+        AllBooksRecyclerViewAdapter adapter = new AllBooksRecyclerViewAdapter(this);
+        booksRecView.setAdapter(adapter);
+
+        // 6. we are setting something important here regarding the layout. could be linear or grid
+        // Este paso seguro tiene que ver con el layout del listado en su conjunto, puesto que el layout creado 
+        // ... en el xml era un layout individual
+        booksRecView.setLayoutManager(new LinearLayoutManager(this));
+
+        // 7. we set the array of books
+        adapter.setListOfBooks(books);
+    }
+}
+
+    `,
+                    text:"En 7 pasos hemos definido nuestro RecyclerView."
                 }
             ]
         }
@@ -233,6 +474,21 @@ public class MainActivity extends AppCompatActivity {
                 title={detalles.sexto.title}
                 defBreve={detalles.sexto.defBreve}
                 arrayCodigo={detalles.sexto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.septimo.title}
+                defBreve={detalles.septimo.defBreve}
+                arrayCodigo={detalles.septimo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.octavo.title}
+                defBreve={detalles.octavo.defBreve}
+                arrayCodigo={detalles.octavo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.noveno.title}
+                defBreve={detalles.noveno.defBreve}
+                arrayCodigo={detalles.noveno.arrayCodigo}
             />
         </div>
     )
