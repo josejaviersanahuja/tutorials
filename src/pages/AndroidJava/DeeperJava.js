@@ -119,6 +119,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text:"Cuando el método show se ejecuta en nuestro onCreate method, va a aparecer en pantalla, un mensaje pop up, en la parte de abajo de la pantalla diciendo hello. Si la duración del mensaje es Toast.LENGTH_LONG, el mensaje durará alrededor de 4 segundos. Pero si usamos Toast.LENGTH_SHORT durará 2 segundos."
                 }
             ]
+        }, tercero:{
+            title:"Modal window or Alert message",
+            defBreve:"En React Native aprendimos a usar Alerts, y vamos a aprender a usarlas en Android apps con java. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// alert modal screen
+
+// 1. Definimos el builder
+AlertDialog.Builder builder = new AlertDialog.Builder(BookActivity.this);
+
+// 2. Seteamos el mensaje
+builder.setMessage("You already added this book on this list");
+
+// 3. (opcional) definimos una acción positiva en caso de querer continuar.
+builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+
+    }
+});
+
+// 4. (opcional) definimos una acción negativa en caso de querer cancelar
+builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+
+    }
+});
+
+// 5. Aquí definimos si la alerta puede ignorarse o no.
+builder.setCancelable(false); // en false, no puede ignorarse y hay que decidir una acción
+
+// 6. definimos el momento donde mostrar la alerta o la ventana modal.
+builder.create().show();
+`,
+                    text:"De esta forma aprendemos como crear, mostrar y cómo definir una acción en base a la alerta que deseamos crear. Hay muchos más métodos. Dejo link para la documentación."
+                }
+            ],
+            url:"https://developer.android.com/guide/topics/ui/dialogs?hl=es-419"
         }
     }
 
@@ -133,6 +172,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+                url={detalles.tercero.url}
             />
         </div>
     )
