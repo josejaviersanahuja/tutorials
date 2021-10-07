@@ -375,7 +375,185 @@ public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRe
     }
 }
 `,
-                    text:"Aquí añadimos más elementos imprescindibles a nuestro adapter. Definimos el contexto, y el ArrayList<Book>, previamente definimos la clase Book, Creamos un constructor del context, Implementamos el ViewHolder que es la hidratación del layout para cada elemento del recyclerview, solo se hidrata el layout, cualquier lógica adicional debe implementarse en onBindViewHolder, que también implementamos para hidratar el textview que ya creamos, con los datos del objeto del RecyclerView (Book). Aprovechamos también de añadir en ese mismo método el onClickListener para hacer un Toast con los datos del objeto, implementamos el getItemCount y creamos un setter para poder pasar un listado de libros que queramos."
+                    text:"Aquí añadimos más elementos imprescindibles a nuestro adapter. Definimos el contexto, y el ArrayList<Book>, previamente definimos la clase Book, Creamos un constructor del context, Implementamos el ViewHolder que es la hidratación del layout para cada elemento del recyclerview, solo se hidrata el layout, cualquier lógica adicional debe implementarse en onBindViewHolder, que también implementamos para hidratar el textview que ya creamos, con los datos del objeto del RecyclerView (Book). Aprovechamos también de añadir en ese mismo método el onClickListener para hacer un Toast con los datos del objeto, implementamos el getItemCount y creamos un setter para poder pasar un listado de libros que queramos. Para el siguiente paso vamos a usar una librería externa llamada glide, donde podremos añadir la urlImage a nuestro RecyclerView."
+                },{
+                    cod:`package com.zitrojjdev.sampleapp1;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
+public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRecyclerViewAdapter.ViewHolder>{
+    private static final String TAG = "AllBooksRecViewAdapter";
+
+    private ArrayList<Book> listOfBooks = new ArrayList<>();
+    private Context context;
+
+    public AllBooksRecyclerViewAdapter(Context context) {
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_books_recycler_view, null);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: called");
+
+        holder.bookName.setText(listOfBooks.get(position).getName());
+        holder.bookName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final int index = holder.getAdapterPosition();
+                Toast.makeText(context, listOfBooks.get(index).toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Aquí añadimos la url Image usando una librería externa con Glide
+        Glide.with(context)
+                .asBitmap()
+                .load(listOfBooks.get(position).getImageURL())
+                .into(holder.bookImage);
+    }
+
+    @Override
+    public int getItemCount() {
+        return listOfBooks.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView bookImage;
+        private TextView bookName;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            bookImage = itemView.findViewById(R.id.imgBook);
+            bookName = itemView.findViewById(R.id.titleBook);
+
+        }
+    }
+
+    public void setListOfBooks(ArrayList<Book> listOfBooks) {
+        this.listOfBooks = listOfBooks;
+        notifyDataSetChanged();
+    }
+}
+`,
+                    text:"Para saber como añadir una librería externa ve a submenu de miscelanious de android app with java. De ahí sólo añadimos estas 4 líneas y damos permiso al AndroidManifest para conectar con internet y ya tenemos implementada la imagen. Para ver como queda el manifest mira lo siguiente"
+                },{
+                    cod:`<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zitrojjdev.sampleapp1">
+
+    <!-- Aquí damos el permiso a la app de poder conectarse a internet -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SampleApp1">
+        <activity
+            android:name=".About"
+            android:exported="true" />
+        <activity
+            android:name=".AlreadyReadBooks"
+            android:exported="true" />
+        <activity
+            android:name=".WantToReadBooks"
+            android:exported="true" />
+        <activity
+            android:name=".CurrentlyReadingBooks"
+            android:exported="true" />
+        <activity
+            android:name=".SeeAllBooks"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>`,
+                    text:"Genial, ya sabemos hasta cómo dar permisos a nuestra App de usar recursos de andoird. Luego quedaría usar otra librería para mejorar los estilos de nuestro RecyclerView. CardView changes es lo próximo que veremos."
+                },{
+                    cod:`// cambio en el custom adapter
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_books_recycler_view,null);
+    
+    // ó de esta otra forma de construirlo
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_books_recycler_view, parent, false);
+
+//Cambios en el MainActivity.java
+// we are setting something important here regarding the layout. could be linear or grid
+    booksRecView.setLayoutManager(new GridLayoutManager(this, 2));
+
+//Cambios en el xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Añadimos el card view -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        android:layout_marginVertical="15dp"
+        android:layout_centerHorizontal="true">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:id="@+id/imgBook"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/big_stone"/>
+        <TextView
+            android:id="@+id/titleBook"
+            android:layout_below="@+id/imgBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:hint="Title"
+            android:textSize="20sp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+`,
+                    text:""
                 }
             ]
         },
