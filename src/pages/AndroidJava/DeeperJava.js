@@ -185,6 +185,86 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     text:"El paso 1 es muy directo, el 2 ya lo hemos visto pero el 3 voy a explicar 2 cositas. android.R.id.home es el id de dicho backArrow. y super.onBackPressed() es un método que pertenece a android, y es exactamente el método que se ejecuta cuando le damos al triangulo de ir atrás. Por ese motivo se llama desde el construtor superior super. Incluso existe un método sobreescribible llamado onBackPressed para redefinir las acciones que ahí ocurren."
                 }
             ]
+        },quinto:{
+            title:"onLongClickListener & notifyDataSetChanged()",
+            defBreve:"En nuestro sampleApp1 hemos aprendido a definir un long press listener, vamos a ver su implementación y veremos que más aprendemos del recyclerView.",
+            arrayCodigo:[
+                {
+                    cod:`// onLongClickListener
+holder.bookCard.setOnLongClickListener(new View.OnLongClickListener() {
+    @Override
+    public boolean onLongClick(View view) {
+
+        // obtenemos la position del objeto de nuestro recycler view y definimos el objeto
+        final int index = holder.getAdapterPosition();
+        Book book = listOfBooks.get(index);
+        
+        // alert modal screen
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Options");
+        builder.setMessage("Choose an action");
+        builder.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                listOfBooks.remove(book);
+
+                // con este método podemos hacer que el recyclerview se actualice ya que avizamos
+                // que el data array que lo define, ha cambiado.
+                notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.setCancelable(false);
+
+        // en este switch definimos el tercer boton de nuestro alert
+        // y lanzamos la alerta
+        switch (util.getType()){
+            case "WantToReadBooks":
+                builder.setNeutralButton("Move to current reading books", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        util.addCurrentlyReadingBook(book);
+                        listOfBooks.remove(book);
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.create().show();
+                break;
+            case "AlreadyReadBooks":
+                builder.setNeutralButton("Move to want to read books", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        util.addWantToReadBook(book);
+                        listOfBooks.remove(book);
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.create().show();
+                break;
+            case "CurrentlyReadingBooks":
+                builder.setNeutralButton("Move to already read books", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        util.addAlreadyReadBook(book);
+                        listOfBooks.remove(book);
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.create().show();
+                break;
+            default: break;
+        }
+
+        return false;
+    }`,
+                    text:"Aunque la lógica es específica de nuestra aplicación, pudimos definir el método onLongClickListener y aprendimos a refrescar el recyclerview cuando este cambia."
+                }
+            ]
         }
     }
 

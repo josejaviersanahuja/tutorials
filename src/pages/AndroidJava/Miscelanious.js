@@ -162,6 +162,78 @@ public class WebViewActvity extends AppCompatActivity {
                 }
             ],
             url:"https://developer.android.com/reference/android/webkit/WebView"
+        },cuarto:{
+            title:"Navegación con animación",
+            defBreve:"Vamos a aprender a crear animaciones simples para que la navegación entre actividades sea agradable. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// 1. Debemos crear un directorio anim en app/src/main/res
+                    
+// 2. creamos 4 archivos, 2 para la navegación push, y 2 para goBack
+// Les llamaremos in, out, close_in, close_out
+
+// IN
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="-100%p"
+    android:toXDelta="0%p"
+    android:duration="500">
+
+</translate>
+
+// OUT
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0%p"
+    android:toXDelta="100%p"
+    android:duration="400">
+
+</translate>
+
+// close_in
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="100%p"
+    android:toXDelta="0%p"
+    android:duration="500">
+
+</translate>
+
+// close_out
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0%p"
+    android:toXDelta="-100%p"
+    android:duration="400">
+
+</translate>
+`,
+                    text:"Aquí hemos definido una transformación por traslación en una sola dirección. Ahora queda ver como hacer la navegación con el push y con el goBack"
+                },{
+                    cod:`// Java part para el push
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_currently_reading_books);
+
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    // Esta es la parte que interesa
+    overridePendingTransition(R.anim.in, R.anim.out);
+    
+    ...`,
+                    text:"Este método overridePendingTransition recibe los archivos xml que creamos más arriba. Es el mismo método que se usa para el goBack, pero en ese caso se coloca en otro método. Vamos a ello."
+                },{
+                    cod:`// java part para el goBack
+@Override
+public void finish() {
+    super.finish();
+    overridePendingTransition(R.anim.close_in, R.anim.close_out);
+}`,
+                    text:"Y de esta forma queda terminada la animación entre cada navegación. Hay que definirlo en todas las actividades."
+                }
+            ],
+            url:"https://developer.android.com/training/animation/overview?hl=es"
         }
     }
 
@@ -189,6 +261,12 @@ public class WebViewActvity extends AppCompatActivity {
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
                 url={detalles.tercero.url}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+                url={detalles.cuarto.url}
             />
         </div>
     )
