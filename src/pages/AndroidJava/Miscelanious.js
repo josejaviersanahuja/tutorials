@@ -74,6 +74,94 @@ dependencies {
                 }
             ],
             url:"https://developer.android.com/guide/topics/ui/layout/cardview#groovy"
+        },tercero:{
+            title: "WebView (Iframes).",
+            defBreve:"Aquí podremos trabajar con Iframes dentro de nuestra App. Puede ser un complemento espectacular para nuestras aplicaciones nativas. Vamos a ellos",
+            arrayCodigo:[
+                {
+                    cod:` <!-- Lo primero es el XML, donde definimos un webview que acupa toda la pantalla -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WebViewActvity">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>`,
+                    text: "Así definimos el webview que ocupa toda la pantalla."
+                },{
+                    cod:`// buena práctica pasar la url en el intent para que el webView sea reutilizable
+public void onClick(View view) {
+    Intent intent = new Intent(About.this, WebViewActvity.class);
+    intent.putExtra("url", "https://tutorials-vert.vercel.app/");
+    startActivity(intent);
+}`,
+                    text:"Así definimos el intent que va a navegar al webView."
+                },{
+                    cod:`package com.zitrojjdev.sampleapp1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class WebViewActvity extends AppCompatActivity {
+    private static final String TAG = "onWebViewActivity";
+    private WebView webView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_web_view_actvity);
+
+        // receiving the url from previous intent
+        Intent intent = getIntent();
+        String url ="";
+        try {
+            url= intent.getStringExtra("url");
+        } catch (NullPointerException e){
+            Log.d(TAG, "onCreate: No url from intent");
+        }
+
+        // initWidget
+        webView = findViewById(R.id.webView);
+
+        // para evitar que se abra con el navegador
+        webView.setWebViewClient(new WebViewClient());
+
+        // open javascripts for websites to work
+        webView.getSettings().setJavaScriptEnabled(true);
+
+        // load url
+        webView.loadUrl(url);
+    }
+
+    // Como navegamos dentro de nuestra app, el boton de go back de android puede navegar atrás dentro del webView
+    // o puede navegar atrás en nuestra APP y sacarnos del webView. Por eso sobreescribimos el método
+    @Override
+    public void onBackPressed() {
+        // si podemos navegar atrás dentro del webView,
+        if (webView.canGoBack()){
+            webView.goBack();
+        } else {
+            // Si no podemos ir atras en el webView, vamos atras en la APP
+            super.onBackPressed();
+        }
+    }
+}`,
+                    text:"Aquí usamos varios métodos del webView como setWebViewClient o getSettings o loadUrl. Dejo link para documentar mejor que más se puede hacer."
+                }
+            ],
+            url:"https://developer.android.com/reference/android/webkit/WebView"
         }
     }
 
@@ -95,6 +183,12 @@ dependencies {
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
                 url={detalles.segundo.url}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+                url={detalles.tercero.url}
             />
         </div>
     )

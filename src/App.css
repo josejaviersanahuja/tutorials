@@ -421,7 +421,7 @@ iframe {
 
      .menu2 ol li{
       background-color:rgba(154,154,154,0.9);
-      transform: translateY(100vh);
+      transform: translateY(200vh);
       width: 80%;
       margin: 1rem;
       padding: 1rem;
@@ -531,6 +531,18 @@ iframe {
   .menu2__open ol :nth-child(15){
     transition-delay: 1.5s;  
   }
+  .menu2__open ol :nth-child(16){
+    transition-delay: 1.6s;  
+  }
+  .menu2__open ol :nth-child(17){
+    transition-delay: 1.7s;  
+  }
+  .menu2__open ol :nth-child(18){
+    transition-delay: 1.8s;  
+  }
+  .menu2__open ol :nth-child(19){
+    transition-delay: 1.9s;  
+  }
 
     #a0 {
       animation: submenu;
@@ -595,6 +607,18 @@ iframe {
     #a15 {
       animation: submenu;
       animation-duration: 2.9s;
+    }
+    #a16 {
+      animation: submenu;
+      animation-duration: 3s;
+    }
+    #a17 {
+      animation: submenu;
+      animation-duration: 3.1s;
+    }
+    #a18 {
+      animation: submenu;
+      animation-duration: 3.2s;
     }
     iframe {
       width:330px;

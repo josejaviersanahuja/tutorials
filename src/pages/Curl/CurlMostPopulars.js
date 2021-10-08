@@ -2,6 +2,7 @@ import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
 import PublishDay from 'components/PublishDay'
+import Subtitle from 'components/Subtitle'
 
 export default function CurlMostPopulars() {
     
@@ -28,6 +29,10 @@ curl http://localhost:3000 -H "Authorization: Basic $(echo -n admin:secret | bas
     return (
         <div className="cuerpo">
             <PublishDay date="05/08/2021"/>
+            <Subtitle
+                subtitle="Lo más popular de curl"
+                parrafo="Lo más común es probar los servidores que desarrollas en localhost."
+            />
             <DetallesSubtema
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}

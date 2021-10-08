@@ -158,6 +158,33 @@ builder.create().show();
                 }
             ],
             url:"https://developer.android.com/guide/topics/ui/dialogs?hl=es-419"
+        },cuarto:{
+            title:"Back Arrow",
+            defBreve:"En android, el header es un elemento especial y por tanto se accede a él de forma especial también. Por eso ahora vamos a ver cómo mostrar el back arraow en el header y cómo hacer que funcione. vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// 1. dentro del onCreate method escribimos lo siguiente
+getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+// 2. creamos otro método que sobreescribimos. onOptionsItemSelected
+// ya lo vimos antes cuando creamos el menú principal.
+@Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            
+            // 3. la clave de todo está en las siguientes 2 líneas
+            case android.R.id.home:
+                super.onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }`,
+                    text:"El paso 1 es muy directo, el 2 ya lo hemos visto pero el 3 voy a explicar 2 cositas. android.R.id.home es el id de dicho backArrow. y super.onBackPressed() es un método que pertenece a android, y es exactamente el método que se ejecuta cuando le damos al triangulo de ir atrás. Por ese motivo se llama desde el construtor superior super. Incluso existe un método sobreescribible llamado onBackPressed para redefinir las acciones que ahí ocurren."
+                }
+            ]
         }
     }
 
@@ -183,6 +210,11 @@ builder.create().show();
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
                 url={detalles.tercero.url}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
             />
         </div>
     )
