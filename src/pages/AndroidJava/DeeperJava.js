@@ -265,6 +265,216 @@ holder.bookCard.setOnLongClickListener(new View.OnLongClickListener() {
                     text:"Aunque la lógica es específica de nuestra aplicación, pudimos definir el método onLongClickListener y aprendimos a refrescar el recyclerview cuando este cambia."
                 }
             ]
+        }, sexto:{
+            title:"Advanced Intents Introducción",
+            defBreve:"Si, los intents son la misma clase que nos permite navegar entre actividades, pero son mucho más que eso. También nos permite interactuar con otras aplicaciones como la cámara, la alarma, enviar contenido en el portapapeles a otra APP, es ciertamente una herramienta poderosa y que hay que saber usar. Esto es solo una introducción para que sepamos a vuelo de pájaro las cosas que se pueden hacer, así que no entraremos en muchos detalles, pero si mostraremos ligeramente el potencial de este elemento. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// Intent para acceder a una foto de la cámara.
+Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+startActivity(intent);`,
+                    text:"Con este código, se abre la cámara para tomar una foto, y una vez hecho, ofrece la interfaz de aceptar la foto para nuestra aplicación. No sabemos aún cómo manejar dicha foto, pero al menos ya sabemos cómo pedir a nuestra App una foto a través de la cámara."
+                },{
+                    cod:`// Intent para acceder a una alarma.
+Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+
+// intent.setAction(AlarmClock.EXTRA_HOUR);
+
+startActivity(intent);
+
+// El permiso en el manifest es
+<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+`,
+                    text:"Al iniciar esta actividad podemos acceder a la alarma para crear una nueva alarma. Debemos dar el permiso al Manifest de lo contrario, se cae la App. El setAction que incluí tiene un problema, no funciona bien, pero dejemos de momento eso comentado para que sepamos que podemos interactuar con la App alarma desde nuestra aplicación."
+                },{
+                    cod:`// Intent para enviar emails o mensajes a distintas aplicaciones.
+Intent intent = new Intent(Intent.ACTION_SEND);
+
+intent.putExtra(Intent.EXTRA_TEXT, "Hello from another APP");
+intent.setType("text/*");
+
+// new intent chooser
+Intent chooser = new Intent(Intent.createChooser(intent, "Choose an App"));
+
+startActivity(chooser);`,
+                    text:"Este intent va a enviar un texto a otra aplicación que esté configurada para abrir dichos mensajes. El chooser es la buena práctica para escoger qué aplicación debe recibir o abrir el mensaje enviado. Puede tratarse de un audio, o de un archivo o the html o de una imagen."
+                },{
+                    cod:`// FLAGS
+Intent intentTest = new Intent(MainActivity.this, TestActivity.class);
+
+// Este FLAG permite redifnir la ruta de navegación al TestActivity.class.
+intentTest.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+// Este Flag hace algo similar a lo anterior pero con navegacion web
+intentTest.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+startActivity( intentTest);`,
+                    text:"Este Flag sirve para borrar la ruta de navegación previa a la testActivity. Esto significa, que si hay una ruta que no conviene que volvamos atrás, podemos pasar la navegación con este FLAG. Se me ocurre que por temas de seguridad, logins o permisos, este FLAG puede ser muy útil. El Single_Top Flag sirve para algo similar pero me parece que se trata del WEBVIEW."
+                },{
+                    cod:`// vamos a intentar capturar una imagen pero este metodo esta deprecado
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
+
+        // Intent para capturar imagenes con la cámara
+        Intent intent = new Intent();
+        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        // forma deprecada
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == 1) {
+            // doSomeOperations();
+        }
+    }`,
+                    text:"Este es el método que se enseña en el curso de meisam pero está deprecado. en stack overflow, ponen el método alternativo que voy a copiar."
+                },{
+                    cod:`
+// Intent para capturar imagenes con la cámara
+Intent intent = new Intent();
+intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+
+// Nueva forma 
+ActivityResultLauncher<Intent> someActivityResultLauncher;
+
+someActivityResultLauncher = registerForActivityResult(
+        new ActivityResultContracts.StartActivityForResult(),
+        new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == RESULT_OK) {
+                    // There are no request codes
+                    Intent data = result.getData();
+                    // doSomeOperations();
+                }
+            }
+        });
+
+someActivityResultLauncher.launch(intent);`,
+                    text:"Este código parece hacer exactamente lo mismo que el anterior. Habrá que estudiarlo en más profundidad. Para eso dejaré un código que se presenta como una forma de reutilizar intents para capturar imágenes."
+                },{
+                    cod:`// Código 
+import android.content.Intent;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCaller;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+public class BetterActivityResult<Input, Result> {
+    /**
+     * Register activity result using a {@link ActivityResultContract} and an in-place activity result callback like
+     * the default approach. You can still customise callback using {@link #launch(Object, OnActivityResult)}.
+     */
+    @NonNull
+    public static <Input, Result> BetterActivityResult<Input, Result> registerForActivityResult(
+            @NonNull ActivityResultCaller caller,
+            @NonNull ActivityResultContract<Input, Result> contract,
+            @Nullable OnActivityResult<Result> onActivityResult) {
+        return new BetterActivityResult<>(caller, contract, onActivityResult);
+    }
+
+    /**
+     * Same as {@link #registerForActivityResult(ActivityResultCaller, ActivityResultContract, OnActivityResult)} except
+     * the last argument is set to {@code null}.
+     */
+    @NonNull
+    public static <Input, Result> BetterActivityResult<Input, Result> registerForActivityResult(
+            @NonNull ActivityResultCaller caller,
+            @NonNull ActivityResultContract<Input, Result> contract) {
+        return registerForActivityResult(caller, contract, null);
+    }
+
+    /**
+     * Specialised method for launching new activities.
+     */
+    @NonNull
+    public static BetterActivityResult<Intent, ActivityResult> registerActivityForResult(
+            @NonNull ActivityResultCaller caller) {
+        return registerForActivityResult(caller, new ActivityResultContracts.StartActivityForResult());
+    }
+
+    /**
+     * Callback interface
+     */
+    public interface OnActivityResult<O> {
+        /**
+         * Called after receiving a result from the target activity
+         */
+        void onActivityResult(O result);
+    }
+
+    private final ActivityResultLauncher<Input> launcher;
+    @Nullable
+    private OnActivityResult<Result> onActivityResult;
+
+    private BetterActivityResult(@NonNull ActivityResultCaller caller,
+                                 @NonNull ActivityResultContract<Input, Result> contract,
+                                 @Nullable OnActivityResult<Result> onActivityResult) {
+        this.onActivityResult = onActivityResult;
+        this.launcher = caller.registerForActivityResult(contract, this::callOnActivityResult);
+    }
+
+    public void setOnActivityResult(@Nullable OnActivityResult<Result> onActivityResult) {
+        this.onActivityResult = onActivityResult;
+    }
+
+    /**
+     * Launch activity, same as {@link ActivityResultLauncher#launch(Object)} except that it allows a callback
+     * executed after receiving a result from the target activity.
+     */
+    public void launch(Input input, @Nullable OnActivityResult<Result> onActivityResult) {
+        if (onActivityResult != null) {
+            this.onActivityResult = onActivityResult;
+        }
+        launcher.launch(input);
+    }
+
+    /**
+     * Same as {@link #launch(Object, OnActivityResult)} with last parameter set to {@code null}.
+     */
+    public void launch(Input input) {
+        launch(input, this.onActivityResult);
+    }
+
+    private void callOnActivityResult(Result result) {
+        if (onActivityResult != null) onActivityResult.onActivityResult(result);
+    }
+}
+
+// With the above approach, you still have to register it before or during launching the activity or fragment attachment. Once defined, it can be reused within the 
+// activity or fragment. For example, if you need to start new activities in most of the activity, you can define a BaseActivity and register a new 
+// BetterActivityResult like this:
+
+// BaseActivity.java
+
+public class BaseActivity extends AppCompatActivity {
+    protected final BetterActivityResult<Intent, ActivityResult> activityLauncher = BetterActivityResult.registerActivityForResult(this);
+}
+// After that, you can simply launch an activity from any child activities like this:
+
+public void openSomeActivityForResult() {
+    Intent intent = new Intent(this, SomeActivity.class);
+    activityLauncher.launch(intent, result -> {
+        if (result.getResultCode() == Activity.RESULT_OK) {
+            // There are no request codes
+            Intent data = result.getData();
+            doSomeOperations();
+        }
+    })
+}
+`,
+                    text:"Este código no lo he probado. Lo dejo como tarea ver cómo se usa."
+                }
+            ]
         }
     }
 
@@ -295,6 +505,16 @@ holder.bookCard.setOnLongClickListener(new View.OnLongClickListener() {
                 title={detalles.cuarto.title}
                 defBreve={detalles.cuarto.defBreve}
                 arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.quinto.title}
+                defBreve={detalles.quinto.defBreve}
+                arrayCodigo={detalles.quinto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.sexto.title}
+                defBreve={detalles.sexto.defBreve}
+                arrayCodigo={detalles.sexto.arrayCodigo}
             />
         </div>
     )
