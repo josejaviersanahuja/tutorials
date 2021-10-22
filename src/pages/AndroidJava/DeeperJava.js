@@ -276,17 +276,16 @@ startActivity(intent);`,
                     text:"Con este código, se abre la cámara para tomar una foto, y una vez hecho, ofrece la interfaz de aceptar la foto para nuestra aplicación. No sabemos aún cómo manejar dicha foto, pero al menos ya sabemos cómo pedir a nuestra App una foto a través de la cámara."
                 },{
                     cod:`// Intent para acceder a una alarma.
-Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
-
-// intent.setAction(AlarmClock.EXTRA_HOUR);
-
-startActivity(intent);
-
+Intent alarm = new Intent(AlarmClock.ACTION_SET_ALARM);
+alarm.putExtra(AlarmClock.EXTRA_HOUR, 10);
+alarm.putExtra(AlarmClock.EXTRA_MINUTES, 00);
+alarm.putExtra(AlarmClock.EXTRA_MESSAGE, "Ay oma");
+startActivity(alarm);
 // El permiso en el manifest es
 <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
 `,
-                    text:"Al iniciar esta actividad podemos acceder a la alarma para crear una nueva alarma. Debemos dar el permiso al Manifest de lo contrario, se cae la App. El setAction que incluí tiene un problema, no funciona bien, pero dejemos de momento eso comentado para que sepamos que podemos interactuar con la App alarma desde nuestra aplicación."
+                    text:"Al iniciar esta actividad podemos acceder a la alarma para crear una nueva alarma a las 10:00 AM. Debemos dar el permiso al Manifest de lo contrario, se cae la App. El setAction que incluí tiene un problema, no funciona bien, pero dejemos de momento eso comentado para que sepamos que podemos interactuar con la App alarma desde nuestra aplicación."
                 },{
                     cod:`// Intent para enviar emails o mensajes a distintas aplicaciones.
 Intent intent = new Intent(Intent.ACTION_SEND);
