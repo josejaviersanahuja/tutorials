@@ -11,6 +11,8 @@ import AppMenu from './AppMenu';
 import ListOfItems from './ListOfItems';
 import Navigation from './Navegation';
 import Miscelanious from './Miscelanious';
+import DebugAndTesting from './DebugAndTesting';
+import Fragments from './Fragments';
 
 export default function AndroidJava() {
     return (
@@ -43,6 +45,8 @@ function Child() {
         {id==="Main Menu"? <AppMenu/>: null }
         {id==="Listas"? <ListOfItems/>: null }
         {id==="Navegación"? <Navigation/>: null }
+        {id==="Fragments"? <Fragments/>: null }
+        {id==="Debug & Testing"? <DebugAndTesting/>: null }
         {id==="Miscelanious"? <Miscelanious/>: null }
         </>
     );
