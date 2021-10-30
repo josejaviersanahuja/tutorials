@@ -244,6 +244,142 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.Get
                     text:"Y en 2 pasos definimos nuestro callback dentro de nuestra Actividad."
                 }
             ]
+        }, cuarto:{
+            title:"Custom Alert Dialog con Fragments",
+            defBreve:"Ya en el pasado vimos que los Alert Dialogs siguen cierto patrón, como un positiveBtn, negativeBtn y neutralBtn. La realidad es que ahora que ya sabemos usar Fragments, podemos crear un Alert Dialog perfectamente customizado a nuestras necesidades. Construyamos uno bastante simple. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`// Lo primero es el layout XML
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tittle of this dialog"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginVertical="10dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/urlTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://tutorials-vert.vercel.app"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/dialogTitle"/>
+    <Button
+        android:id="@+id/dismissBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visit website"
+        android:layout_below="@+id/urlTextView"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>`,
+                    text:"Exactamente igual que cualquier otro layout que desiemos crear."
+                },{
+                    cod:`// Java part creamos nuestra clase
+package com.zitrojjdev.logssaveinstanceandfragments.Fragments;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+
+import com.zitrojjdev.logssaveinstanceandfragments.R;
+
+// 1. extendemos de DialogFragments
+public class AboutDialog extends DialogFragment {
+    private static final String TAG = "AboutDialog";
+
+// 2. Iniciamos nuestros Views
+    private TextView dialogTitle, urlTextView;
+    private Button btnDismiss;
+
+// 3. sobreescribimos el método onCreateDialog (este paso es clave)
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
+// 4. obtenemos el contexto con el método getActivity() y accedemos al
+// getLayoutInflator e inflamos nuestro view, que al final será nuestro alert
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_about, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Dialog about");
+        builder.setView(view);
+
+        initWidgets(view); // aquí inicializamos los widgets
+
+// 5. Creamos nuestro bundle para leer los argumentos que hemos pasado a este fragment
+        Bundle bundle = getArguments();
+        if (bundle != null){
+            String details = bundle.getString("details", "");
+            String url = bundle.getString("website", "");
+            urlTextView.setText(url);
+            dialogTitle.setText(details);
+
+            urlTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d(TAG, "onClick: zitrojj clicking on the url "+ url);
+                }
+            });
+        } else {
+            Log.d(TAG, "onCreateDialog: zitrojj no hay bundle o argumentos entrantes en about dialog");
+        }
+
+// 6. hacemos builder.create para crear nuestro alert dialog
+        return builder.create();
+    }
+
+    private void initWidgets(View v){
+        dialogTitle = v.findViewById(R.id.dialogTitle);
+        urlTextView = v.findViewById(R.id.urlTextView);
+        btnDismiss = v.findViewById(R.id.dismissBtn);
+
+        btnDismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: zitrojj clicking to btn to dismiss alert ");
+                dismiss();
+            }
+        });
+    }
+
+// método opcional para cerrar el alert
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        Log.d(TAG, "onDismiss: zitrojj dismissing...");
+        super.onDismiss(dialog);
+    }
+}
+`,
+                    text:"El grueso de la lógica se encuentra entre los pasos 3 y 6. Lo demás se entiende con solo leerlo. Ahora debemos ver la implementación de este fragment en nuestra actividad."
+                },{
+                    cod:`AboutDialog dialog = new AboutDialog();
+Bundle bundle = new Bundle();
+bundle.putString("details", "Check all my notes inside the next url");
+bundle.putString("website", "https://tutorials-vert.vercel.app");
+dialog.setArguments(bundle);
+dialog.show(getSupportFragmentManager(), "about dialog");`,
+                    text:"De esta forma creamos el dialogo, pasamos los argumentos, y lo mostramos por pantalla."
+                }
+            ]
         }
     }
 
@@ -268,6 +404,11 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.Get
                 title={detalles.tercero.title}
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
             />
         </div>
     )
