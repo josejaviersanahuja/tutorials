@@ -74,7 +74,43 @@ zitrojj
 // press space bar to move to next page
 // press q to exit.
 `,
-                    text: "De momento solo 5 comandos, muy simples y sencillos, pero que nos irán dando experiencia en la terminal. Sigamos con más comandos."
+                    text: "De momento solo 5 comandos, muy simples y sencillos, pero que nos irán dando experiencia en la terminal. Sigamos con más comandos, esta vez de carpetas y directorios."
+                },{
+                    cod:`// Comando 1. man ls
+~ ls
+install.sh
+
+~ ls -a // mostrar carpetas ocultas
+.              .profile
+..             .sudo_as_admin_successful
+.bash_history  .viminfo
+.bash_logout   .zcompdump
+.bashrc        .zcompdump-SANAHUJA-ARRIECHE-5.8
+.landscape     .zsh_history
+.motd_shown    .zshrc
+.oh-my-zsh     install.sh
+
+// Comando 2 cd
+cd .. - subir una carpeta
+cd ../.. - subir 2 carpetas
+cd /../ - subir al directorio raíz
+cd /../home - vamos directo a la home
+cd ~ - vamos a nuestro usuario /home/zitrojj
+cd -  - este comando te lleva a la carpeta en la que te encontrabas antes de llegar ahí.
+
+// Comando 3 
+mkdir name
+mkdir -p name/items/others // el -p nos permite crear subcarpetas también
+
+// Comando 4 man rm
+rm -rf name // así podemos borrar cualquier carpeta con todo su contenido
+
+// Comando 5 mv
+mv folder1 folder2 // mueve la carpeta folder1 dentro de la carpeta folder2
+mv folder1/folder2 . // mueve la folder2 a la carpeta actual
+// el . representa la carpeta actual.
+`,
+                    text:"Excelente, yo les expongo las cosas nuevas que he aprendido. ls -a para ver carpetas ocultas, cd ~ y cd - se ven super útiles. mkdir -p, rm -rf también es super útil, y luego, aunque parezca mentira, me acabo de enterar que el . se refiere a la carpeta actual."
                 }
             ]          
         }
