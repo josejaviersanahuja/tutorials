@@ -23,6 +23,7 @@ import Redis from 'pages/Redis';
 import Docker from 'pages/Docker';
 import Mysql from 'pages/Mysql';
 import AndroidJava from 'pages/AndroidJava';
+import Terminal from 'pages/Terminal';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/css" ><Csstutorial /></Route>
           <Route path="/html" ><Html /></Route>
           <Route path="/sass" ><Sass /></Route>
+          <Route path="/terminal" ><Terminal /></Route>
           <Route path="/react" ><ReactPage /></Route>
           <Route path="/react native" ><ReactNativeExperience /></Route>
           <Route path="/fullstack" ><Fullstack /></Route>
