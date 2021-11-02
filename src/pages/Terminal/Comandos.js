@@ -8,7 +8,7 @@ export default function Comandos() {
     
     const detalles={
         primero:{
-            title: "Comandos Básicos.",
+            title: "Comandos Básicos. Comandos, Carpetas y Directorios",
             defBreve:"Vamos a ir construyendo comandos poco a poco",
             arrayCodigo:[
                 {
@@ -109,10 +109,77 @@ rm -rf name // así podemos borrar cualquier carpeta con todo su contenido
 mv folder1 folder2 // mueve la carpeta folder1 dentro de la carpeta folder2
 mv folder1/folder2 . // mueve la folder2 a la carpeta actual
 // el . representa la carpeta actual.
+
+// Comand 6 mv para cambiar el nombre de una carpeta.
+mv folder1 unexistentFolder // esto va a cambiar el nombre de la carpeta folder1 a unexistentFolder
 `,
                     text:"Excelente, yo les expongo las cosas nuevas que he aprendido. ls -a para ver carpetas ocultas, cd ~ y cd - se ven super útiles. mkdir -p, rm -rf también es super útil, y luego, aunque parezca mentira, me acabo de enterar que el . se refiere a la carpeta actual."
                 }
             ]          
+        }, segundo:{
+            title:"Comandos Básicos. Files",
+            defBreve:"Ahora vamos a ver los comandos básicos relacionados con la creación, lectura y escritura de archivos.",
+            arrayCodigo:[
+                {
+                    cod:`// lectura de archivos
+// Comando 1.
+cat file // muestra el contenido del archivo en string
+
+// Comando 2.
+head file // muestra solo las primeras líneas
+
+// Comando 3.
+tail file // muestra las últimas líneas del archivo
+
+// Comando 4.
+less file // muestra y pagina el contenido del archivo
+`,
+                    text:"Con esos 4 comandos podemos leer archivos. Ahora veamos cómo crear y escribir sobre archivos."
+                },{
+                    cod:`// crear y escribir en archivos parte 1.
+// Comando 1.
+touch file // crea el archivo
+
+mv file anotherfilename // cambia el nombre del archivo.
+
+echo "texto argumento" > file // crea el archivo file con el texto argumento
+
+echo "texto argumento" >> file // Añade el texto argumento al final del file
+`,
+                    text:"Parece ser que existen formas mucho más avanzadas de crear texto dentro archivos, usando editores de texto para terminales. VIM, ya lo estudiaremos más adelante, pero de momento esta es la forma de escribir dentro de archivos. Veamos más operaciones con archivos, como copy (cp), find, y find from content (grep)"
+                },{
+                    cod:`// Copy
+// Comando 1. cp
+cp file1 file1-copy // hace una copia del archivo
+
+cp *.sql dir // copia todos los sql dentro del directorio dir
+
+cp -r dir dir-copy // crea una copia de la carpeta y todo su contenido
+
+// Comando 2. find
+find . -name file(or dir) // busca dentro del current path el archivo o directorio por su nombre.
+
+find . -type (d ó f) -name <fileOrDir> // type d es directorio type f es file
+
+find . -iname file(or dir) // con la i hacemos una búsqueda ignorando mayusculas de minusculas.
+
+find . -type d -empty // el tag empty busca directorios o archivos vacíos.
+
+find . -type f -name file -delete // busca y elimina los archivos con ese nombre.
+
+//Comando 3. grep
+grep -r "argumento" dir // busca todos los archivos dentro de dir que contengan "argumento" escrito dentro.
+
+grep -rn "argumento" dir // lo mismo pero además muestra en qué línea aparece escrito dicho "argumento"
+
+grep -rni "argumento" dir // lo mismo pero además no presta distinción a las mayúsculas de minúsculas dentro del "argumento".
+
+grep -rni -A 1 -B 3 "argumento" dir // lo mismo pero además muestra las 3 líneas previas y 1 línea posterior al "argumento"
+
+`,
+                    text:"Con eso ya tenemos con los comandos básicos de las terminales."
+                }
+            ]
         }
     }
     return (
@@ -126,6 +193,11 @@ mv folder1/folder2 . // mueve la folder2 a la carpeta actual
                 title={detalles.primero.title}
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
             />
             
         </div>
