@@ -6,6 +6,7 @@ import DetallesSubtema from 'components/DetallesSubtema';
 import useSeo from 'hooks/useSeo';
 import Instalacion from './Instalacion';
 import Comandos from './Comandos';
+import Vim from './Vim';
 
 export default function Terminal() {
     return (
@@ -33,7 +34,7 @@ function Child() {
         <h2>{id}</h2>
         {id==="Instalacion"? <Instalacion/>: null }
         {id==="Comandos"? <Comandos/>: null }
-        
+        {id==="Vim"? <Vim/>: null }        
         </>
     );
   }
