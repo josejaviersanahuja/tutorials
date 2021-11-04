@@ -21,6 +21,13 @@ export default function SshKeys() {
                 {
                     cod: "Si estás en un ordenador público, o de uso compartido, CIFRA el archivo con una frase clave",
                     text: "Esto impedirá que otros puedan ver y copiar el ssh-key privado. Ya mencioné que se trata de una llave pública y otra privada"
+                },{
+                    cod:`// Ahora debemos arrancar el ssh-agent
+eval "$(ssh-agent -s)"
+
+//Y ahora seteamos ese archivo ssh con el agente
+ssh-add ~/.ssh/id_rsa // asegurate de colocar el path correcto, usamos ~ porque es el default `,
+                    text:"Con esto iniciamos el agente y seteamos el ordenador con esta clave."
                 }
             ]
         },
@@ -30,7 +37,7 @@ export default function SshKeys() {
             arrayCodigo: [
                 {
                     cod: "cat id_rsa.pub",
-                    text: "Si nos situamos en el directorio .ssh qye se generó en el paso 1, y ejecutamos ese comando, podremos observar la clave que se ha generado. NOTA: aunque debemos ver y copiar la clave pública, resulta que la clave privada, ni si quiera tenemos que verla."
+                    text: "Si nos situamos en el directorio .ssh que se generó en el paso 1, y ejecutamos ese comando, podremos observar la clave que se ha generado. NOTA: aunque debemos ver y copiar la clave pública, resulta que la clave privada, ni si quiera tenemos que verla."
                 },
                 {
                     cod: "Vamos a Github - Settings - SSH and GPG keys",
