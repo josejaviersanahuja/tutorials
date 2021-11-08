@@ -108,9 +108,43 @@ public class _Predicate {
 }
 `,
                     text:"El predicate es con las Functions pero que devuelven estrictamente boolean, y se ejecutan con test en vez de apply o accept, y en vez de usar andThen para concatenar, pueden usarse and u or."
+                },{
+                    cod:`//Supplier
+package functionalinterface;
+
+import java.util.List;
+import java.util.function.Supplier;
+
+public class _Supplier {
+
+    public static void main(String[] args) {
+        System.out.println(
+            urlSupplier.get()
+        );
+    }
+
+    static Supplier<List<String>> urlSupplier =
+            () -> List.of(
+                    "https://zitrojj.vercel.app",
+                    "https://tutorials-vert.vercel.app"
+            );
+}
+`,
+                    text:"El supplier es como una función sin argumentos."
                 }
             ],
             url:"https://amigoscode.com/p/java-functional-programming"
+        },
+        segundo:{
+            title:"Streams",
+            defBreve:"Al ejecutar el comando stream, vamos a empezar a trabajar con programación funcional o declarativa. Esto es el núcleo de la programación funcional en Java. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:``,
+                    text:""
+                }
+            ],
+            url:"https://www.youtube.com/watch?v=f5j1TaJlc0w"
         }
     }
 
@@ -126,6 +160,12 @@ public class _Predicate {
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
                 url={detalles.primero.url}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+                url={detalles.segundo.url}
             />
             
         </div>
