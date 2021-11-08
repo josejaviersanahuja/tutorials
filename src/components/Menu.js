@@ -20,6 +20,7 @@ const reactNativeMenu = ["Setting Enviroment", "Antes de publicar", "Splash Imag
 const redisMenu = ["Básico"]
 const dockerMenu = ["Instalación Windows10", "Primer Uso"]
 const mysqlMenu = ["Básico"]
+const javaMenu = ["Fundamentos Previos", "Fundamentos Nuevos"]
 const androidJavaMenu = ["Basics", "Java Part", "XML Part", "Main Menu", "Listas", "Navegación","Fragments","Debug & Testing", "Miscelanious"]
 const menu = [
     ["Home", homeMenu],
@@ -41,6 +42,7 @@ const menu = [
     ["Apicalls", apicallsMenu],
     ["Fullstack", fullstackMenu],
     ["Webpack", webpackMenu],
+    ["Java-Fundamentos", javaMenu],
     ["Androidapp with java", androidJavaMenu]
 ]
 

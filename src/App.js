@@ -24,6 +24,7 @@ import Docker from 'pages/Docker';
 import Mysql from 'pages/Mysql';
 import AndroidJava from 'pages/AndroidJava';
 import Terminal from 'pages/Terminal';
+import JavaFundamentos from 'pages/JavaFundamentos';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/docker"><Docker /></Route>
           <Route path="/mysql"><Mysql /></Route>
           <Route path="/androidapp with java"><AndroidJava /></Route>
+          <Route path="/java-fundamentos"><JavaFundamentos /></Route>
         </Switch>
 
         <div className="menu">
