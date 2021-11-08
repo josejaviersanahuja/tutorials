@@ -140,8 +140,94 @@ public class _Supplier {
             defBreve:"Al ejecutar el comando stream, vamos a empezar a trabajar con programación funcional o declarativa. Esto es el núcleo de la programación funcional en Java. Vamos a ello.",
             arrayCodigo:[
                 {
-                    cod:``,
+                    cod:` //Streams
+List<Person> myFamily = List.of(
+    new Person("Pedro", 62, MALE),
+    new Person("Mirla", 61, MALE),
+    new Person("Nany", 35, MALE),
+    new Person("JJ", 34, MALE),
+    new Person("JM", 7, MALE),
+    new Person("JA", 1, MALE)
+);
+
+myFamily.stream()
+        .map(person -> person.name) // genera transforma la lista de person a lista de string
+        .collect(Collectors.toSet())// genera un set en base a los items de la lista, toList, toCollection(TreeSet::new)
+        .forEach((name) -> System.out.println(name))
+        // al igual que en javascript, una función del tipo arg=>function(arg) 
+        // se puede escribir de la forma function
+        
+        //en Java sería así
+        //.forEach(System.out::println)
+
+// mapToInt, seguro que los tipos primitivos deben tratarse de forma especial.
+myFamily.stream()
+        .mapToInt(person -> person.age) 
+        .forEach(System.out::println)
+
+//myFamily.stream()
+//    .map(Function) 
+//    .collect()
+//    .forEach(Consumer)
+
+                    `,
+                    text:"Aquí hemos visto 3 tipos de métodos que vamos a utilizar mucho con los streams. map, forEach son muy similares a los métodos de los arrays en javascript, pero el collect y Collectors es una forma que tiene Java para manejar los tipos estrictos propios del lenguaje, más abajo haré referencia a ellos. Ahora también quiero que se entienda, que lo que estudiamos antes, Functions, Consumers, Suppliers, Predicates, son los argumentos básicos de la programación funcional. OJO, hay más que solo eso."
+                },{
+                    cod:`// Filter
+//myFamily.stream()
+//        .filter(Predicate)
+
+myFamily.stream()
+        .filter(person -> person.age > 18)
+        .forEach(System.out::println)
+
+//Sort
+
+//All Match
+
+//Any Match
+
+//None Match
+
+//Max
+
+//Min
+        
+`,
                     text:""
+                },{
+                    cod:`//Collectors API
+    // Accumulate names into a List
+     List<String> list = people.stream().map(Person::getName).collect(Collectors.toList());
+
+     // Accumulate names into a TreeSet
+     Set<String> set = people.stream().map(Person::getName).collect(Collectors.toCollection(TreeSet::new));
+
+     // Convert elements to strings and concatenate them, separated by commas
+     String joined = things.stream()
+                           .map(Object::toString)
+                           .collect(Collectors.joining(", "));
+
+     // Compute sum of salaries of employee
+     int total = employees.stream()
+                          .collect(Collectors.summingInt(Employee::getSalary)));
+
+     // Group employees by department
+     Map<Department, List<Employee>> byDept
+         = employees.stream()
+                    .collect(Collectors.groupingBy(Employee::getDepartment));
+
+     // Compute sum of salaries by department
+     Map<Department, Integer> totalByDept
+         = employees.stream()
+                    .collect(Collectors.groupingBy(Employee::getDepartment,
+                                                   Collectors.summingInt(Employee::getSalary)));
+
+     // Partition students into passing and failing
+     Map<Boolean, List<Student>> passingFailing =
+         students.stream()
+                 .collect(Collectors.partitioningBy(s -> s.getGrade() >= PASS_THRESHOLD));`,
+                    text:"Aquí he reunido una serie de collectors que seguramente van a sernos útiles a lo largo de nuestra vida de programadores Java."
                 }
             ],
             url:"https://www.youtube.com/watch?v=f5j1TaJlc0w"
