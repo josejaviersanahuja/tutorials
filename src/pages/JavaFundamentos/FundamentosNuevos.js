@@ -182,19 +182,63 @@ myFamily.stream()
         .forEach(System.out::println)
 
 //Sort
+//myFamily.stream()
+//        .sorted(Comparator)
+
+myFamily.stream()
+        .sorted(Comparator.comparing(person -> person.getAge())) // option 1
+        .sorted(Comparator.comparing(Person::getAge)) // option 2
+        .sorted(Comparator.comparing(Person::getAge).thenComparing(Person::Gender).reversed()) // option 3
+        .collect(Collector.toList())
+        .forEach(System.out::println)
 
 //All Match
 
+//myFamily.stream()
+//        .allMatch(Predicate)
+
+myFamily.stream()
+        .allMatch(person -> person.age > 18) // returns a boolean
+
 //Any Match
+//myFamily.stream()
+//        .anyMatch(Predicate)
+
+myFamily.stream()
+        .anyMatch(person -> person.age > 18) // returns a boolean
 
 //None Match
+//myFamily.stream()
+//        .noneMatch(Predicate)
+
+myFamily.stream()
+        .noneMatch(person -> person.age > 18) // returns a boolean
 
 //Max
+//myFamily.stream()
+//        .max(Comparator)
+//        .ifPresent(Consumer)
+
+myFamily.stream()
+        .max(Comparator.comparing(person -> person.getAge())) // option 1
+        .ifPresent(System.out::println)
 
 //Min
-        
+//myFamily.stream()
+//        .min(Comparator)
+//        .ifPresent(Consumer)
+
+myFamily.stream()
+        .min(Comparator.comparing(person -> person.getAge())) // option 1
+        .ifPresent(System.out::println)
+
+// Grouping
+Map<Gender,List<Person>> byGender = 
+                myFamily.stream()
+                .collect(Collectors.groupingBy(Person::Gender));
+                
 `,
-                    text:""
+                    text:"Recomiendo estudiar en profundidad la interface Comparator."
                 },{
                     cod:`//Collectors API
     // Accumulate names into a List
