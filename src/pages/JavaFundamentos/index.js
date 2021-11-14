@@ -6,6 +6,8 @@ import DetallesSubtema from 'components/DetallesSubtema'
 import useSeo from 'hooks/useSeo';
 import FundamentosPrevios from './FundamentosPrevios';
 import FundamentosNuevos from './FundamentosNuevos';
+import ErroresExceptionesReveladoras from './ErroresExceptionesReveladoras';
+import JavaCollections from './JavaCollections';
 
 export default function JavaFundamentos() {
   return (
@@ -33,6 +35,8 @@ function Child() {
     <h2>{id}</h2>
     {id === "Fundamentos Previos" ? <FundamentosPrevios /> : null}
     {id === "Fundamentos Nuevos" ? <FundamentosNuevos /> : null}
+    {id === "Collections" ? <JavaCollections /> : null}
+    {id === "Errores y Excepciones" ? <ErroresExceptionesReveladoras /> : null}
   </>
   );
 }

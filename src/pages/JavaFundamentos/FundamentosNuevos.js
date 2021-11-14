@@ -275,6 +275,16 @@ Map<Gender,List<Person>> byGender =
                 }
             ],
             url:"https://www.youtube.com/watch?v=f5j1TaJlc0w"
+        },tercero:{
+            title:"Optionals",
+            defBreve:"Optionals es una parte valiosa de la programación funcional en Java. Vamos a ver cómo usarla.",
+            arrayCodigo:[
+                {
+                    cod:``,
+                    text:""
+                }
+            ],
+            url:"https://www.youtube.com/watch?v=1xCxoOuDZuU"
         }
     }
 
@@ -296,6 +306,12 @@ Map<Gender,List<Person>> byGender =
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
                 url={detalles.segundo.url}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
+                url={detalles.tercero.url}
             />
             
         </div>
