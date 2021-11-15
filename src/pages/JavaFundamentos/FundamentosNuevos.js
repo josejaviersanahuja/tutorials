@@ -280,11 +280,196 @@ Map<Gender,List<Person>> byGender =
             defBreve:"Optionals es una parte valiosa de la programación funcional en Java. Vamos a ver cómo usarla.",
             arrayCodigo:[
                 {
-                    cod:``,
-                    text:""
+                    cod:`package functionalinterface;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class _Optional {
+
+    public static void main(String[] args) {
+
+        Optional<String> hello = Optional.empty();
+        hello = Optional.of("Hello");
+        hello = Optional.ofNullable(null); // ofNullable significa que puede ser null o String
+
+        System.out.println(hello.isEmpty());
+        System.out.println(hello.isPresent());
+        System.out.println(hello);
+
+        String reader = hello.orElse("World");
+        // reader = hello.orElseGet(Supplier);
+        reader = hello.map(String::toUpperCase)
+                .orElse("World");
+        System.out.println(reader);
+
+        hello.ifPresentOrElse(System.out::println, ()-> System.out.println("hello era nulo"));
+    }
+}
+`,
+                    text:"Su mayor aporte es en métodos donde no esté garantizado el resultado."
                 }
             ],
             url:"https://www.youtube.com/watch?v=1xCxoOuDZuU"
+        }, cuarto:{
+            title:"CombinatorPattern",
+            defBreve:"Hasta el momento hemos visto cómo trabajar con funciones y programación funcional, pero no cómo crear nuestras clases y funciones customizadas. Para ello vamos a crear un sistema de validación de usuarios de forma tradicional, y de forma funcional. Vamos a ello.",
+            arrayCodigo:[
+                {
+                    cod:`package combinatorpatttern;
+
+import java.time.LocalDate;
+
+public class Customer {
+
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
+    private final LocalDate dob;
+
+    public Customer(String name, String email, String phoneNumber, LocalDate dob) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.dob = dob;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+}
+`,
+                    text:"Customer es la clase que representa el usuario. Vamos a validar los emails, los números de móbiles, y que sean mayor de edad."
+                },{
+                    cod:`package combinatorpatttern;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class CustomerValidatorService {
+
+    private boolean isEmailValid(String email) {
+        return email.contains("@");
+    }
+
+    private boolean isPhoneNumberValid(String phoneNumber) {
+        return phoneNumber.startsWith("+0");
+    }
+
+    private boolean isAdult(LocalDate dob) {
+        return Period.between(dob, LocalDate.now()).getYears() > 16;
+    }
+
+    public boolean isValid(Customer customer) {
+        return isEmailValid(customer.getEmail()) &&
+                isPhoneNumberValid(customer.getPhoneNumber()) &&
+                isAdult(customer.getDob());
+    }
+}
+`,
+                    text:"Esta es una validación tradicional. Pero si fallase la validación de un usuario, cómo sabríamos que falló? Vamos a crear un sistema de validación que se implemente de forma funcional. Para ello vamos a crear una interfaz que extienda la de Funciones. Veamos cómo se crea."
+                },{
+                    cod:`package combinatorpatttern;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.function.Function;
+
+// clave 2. importamos dinamicamente esta misma clase, para que el tipo resultado 
+//            esté definido desde su definición. (enum ValidationResult)
+import static combinatorpatttern.CustomerRegistrationValidator.ValidationResult;
+
+// clave 3. Otra importación estática, pero esta vez no es tan importante,
+                solo que permite que el código sea mucho más legible
+import static combinatorpatttern.CustomerRegistrationValidator.ValidationResult.*;
+
+// clave 1. extender de la función
+public interface CustomerRegistrationValidator extends Function<Customer, ValidationResult> {
+
+    //clave 4. todo método es del tipo funcion customer -> ValidationResult
+    static CustomerRegistrationValidator isEmailValid() {
+        return customer -> {
+           // System.out.println("running email validation");
+            return customer.getEmail().contains("@") ?
+                    SUCCESS : EMAIL_NOT_VALID;
+        };
+    }
+
+    static CustomerRegistrationValidator isPhoneNumberValid() {
+        return customer -> customer.getPhoneNumber().startsWith("+0") ?
+                SUCCESS : PHONE_NUMBER_NOT_VALID;
+    }
+
+    static CustomerRegistrationValidator isAnAdult() {
+        return customer ->
+                Period.between(customer.getDob(), LocalDate.now()).getYears() > 16 ?
+                        SUCCESS : IS_NOT_AN_ADULT;
+    }
+
+    // clave 5. Aquí está la crema del pastel. aquí definimos nuestro operador funcional.
+    //                En este caso, difinimos la función and.
+    default CustomerRegistrationValidator and (CustomerRegistrationValidator other) {
+        return customer -> {
+            ValidationResult result = this.apply(customer);
+            return result.equals(SUCCESS) ? other.apply(customer) : result;
+        };
+    }
+
+    default  CustomerRegistrationValidator bolAnd (CustomerRegistrationValidator other) {
+        return customer -> {
+            return this.apply(customer).equals(IS_NOT_AN_ADULT) ? other.apply(customer): this.apply(customer);
+        };
+    }
+
+    enum ValidationResult {
+        SUCCESS,
+        PHONE_NUMBER_NOT_VALID,
+        EMAIL_NOT_VALID,
+        IS_NOT_AN_ADULT
+    }
+}
+`,
+                    text:"Lo más importantes es entender bien la clave 5. definimos una concatenación de funciones definidas en esta clase (CustomerRegistrationValidator) y las concatena con la palabra and, luego pasa por parámetro otra función de esta clase, llamada other. El resultado queda definido dentro del segundo return. El primero es para devolver una función."
+                },{
+                    cod:`public static void main(String[] args) {
+    Customer customer = new Customer(
+            "Alice",
+            "alice@gmail.com",
+            "+0898787879878",
+            LocalDate.of(2015, 1,1)
+    );
+
+    // Using combinator pattern
+    ValidationResult result = isEmailValid()
+            .and(isPhoneNumberValid())
+            .and(isAnAdult())
+            .apply(customer);
+
+    System.out.println(result);
+    if (result != ValidationResult.SUCCESS) {
+        throw new IllegalStateException(result.name());
+    }
+    
+}`,
+                    text:"El resultado que se imprime por consola es alguno de los definidos en el enum. No solo permite validar sino además informar donde falla la validación."
+                }
+            ]
         }
     }
 
@@ -312,6 +497,11 @@ Map<Gender,List<Person>> byGender =
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
                 url={detalles.tercero.url}
+            />
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
             />
             
         </div>
