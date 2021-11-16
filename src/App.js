@@ -25,6 +25,7 @@ import Mysql from 'pages/Mysql';
 import AndroidJava from 'pages/AndroidJava';
 import Terminal from 'pages/Terminal';
 import JavaFundamentos from 'pages/JavaFundamentos';
+import Regex from 'pages/Regex';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/html" ><Html /></Route>
           <Route path="/sass" ><Sass /></Route>
           <Route path="/terminal" ><Terminal /></Route>
+          <Route path="/regex" ><Regex /></Route>
           <Route path="/react" ><ReactPage /></Route>
           <Route path="/react native" ><ReactNativeExperience /></Route>
           <Route path="/fullstack" ><Fullstack /></Route>
