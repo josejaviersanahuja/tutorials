@@ -13,10 +13,25 @@ export default function AllRegex() {
             arrayCodigo:[
                 {
                     cod:`// parte 1.
-/algo/g
+/algo/g // algo son los caracteres que se buscan en en el texto que estamos trabajando.
+                    // g es un flag que representa busqueda global dentro del texto.
+                    // Lo más común es que trabajemos con la bandera g por defecto
+                    // la bandera i, significa case insensitive. Mayusculas y minusculas por igual
+
 
 `,
-                    text: "Dejo un link donde poder jugar con las regex, sirve de playground para comprobar ciertas funcionalidades de las regex."
+                    text: "Dejo un link donde poder jugar con las regex, sirve de playground para comprobar ciertas funcionalidades de las regex. El gran verdadero poder de regex aparece cuando trabajamos con los selectores especiales +, ^, [], ? . Vamos a ello."
+                },{
+                    cod:`// selector +
+/e+/g   // esto va a encontrar todas las e, pero si hay varias ee juntas, las machea en conjunto
+            // por ejemplo hacemos "tree".replace("/e+/, a") 
+            // el resultado no va a ser traa, 
+            // el resultado será tra
+
+
+
+`,
+                    text:""
                 }
             ],
             url:"https://regexr.com"
