@@ -470,6 +470,35 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
                     text:"El resultado que se imprime por consola es alguno de los definidos en el enum. No solo permite validar sino además informar donde falla la validación."
                 }
             ]
+        }, quinto:{
+            title:"Callback com en JS",
+            defBreve:"Esto va a ser bastante directo, después de haber visto streams y combinator patterns, esto no contiene conceptos nuevos, así que vamos directo al grano.",
+            arrayCodigo:[
+                {
+                    cod:`
+// El callback puede ser Consumer<T> si recibe parámetros
+// También puede ser del tipo Runnable si no recibe parámetros.
+// En este caso usaremos Consumer<String>
+public static Consumer<String> defaultLastName(String name){
+    System.out.println("last name was not provided by "+ name);
+}
+
+public static void staticFunctionShowNameInConsole(String name, String lastName, Consumer<String> callback){
+    System.out.println(name);
+    if(lastName == null){
+        callback(name);
+    } else {
+        System.out.println(lastName);
+    }
+}
+public static void main(String[] args){
+// ponemos a prueba nuestra función y nuestro callback
+    staticFunctionShowNameInConsole("Jose", "Javier", defaultLastName);
+    staticFunctionShowNameInConsole("Jose", null, defaultLastName);
+}`,
+                    text:"Está todo bastante claro. Lo más importantes es entenderque las formas más comunes para crear este tipo de funciones es con Consumer<T> o del tipo Runnable."
+                }
+            ]
         }
     }
 
@@ -502,6 +531,11 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
                 title={detalles.cuarto.title}
                 defBreve={detalles.cuarto.defBreve}
                 arrayCodigo={detalles.cuarto.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.quinto.title}
+                defBreve={detalles.quinto.defBreve}
+                arrayCodigo={detalles.quinto.arrayCodigo}
             />
             
         </div>
