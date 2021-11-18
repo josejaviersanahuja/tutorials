@@ -26,6 +26,7 @@ import AndroidJava from 'pages/AndroidJava';
 import Terminal from 'pages/Terminal';
 import JavaFundamentos from 'pages/JavaFundamentos';
 import Regex from 'pages/Regex';
+import JavaSpringBoot from 'pages/JavaSpringBoot';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
           <Route path="/mysql"><Mysql /></Route>
           <Route path="/androidapp with java"><AndroidJava /></Route>
           <Route path="/java-fundamentos"><JavaFundamentos /></Route>
+          <Route path="/java springboot"><JavaSpringBoot /></Route>
         </Switch>
 
         <div className="menu">

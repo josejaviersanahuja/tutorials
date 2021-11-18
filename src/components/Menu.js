@@ -23,6 +23,7 @@ const dockerMenu = ["Instalación Windows10", "Primer Uso"]
 const mysqlMenu = ["Básico"]
 const javaMenu = ["Fundamentos Previos", "Fundamentos Nuevos","Collections","Errores y Excepciones"]
 const androidJavaMenu = ["Basics", "Java Part", "XML Part", "Main Menu", "Listas", "Navegación","Fragments","Debug & Testing", "Miscelanious"]
+const springBootMenu=["Configuracion inicial"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -45,7 +46,8 @@ const menu = [
     ["Fullstack", fullstackMenu],
     ["Webpack", webpackMenu],
     ["Java-Fundamentos", javaMenu],
-    ["Androidapp with java", androidJavaMenu]
+    ["Androidapp with java", androidJavaMenu],
+    ["Java SpringBoot", springBootMenu]
 ]
 
 export default function Menu({ handleClick }) {
