@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+
 import React from 'react'
 import 'App.css'
 import DetallesSubtema from 'components/DetallesSubtema'
@@ -41,30 +43,30 @@ export default function AllRegex() {
         // ejemplo 'brea lea' matchea rea y lea.
 
 
-// selector \, sirve para seleccionar characteres que son selectores
-/\./g // Esto machea todos los puntos en el texto.
+// selector (back-slash), sirve para seleccionar characteres que son selectores
+/(back-slash)./g // Esto machea todos los puntos en el texto.
 
-// selector \d, digits
-/\d/g // selecciona todos los dígitos del texto
+// selector (back-slash)d, digits
+/(back-slash)d/g // selecciona todos los dígitos del texto
 
-// selector \w \W, selecciona palabras
-/\w/g // esto matchea todas las letras de las palabras sin signos de puntuación.
-/\W/g // esto matchea todo lo que no son letras
+// selector (back-slash)w (back-slash)W, selecciona palabras
+/(back-slash)w/g // esto matchea todas las letras de las palabras sin signos de puntuación.
+/(back-slash)W/g // esto matchea todo lo que no son letras
         // signos de puntuación y espacios en blanco
 
-// selector \s \S, selecciona todos los spaces
-/\s/g // todos los espacios en blanco son seleccionados.
-/\S/g // todas las letras y puntuaciones son seleccionados.
+// selector (back-slash)s (back-slash)S, selecciona todos los spaces
+/(back-slash)s/g // todos los espacios en blanco son seleccionados.
+/(back-slash)S/g // todas las letras y puntuaciones son seleccionados.
 
-// Advanced selector \w{4,5}
-/\w{4}/g // machea palabras con 4 letras seguidas 
+// Advanced selector (back-slash)w{4,5}
+/(back-slash)w{4}/g // machea palabras con 4 letras seguidas 
             // ejemplo 'esto es unaprueba' 
             // machea esto unap rueb
 
-/\w{4,}/g // machea palabras de 4 letras o más
+/(back-slash)w{4,}/g // machea palabras de 4 letras o más
             // machea esto unaprueba
 
-/\w{4,5}/g // machea palabras de 4 o 5 letras
+/(back-slash)w{4,5}/g // machea palabras de 4 o 5 letras
             // machea esto unapr ueba
 
 // selector []
@@ -102,7 +104,7 @@ export default function AllRegex() {
 /.(?!at)/g // machea todo char que no esté antes de at
 
 // small example
-/(\d{3})[ -]?(\d{3})[ -]?(\d{4})/g
+/((back-slash)d{3})[ -]?((back-slash)d{3})[ -]?((back-slash)d{4})/g
 
 // esto va a agrupar o machear las siguientes 3 lineas de igual forma
 // 1234567890
@@ -112,7 +114,7 @@ export default function AllRegex() {
 $1$2$3 // esto va a juntar los 3 grupos
 
 // demosle nombres a los grupos
-/(?<tagName1>\d{3})[ -]?(\d{3})[ -]?(\d{4})/g
+/(?<tagName1>(back-slash)d{3})[ -]?((back-slash)d{3})[ -]?((back-slash)d{4})/g
 
 $tagName1$2$3 // así quedaría el replace
 `,
