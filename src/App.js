@@ -27,6 +27,7 @@ import Terminal from 'pages/Terminal';
 import JavaFundamentos from 'pages/JavaFundamentos';
 import Regex from 'pages/Regex';
 import JavaSpringBoot from 'pages/JavaSpringBoot';
+import Postgres from 'pages/Postgres';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
           <Route path="/androidapp with java"><AndroidJava /></Route>
           <Route path="/java-fundamentos"><JavaFundamentos /></Route>
           <Route path="/java springboot"><JavaSpringBoot /></Route>
+          <Route path="/postgres"><Postgres /></Route>
         </Switch>
 
         <div className="menu">

@@ -24,6 +24,7 @@ const mysqlMenu = ["Básico"]
 const javaMenu = ["Fundamentos Previos", "Fundamentos Nuevos","Collections","Errores y Excepciones"]
 const androidJavaMenu = ["Basics", "Java Part", "XML Part", "Main Menu", "Listas", "Navegación","Fragments","Debug & Testing", "Miscelanious"]
 const springBootMenu=["Configuracion inicial"]
+const postgresMenu=["Instalacion y Configuración"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],
@@ -47,7 +48,8 @@ const menu = [
     ["Webpack", webpackMenu],
     ["Java-Fundamentos", javaMenu],
     ["Androidapp with java", androidJavaMenu],
-    ["Java SpringBoot", springBootMenu]
+    ["Java SpringBoot", springBootMenu],
+    ["Postgres", postgresMenu]
 ]
 
 export default function Menu({ handleClick }) {
