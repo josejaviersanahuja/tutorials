@@ -30,6 +30,73 @@ sudo apt-get install postgresql // Si quieres una versión específica copiala a
                 }
             ],
             url:"https://www.postgresqltutorial.com/install-postgresql-linux/"
+        }, segundo:{
+            title:"Postgres CLI",
+            defBreve:"Vamos a aprender cómo interactuar con el programa de postgres desde la consola.",
+            arrayCodigo:[
+                {
+                        cod:`# 1. ejecutamos el programa como super usuario
+➜  ~ sudo -i -u postgres
+
+
+# 2. entramos en el modo prompt de postgres
+postgres@zitrojjdev:~$ psql
+
+# 3. aprendamos a salir antes que nada
+postgres=# (backslash)q
+
+# 4. salimos de postgres
+postgres@zitrojjdev:~$ exit
+`,
+                        text:"Esta sección es demasiado básica, solo muestra las formas de entrar y de salir correctamente de postgres, ahora empezaremos a ver otros comando y formas de cómo conectarnos."
+                },{
+                    cod:`# listar las databases
+postgres=# (backslash)l
+
+# listar los usuarios
+postgres=# (backslash)du
+
+# crear un usuario
+postgres=# CREATE ROLE demorole1 WITH LOGIN ENCRYPTED PASSWORD 'password1';
+
+# borrar el rol o usuario
+postgres=# DROP ROLE demorole1;
+
+# crear un superusuario
+postgres=# CREATE ROLE mysuperuser2 WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'mysuperpass2';
+
+# crear una base de dato
+postgres=# CREATE DATABASE test;
+                    
+`,
+                    text:"Ya hemos podido empezar a interactuar con el programa, y ya ganamos una ligera experiencia. Vamos a seguir con el curso, para ver a donde llegamos. Dato curioso, para que desde linux, podamos entrar al prompt de postgres desde nuestro usuario, sin necesidad de usar sudo -i -u postgres, debemos crear tanto el rol como una base de datos con el nombre de nuestro usuario, y una vez creado, ya podemos entrar a psql directamente desde nuestro shell."
+                }
+            ]
+        },
+        tercero:{
+            title:"Cómo conectarnos a nuestra base de datos",
+            defBreve:"Vamos a aprender comandos básicos de cómo crear y manipular bases de datos y tablas y cómo conectarnos.",
+            arrayCodigo:[
+                {
+                    cod:`# HELP para aprender a configurar postgres
+➜  ~ psql --help
+ 
+# los flags más importantes serán -h, -p, -U
+➜  ~ psql -h localhost -p 5432 -U zitrojj mathapp 
+// Contraseña para usuario zitrojj:
+// psql (14.1 (Ubuntu 14.1-2.pgdg20.04+1))
+// Conexión SSL (protocolo: TLSv1.3, cifrado: TLS_AES_256_GCM_SHA384, bits: 256, compresión: desactivado)
+// Digite «help» para obtener ayuda.
+
+# la forma local de conectarnos a la base de datos
+➜  ~ psql
+zitrojj=# (backslash)c mathapp
+//Ahora está conectado a la base de datos «mathapp» con el usuario «zitrojj».
+
+`,
+                    text:"Esto es realmente muy importante, porque muestra cómo podemos conectarnos de forma local y de forma remota a nuestra base de datos."
+                }
+            ]
         }
     }
 
@@ -45,6 +112,16 @@ sudo apt-get install postgresql // Si quieres una versión específica copiala a
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
                 url={detalles.primero.url}
+            />
+            <DetallesSubtema
+                title={detalles.segundo.title}
+                defBreve={detalles.segundo.defBreve}
+                arrayCodigo={detalles.segundo.arrayCodigo}
+            />
+            <DetallesSubtema
+                title={detalles.tercero.title}
+                defBreve={detalles.tercero.defBreve}
+                arrayCodigo={detalles.tercero.arrayCodigo}
             />
         </div>
     )
