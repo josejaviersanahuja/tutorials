@@ -10,6 +10,7 @@ import WelcomeMessage from 'components/WelcomeMessage'
 import { useParams, Switch, Route } from "react-router-dom";
 import useSeo from 'hooks/useSeo';
 import InstalacionConfiguracion from './InstalacionConfiguracion';
+import PostgresCommands from './PostgresCommands';
 
 const tema="Postgres" 
 
@@ -39,6 +40,7 @@ function Child() {
   return (<>
     <h2>{id}</h2>
     { id === "Instalacion y Configuración" && <InstalacionConfiguracion/> }    
+    { id === "Comandos" && <PostgresCommands/> }    
   </>
   );
 }
