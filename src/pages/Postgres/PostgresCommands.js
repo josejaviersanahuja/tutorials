@@ -27,7 +27,42 @@ CREATE TABLE person (
     date_of_birth TIMESTAMP,
 )
 `,
-                    text: "Abajo pongo un link para ver la documentación de los data types que tiene postgres. Recomiendo que nos familiaricemos con estos data types."
+                    text: "Abajo pongo un link para ver la documentación de los data types que tiene postgres. Recomiendo que nos familiaricemos con estos data types. También hay que destacar que esta sintaxis pertenece a una tabla sin constricciones, pero representa una mala práctica trabajar así. El próximo ejemplo no solo tendrá constricciones sino que además será ejecutado en consola."
+                },{
+                    cod:`# 1. Creamos la base de datos, y la tabla con constrains
+zitrojj=# CREATE DATABASE learningtest;
+CREATE DATABASE
+zitrojj=# \c learningtest
+You are now connected to database "learningtest" as user "zitrojj".
+learningtest=# CREATE TABLE person(
+learningtest(# id BIGSERIAL NOT NULL PRIMARY KEY,
+learningtest(# first_name VARCHAR(50) NOT NULL,
+learningtest(# last_name VARCHAR(50) NOT NULL,
+learningtest(# gender VARCHAR(7) NOT NULL,
+learningtest(# date_of_birth DATE NOT NULL );
+CREATE TABLE
+
+# 2. leemos los datos de nuestra base de datos
+learningtest=# \d
+              List of relations
+ Schema |     Name      |   Type   |  Owner
+--------+---------------+----------+---------
+ public | person        | table    | zitrojj
+ public | person_id_seq | sequence | zitrojj
+ 
+ # 3. Pedimos los detalles de nuestra tabla person recientemente creada
+ learningtest=# \d person
+                                       Table "public.person"
+    Column     |         Type          | Collation | Nullable |              Default
+---------------+-----------------------+-----------+----------+------------------------------------
+ id            | bigint                |           | not null | nextval('person_id_seq'::regclass)
+ first_name    | character varying(50) |           | not null |
+ last_name     | character varying(50) |           | not null |
+ gender        | character varying(7)  |           | not null |
+ date_of_birth | date                  |           | not null |
+Indexes:
+    "person_pkey" PRIMARY KEY, btree (id)`,
+                    text:"Los pasos 2 y 3 son meramentes didacticos para entender que detrás de las constricciones existen parámetros, archivos, y reglas que postgres crea para que las constricciones sirvan de algo en las buenas prácticas."
                 }
             ],
             url:"https://www.postgresql.org/docs/14/datatype.html"

@@ -41,6 +41,17 @@ sudo apt-get install postgresql // Si quieres una versión específica copiala a
 
 # 2. entramos en el modo prompt de postgres
 postgres@zitrojjdev:~$ psql
+// Si no hay fallos salta al paso 3
+
+# 2.1 Si hay algún fallo en la conexión psql puede deberse a que el servicio de postgres en local hay que levantarlo a manualmente
+# comprobamos si el servicio está abajo con el comando
+postgres@zitrojjdev:~$ pg_lsclusters
+// Ver Cluster Port Status Owner    Data directory              Log file
+// 14  main    5432 down   postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
+
+# 2.2 Si realmente está caído el servicio lo levantamos manualmente
+➜  ~ sudo pg_ctlcluster 14 main start
+// y volvemos a intentarlo desde el paso 1.
 
 # 3. aprendamos a salir antes que nada
 postgres=# (backslash)q
