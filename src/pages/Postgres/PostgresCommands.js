@@ -43,7 +43,7 @@ learningtest(# date_of_birth DATE NOT NULL );
 CREATE TABLE
 
 # 2. leemos los datos de nuestra base de datos
-learningtest=# \d
+learningtest=# (backslash)d
               List of relations
  Schema |     Name      |   Type   |  Owner
 --------+---------------+----------+---------
@@ -51,7 +51,7 @@ learningtest=# \d
  public | person_id_seq | sequence | zitrojj
  
  # 3. Pedimos los detalles de nuestra tabla person recientemente creada
- learningtest=# \d person
+ learningtest=# (backslash)d person
                                        Table "public.person"
     Column     |         Type          | Collation | Nullable |              Default
 ---------------+-----------------------+-----------+----------+------------------------------------
@@ -66,6 +66,59 @@ Indexes:
                 }
             ],
             url:"https://www.postgresql.org/docs/14/datatype.html"
+        }, segundo:{
+            title:"Comandos para INSERT",
+            defBreve:"Ahora vamos a crear el código sql para insertar 1 elemento en la tabla",
+            arrayCodigo:[
+                {
+                    cod:`INSERT INTO person (
+    first_name,
+    last_name,
+    gender,
+    date_of_birth)
+VALUES (
+    'Anne',
+    'Smith',
+    'FEMALE',
+    DATE '1988-01-09'
+);
+`,
+                    text:"1. INSERT INTO table ( ... 2. array de columnas a introducir datos ) ... 3. VALUES ( ... array de datos que coincidan con las columnas); Eso es todo. "
+                }
+            ]
+        }, tercero:{
+            title:"Comandos SELECT",
+            defBreve:"Si INSERT es para introducir datos, SELECT es el comando para leer los datos de una base de datos.",
+            arrayCodigo:[
+                {
+                    cod:`SELECT * FROM person;
+//    learningtest=# SELECT * FROM person;
+//    id | first_name | last_name | gender | date_of_birth |       email
+//    ----+------------+-----------+--------+---------------+-------------------
+//        1 | Anne       | Smith     | FEMALE | 1988-01-09    |
+//        2 | John       | Baker     | MALE   | 1984-09-27    |
+//        3 | Jose       | Sanahuja  | MALE   | 1987-03-27    | zitrojj@gmail.com
+//    (3 rows)                    
+`,
+                    text:"Así obtenemos los datos de las tablas."
+                },{
+                    cod:`// SELECT (columnas) FROM tabla;
+# Podemos seleccionar las columnas que queramos, * solo significa todas las columnas.
+# Probemos seleccionar apellidos, fechas de nacimiento e email.
+
+SELECT last_name, date_of_birth, email FROM person;
+
+//  learningtest=# SELECT last_name, date_of_birth, email FROM person;
+//   last_name | date_of_birth |       email
+//  -----------+---------------+-------------------
+//   Smith     | 1988-01-09    |
+//   Baker     | 1984-09-27    |
+//   Sanahuja  | 1987-03-27    | zitrojj@gmail.com
+//  (3 rows)
+`,
+                    text:"De esta manera podemos seleccionar solo las columnas que nos interesen realmente."
+                }
+            ]
         }
     }
 
@@ -81,17 +134,20 @@ Indexes:
                 defBreve={detalles.primero.defBreve}
                 arrayCodigo={detalles.primero.arrayCodigo}
                 url={detalles.primero.url}
+                language='sql'
             />
-            {/* <DetallesSubtema
+            <DetallesSubtema
                 title={detalles.segundo.title}
                 defBreve={detalles.segundo.defBreve}
                 arrayCodigo={detalles.segundo.arrayCodigo}
+                language='sql'
             />
             <DetallesSubtema
                 title={detalles.tercero.title}
                 defBreve={detalles.tercero.defBreve}
                 arrayCodigo={detalles.tercero.arrayCodigo}
-            /> */}
+                language='sql'
+            /> 
         </div>
     )
 }
