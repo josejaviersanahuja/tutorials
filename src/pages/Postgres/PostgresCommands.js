@@ -119,6 +119,16 @@ SELECT last_name, date_of_birth, email FROM person;
                     text:"De esta manera podemos seleccionar solo las columnas que nos interesen realmente."
                 }
             ]
+        }, cuarto:{
+            title:"Introducir 1000 personas",
+            defBreve:"Hasta ahora hemos visto cómo introducir datos a la base de datos de forma puntual, uno a uno. Ahora vamos a sistematizar parapoder introducir muchos datos a la vez. Dejaré un link más abajo para visitar una página que nos ayudará a generar datos aleatorios.",
+            arrayCodigo:[
+                {
+                    cod:`(backslash)i /home/zitrojj/Desktop/codes/sql/sql-postgres-course/car.sql`,
+                    text:"Con ese comando podemos ejecutar todas las instrucciones de un archivo sql."
+                }
+            ],
+            url:"https://www.mockaroo.com/"
         }
     }
 
