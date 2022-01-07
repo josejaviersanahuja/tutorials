@@ -158,6 +158,13 @@ SELECT last_name, date_of_birth, email FROM person;
                 arrayCodigo={detalles.tercero.arrayCodigo}
                 language='sql'
             /> 
+            <DetallesSubtema
+                title={detalles.cuarto.title}
+                defBreve={detalles.cuarto.defBreve}
+                arrayCodigo={detalles.cuarto.arrayCodigo}
+                url={detalles.cuarto.url}
+                language='sql'
+            /> 
         </div>
     )
 }
