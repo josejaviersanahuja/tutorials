@@ -363,6 +363,12 @@ SELECT * FROM car OFFSET 5 FETCH FIRST 3 ROW ONLY;
                 arrayCodigo={detalles.sexto.arrayCodigo}
                 language='sql'
             /> 
+            <DetallesSubtema
+                title={detalles.septimo.title}
+                defBreve={detalles.septimo.defBreve}
+                arrayCodigo={detalles.septimo.arrayCodigo}
+                language='sql'
+            />
         </div>
     )
 }
