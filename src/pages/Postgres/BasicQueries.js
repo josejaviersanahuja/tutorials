@@ -427,6 +427,40 @@ SELECT MAKE,SUM(price) FROM car GROUP BY make;
                     text:"El alias incluso puede sobreescribir el nombre original de la columna."
                 }
             ]
+        },septimodecimo:{
+            title:"COALESCE manejo de nulls",
+            defBreve:"Con esta palabra clave podemos definir valor por defecto en aquellos datos que son nulos. Vamos a ver cómo funciona.",
+            arrayCodigo:[
+                {
+                    cod:`SELECT COALESCE(email,'EMAIL NOT PROVIDED') FROM person;`,
+                    text:"Si recordamos bien, la columna email en la base de datos person podía tener valores nulos. Con esta querie podemos sustituir los null por un valor que definamos."
+                }
+            ]
+        },octadecimo:{
+            title:"NULLIF como salvar la división por 0",
+            defBreve:"Tanto en matemáticas cómo en computación, siempre debemos salvar los casos de las divisiones por 0. Con NULLIF podemos hacerlo.",
+            arrayCodigo:[
+                {
+                    cod:`SELECT NULLIF(10,5);
+// nullif 
+// --------
+//     10
+// (1 fila)
+
+SELECT NULLIF(10,10);
+//  nullif 
+// --------
+       
+// (1 fila)
+
+# Ahora podemos ver que NULLIF funciona dando el primer valor, a menos que matchee con el segundo.
+# Entonces podemos salvar la división por 0 así:
+
+SELECT 10/NULLIF(0,0);
+`,
+                    text:"Básicamente, al parámetro que va en el denominador usamos el NULLIF macheandolo con 0 y eso debería salvarnos del error y arrojar null en vez de error."
+                }
+            ]
         }
     }
 
@@ -508,6 +542,18 @@ SELECT MAKE,SUM(price) FROM car GROUP BY make;
                 title={detalles.sextodecimo.title}
                 defBreve={detalles.sextodecimo.defBreve}
                 arrayCodigo={detalles.sextodecimo.arrayCodigo}
+                language='sql'
+            />
+            <DetallesSubtema
+                title={detalles.septimodecimo.title}
+                defBreve={detalles.septimodecimo.defBreve}
+                arrayCodigo={detalles.septimodecimo.arrayCodigo}
+                language='sql'
+            />
+            <DetallesSubtema
+                title={detalles.octadecimo.title}
+                defBreve={detalles.octadecimo.defBreve}
+                arrayCodigo={detalles.octadecimo.arrayCodigo}
                 language='sql'
             />
         </div>
