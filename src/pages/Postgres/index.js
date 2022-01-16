@@ -11,6 +11,7 @@ import { useParams, Switch, Route } from "react-router-dom";
 import useSeo from 'hooks/useSeo';
 import InstalacionConfiguracion from './InstalacionConfiguracion';
 import PostgresCommands from './PostgresCommands';
+import BasicQueries from './BasicQueries';
 
 const tema="Postgres" 
 
@@ -41,6 +42,7 @@ function Child() {
     <h2>{id}</h2>
     { id === "Instalacion y Configuración" && <InstalacionConfiguracion/> }    
     { id === "Comandos" && <PostgresCommands/> }    
+    { id === "Queries Básicos" && <BasicQueries/> }    
   </>
   );
 }
