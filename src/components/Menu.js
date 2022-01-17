@@ -24,7 +24,7 @@ const mysqlMenu = ["Básico"]
 const javaMenu = ["Fundamentos Previos", "Fundamentos Nuevos","Collections","Errores y Excepciones"]
 const androidJavaMenu = ["Basics", "Java Part", "XML Part", "Main Menu", "Listas", "Navegación","Fragments","Debug & Testing", "Miscelanious"]
 const springBootMenu=["Configuracion inicial"]
-const postgresMenu=["Instalacion y Configuración", "Comandos", "Queries Básicos"]
+const postgresMenu=["Instalacion y Configuración", "Comandos", "Queries Básicos", "Timestamps"]
 const menu = [
     ["Home", homeMenu],
     ["Html", htmlMenu],

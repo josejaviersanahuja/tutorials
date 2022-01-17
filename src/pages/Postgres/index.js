@@ -12,6 +12,7 @@ import useSeo from 'hooks/useSeo';
 import InstalacionConfiguracion from './InstalacionConfiguracion';
 import PostgresCommands from './PostgresCommands';
 import BasicQueries from './BasicQueries';
+import DatesAndTimeStamps from './DatesAndTimeStamps';
 
 const tema="Postgres" 
 
@@ -43,6 +44,7 @@ function Child() {
     { id === "Instalacion y Configuración" && <InstalacionConfiguracion/> }    
     { id === "Comandos" && <PostgresCommands/> }    
     { id === "Queries Básicos" && <BasicQueries/> }    
+    { id === "Timestamps" && <DatesAndTimeStamps/> }    
   </>
   );
 }
