@@ -404,6 +404,12 @@ COPY 3
                 arrayCodigo={detalles.undecimo.arrayCodigo}
                 language='sql'
             />
+            <DetallesSubtema
+                title={detalles.duodecimo.title}
+                defBreve={detalles.duodecimo.defBreve}
+                arrayCodigo={detalles.duodecimo.arrayCodigo}
+                language='sql'
+            />
         </div>
     )
 }

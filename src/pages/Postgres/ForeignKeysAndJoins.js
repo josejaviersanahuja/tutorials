@@ -159,7 +159,7 @@ SELECT * FROM car;
 // price            | 
 
 `,
-                    text:"Como verás, esta vez si aparecen todas las personas, tengan o no tengan coche. Nota, para ver la info en forma vertical se usa el comando (backslash)x"
+                    text:"Como verás, esta vez si aparecen todas las personas, tengan o no tengan coche. Nota, para ver la info en forma vertical se usa el comando (backslash)x. Otra nota, En vez de usar ON car.car_uid= person.car_uid, podemos usar USING (car_uid) pero solo porque el foreign key en person y el Primary key en car tienen exactamente el mismo nombre."
                 }
             ]
         }, cuarto:{
