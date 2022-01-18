@@ -13,6 +13,7 @@ import InstalacionConfiguracion from './InstalacionConfiguracion';
 import PostgresCommands from './PostgresCommands';
 import BasicQueries from './BasicQueries';
 import DatesAndTimeStamps from './DatesAndTimeStamps';
+import ForeignKeysAndJoins from './ForeignKeysAndJoins';
 
 const tema="Postgres" 
 
@@ -45,6 +46,7 @@ function Child() {
     { id === "Comandos" && <PostgresCommands/> }    
     { id === "Queries Básicos" && <BasicQueries/> }    
     { id === "Timestamps" && <DatesAndTimeStamps/> }    
+    { id === "JOINS" && <ForeignKeysAndJoins/> }    
   </>
   );
 }

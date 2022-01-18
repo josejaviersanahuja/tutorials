@@ -315,6 +315,17 @@ SELECT * FROM person WHERE email='zitrojj@gmail.com';
                     text:"Este comando no es tan evidente, pero parece ser que la nueva inserción en conflicto se convierte en el objeto EXCLUDED por tanto al decir haz update y set del last_name por EXCLUDED.last_name terminamos modificando la entrada en conflicto por el dato de la nueva entrada."
                 }
             ]
+        },duodecimo:{
+            title:"Exporting datos a CSV FILES.",
+            defBreve:"Por supuesto, los datos de una base de datos podremos recibirlos en distintas formas, y ya sabemos lo importante que es saber trabajar con el FILE SYSTEM. Vamos a crear files en base a los datos que queremos buscar.",
+            arrayCodigo:[
+                {
+                    cod:`(backslash)copy (SELECT * FROM person LEFT JOIN car ON car.car_uid=person.car_uid) TO '/home/zitrojj/Desktop/testcsv.csv' DELIMITER ',' CSV HEADER;
+COPY 3
+                    `,
+                    text:"Esto puede ser algo muy poderoso."
+                }
+            ]
         }
     }
 
